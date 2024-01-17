@@ -13,6 +13,7 @@ body {
     padding: 12px;
     background-color: #F3F5F7;
     border-radius: 10px;
+    width: 178px;
 }
 
 
@@ -34,13 +35,26 @@ body {
 
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa {
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom:8px;
 
 }
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa-subtitulo {
 
-    font-size: 16px;
+    font-size: 12px;
     margin-bottom: 35px;
+}
+
+.bloco-esquerdo__empresa-bloco-configuracoes__link {
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.bloco-esquerdo__empresa-bloco-configuracoes__link i {
+    font-size: 15px;
 }
