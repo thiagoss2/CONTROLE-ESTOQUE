@@ -110,7 +110,7 @@ body {
 
 
 .bloco-gerenciar {
-    /* padding: 10px; */
+margin-bottom: 20px;
 }
 
 
@@ -119,6 +119,12 @@ body {
     text-transform: uppercase;
     font-size: 9px;
     margin-bottom: 25px;
+    color: #0F935C;
+    font-weight: bold;
+}
+
+.bloco-gerenciar__lista {
+    border-bottom: 2px solid var(--cor-cinza-bloco);
 }
 
 .bloco-gerenciar__item-lista {
@@ -141,6 +147,8 @@ body {
 .bloco-gerenciar__link i {
     font-size: 15px;
 }
+
+
 
 
 /* ============ BLOCO ESQUERDO =========== */
