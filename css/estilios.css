@@ -149,8 +149,24 @@ margin-bottom: 20px;
 }
 
 
+.bloco-termos__item-lista {
+    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: 5px;
+}
 
+.bloco-termos__link {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
 
+.bloco-termos__link i {
+    font-size: 15px;
+
+}
 /* ============ BLOCO ESQUERDO =========== */
 
 
