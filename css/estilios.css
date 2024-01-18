@@ -28,7 +28,7 @@ body {
 
 .info-propietario {
     display: flex;
-    margin-top: 30px;
+    margin-top: 15px;
     gap: 20px;
 }
 .bloco-esquerdo__empresa-logo__propietario .imagem-empresa {
