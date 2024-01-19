@@ -2,10 +2,16 @@ body {
     display: grid;
     grid-template-columns: 207px auto;
     height: 100vh;
+
 }
 
-:root{
-    --cor-cinza-bloco:#d0d7de;
+:root {
+    --cor-cinza-bloco: #d0d7de;
+}
+
+
+.container {
+    padding: 0 24px;
 }
 
 
@@ -22,15 +28,14 @@ body {
 }
 
 
-.bloco-esquerdo__empresa-bloco {
-   
-}
+.bloco-esquerdo__empresa-bloco {}
 
 .info-propietario {
     display: flex;
     margin-top: 15px;
     gap: 20px;
 }
+
 .bloco-esquerdo__empresa-logo__propietario .imagem-empresa {
     width: 32px;
     height: 32px;
@@ -41,7 +46,7 @@ body {
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa {
     font-size: 12px;
-    margin-bottom:8px;
+    margin-bottom: 8px;
 
 }
 
@@ -53,9 +58,10 @@ body {
 
 
 .bloco-esquerdo__empresa-bloco-configuracoes-lista {
-    border-top:1px solid var(--cor-cinza-bloco);
+    border-top: 1px solid var(--cor-cinza-bloco);
     padding-top: 10px;
 }
+
 .bloco-esquerdo__empresa-bloco-configuracoes__link {
     display: flex;
     text-decoration: none;
@@ -82,11 +88,12 @@ body {
     padding: 10px;
     border-radius: 5px;
 
-} 
-.bloco-movimentos__item-lista:hover{
+}
+
+.bloco-movimentos__item-lista:hover {
 
     background-color: #FFF1C2;
- 
+
 }
 
 .bloco-movimentos__link {
@@ -102,15 +109,13 @@ body {
     font-size: 15px;
 }
 
-.bloco-movimentos__titulo {
-
-}
+.bloco-movimentos__titulo {}
 
 
 
 
 .bloco-gerenciar {
-margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -132,18 +137,19 @@ margin-bottom: 20px;
     border-radius: 5px;
 }
 
-.bloco-gerenciar__item-lista:hover{
+.bloco-gerenciar__item-lista:hover {
     background-color: var(--cor-cinza-bloco);
 
 }
 
 .bloco-gerenciar__link {
-   display: flex;
-   text-decoration: none;
-   gap: 10px;
-   font-size: 13px;
-   color: black;
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    font-size: 13px;
+    color: black;
 }
+
 .bloco-gerenciar__link i {
     font-size: 15px;
 }
@@ -153,6 +159,12 @@ margin-bottom: 20px;
     margin-bottom: 7px;
     padding: 10px;
     border-radius: 5px;
+
+}
+
+.bloco-termos__item-lista .icone-sair {
+    color: red;
+
 }
 
 .bloco-termos__link {
@@ -167,9 +179,45 @@ margin-bottom: 20px;
     font-size: 15px;
 
 }
+
 /* ============ BLOCO ESQUERDO =========== */
 
 
 
 .bloco-principal {
     border-left: 1px solid var(--cor-cinza-bloco);
+
+}
+
+.cabecalho {
+    padding-top: 30px;
+}
+
+.cabecalho__titulo {
+    font-size: 24px;
+}
+
+.cabecalho-bloco {
+    display: flex;
+    justify-content: space-between  ;
+}
+
+.cabecalho__conjunto-botoes {
+    display: flex;
+    gap: 20px;
+}
+.cabecalho__btn {
+    background-color: transparent;
+    border: none;
+    padding: 8px 24px;
+}
+
+ .cabecalho .cabecalho__btn--fechamento {
+    display: flex;
+    gap:8px
+}
+
+.cabecalho .cabecalho__btn--fechamento i {
+    font-size: 18px;
+} 
+]
