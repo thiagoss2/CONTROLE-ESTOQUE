@@ -199,7 +199,8 @@ body {
 
 .cabecalho-bloco {
     display: flex;
-    justify-content: space-between  ;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cabecalho__conjunto-botoes {
@@ -208,16 +209,46 @@ body {
 }
 .cabecalho__btn {
     background-color: transparent;
+    width: 163px;
     border: none;
     padding: 8px 24px;
+    border: 2px solid black;
+    border-radius:10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    
 }
 
  .cabecalho .cabecalho__btn--fechamento {
     display: flex;
     gap:8px
+
+}
+
+.cabecalho .cabecalho__btn--fechamento:hover {
+
+    transition: 1s ease;
+   background-color: var(--cor-cinza-bloco);
+   opacity: 70%;
 }
 
 .cabecalho .cabecalho__btn--fechamento i {
     font-size: 18px;
 } 
-]
+
+.cabecalho__btn--venda {
+    background-color: #2ea173;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.cabecalho__btn--despesa {
+    background-color: #CC3E33;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+
+
+}
