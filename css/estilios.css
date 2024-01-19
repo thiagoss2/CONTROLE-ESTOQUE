@@ -191,6 +191,9 @@ body {
 
 .cabecalho {
     padding-top: 30px;
+    border-bottom: 1px solid  #2ea173;
+    padding-bottom: 15px;
+
 }
 
 .cabecalho__titulo {
@@ -219,9 +222,15 @@ body {
     
 }
 
+
+.cabecalho__btn-titulo {
+    font-size: 11px;
+}
+
  .cabecalho .cabecalho__btn--fechamento {
     display: flex;
-    gap:8px
+    gap:8px;
+    align-items: center;
 
 }
 
@@ -251,4 +260,20 @@ body {
     font-weight: bold;
 
 
+}
+
+.conteudo-principal {
+    padding: 24px;
+}
+
+.conteudo-principal__conjunto-btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+}
+
+.conteudo-principal__conjunto-btn-btn {
+    padding: 10px;
+    
+   
 }
