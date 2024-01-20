@@ -274,6 +274,22 @@ body {
 
 .conteudo-principal__conjunto-btn-btn {
     padding: 10px;
-    
-   
+    background-color: black;
+    border: none;
+}
+
+.conteudo-principal__conjunto-btn-btn:hover {
+    background-color: #2ea173;
+    transition: 0.5s ease;
+}
+
+.conteudo-principal__conjunto-btn-btn:active {
+    background-color: black;
+} 
+
+
+.conteudo-principal__conjunto-btn-btn .titulo {
+
+    color: #fff;
+    text-transform: uppercase;
 }
