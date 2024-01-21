@@ -90,6 +90,12 @@ body {
 
 }
 
+.bloco-movimentos__item-lista:nth-child(1) {
+    background-color: #FFF1C2;
+    
+}
+
+
 .bloco-movimentos__item-lista:hover {
 
     background-color: #FFF1C2;

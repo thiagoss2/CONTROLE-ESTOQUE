@@ -20,9 +20,17 @@
     margin-bottom: 7px;
     padding: 10px;
     border-radius: 5px;
-
 }
 
+.bloco-movimentos__item-lista:nth-child(2) {
+    background-color: #FFF1C2;
+    
+}
+
+.bloco-movimentos__item-lista:nth-child(1) {
+    background-color:transparent;
+    
+}
 .bloco-movimentos__item-lista:hover {
 
     background-color: #FFF1C2;
@@ -86,6 +94,7 @@
 .bloco-gerenciar__link i {
     font-size: 15px;
 }
+
 
 
 .bloco-termos__item-lista {
@@ -218,7 +227,7 @@
     height: 112px;
     box-sizing: border-box;
     width: 112px;
-
+    border: 1px dashed #0d74da;    
     display: flex;
     flex-direction: column;
     align-items: center;
