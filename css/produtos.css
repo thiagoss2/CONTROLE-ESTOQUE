@@ -7,6 +7,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100vh;
+    display: none;
 }
 
 .bloco-movimentos {
@@ -141,9 +142,6 @@
 /*  ============ BLOCO FLUTUANTE ========== */
 
 
-.container-bloco-flutuante {
-    padding: 0 24px;
-}
 
 .bloco-funtutante-venda {
     width: 512px;
@@ -158,12 +156,54 @@
 
 }
 
+.container-bloco-flutuante {
+    padding: 0 24px;
+}
+
+.bloco-funtutante-venda__superior {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+} 
+.bloco-funtutante-venda__superior-titulo  {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bloco-funtutante-venda__superior i {
+    font-size: 25px;
+    cursor: pointer;
+} 
+
+
+
+
+
 .bloco-flutuante-venda__arquivo {
-    border: 1px solid red;
+    border: none;
     padding: 8px 16px;
     width: fit-content;
     cursor: pointer;
+    border-radius: 10px;
+    height: 112px;
+    box-sizing: border-box;
+    width: 112px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(205, 229, 254);
 }
+
+.bloco-flutuante-venda__arquivo i {
+    font-size: 32px;
+} 
 
 
 .bloco-funtutante-venda__titulo {
