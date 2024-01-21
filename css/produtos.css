@@ -127,3 +127,15 @@
     font-size: 13px;
     border: none;
 }
+
+
+.bloco-funtutante-venda {
+    width: 512px;
+    background-color: #fff;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow:  1px 1px 5px black;
+
+}
