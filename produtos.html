@@ -14,6 +14,11 @@
 </head>
 
 <body>
+
+    <div class="overlay">
+
+
+    </div>
     <section class="bloco-esquerdo">
         <div class="bloco-esquerdo__empresa">
             <div class="bloco-esquerdo__empresa-bloco">
@@ -124,46 +129,67 @@
     <!-- BLOCO ESQUERDO -->
     <section class="bloco-principal">
         <div class="cabecalho">
-          <div class="container">
-            <div class="cabecalho-bloco">
-              <h2 class="cabecalho__titulo">Inventario
-              </h2>
-              <div class="cabecalho__conjunto-botoes">
-  
-                <button class="cabecalho__btn cabecalho__btn--fechamento">
-                  <i class='bx bx-printer'></i>
-                  <p class="cabecalho__btn-titulo">Fechar caixa</p>
-                </button>
-  
-                <button class="cabecalho__btn cabecalho__btn--venda btn-branco">
-  
-                  <p class="cabecalho__btn-titulo ">Criar categoria</p>
-                </button>
-                
-                <button class="cabecalho__btn cabecalho__btn--despesa">
-                  <p class="cabecalho__btn-titulo">Adcionar produtos</p>
-                </button>
-  
-              </div>
+            <div class="container">
+                <div class="cabecalho-bloco">
+                    <h2 class="cabecalho__titulo">Inventario
+                    </h2>
+                    <div class="cabecalho__conjunto-botoes">
+
+                        <button class="cabecalho__btn cabecalho__btn--fechamento">
+                            <i class='bx bx-printer'></i>
+                            <p class="cabecalho__btn-titulo">Fechar caixa</p>
+                        </button>
+
+                        <button class="cabecalho__btn cabecalho__btn--venda btn-branco">
+
+                            <p class="cabecalho__btn-titulo ">Criar categoria</p>
+                        </button>
+
+                        <button class="cabecalho__btn cabecalho__btn--despesa">
+                            <p class="cabecalho__btn-titulo">Adcionar produtos</p>
+                        </button>
+
+                    </div>
+                </div>
             </div>
-          </div>
-  
+
         </div>
-  
+
         <div class="conteudo-principal">
-  
-        
-    <div class="bloco-funtutante-venda">
 
-        <h2>Adicionar Produto</h2>
 
-        <input type="file" class="capiturar-produto" accept=".jpg. , .jpeg , .png ">
+            <div class="bloco-funtutante-venda">
 
-        <button class="adicionar-produto-btn    ">Adicionar Produto</button>
-          
+                <div class="container-bloco-flutuante">
+                    <div class="bloco-funtutante-venda__superior">
+                        <h2 class="bloco-funtutante-venda__superior-titulo">Adicionar Produto</h2>
 
-    </div>
-<script src="script.js"></script>
+                    </div>
+                    <div class="bloco-flutuante-venda__barra-scrrol">
+
+
+                        <label for="escolha-arquivo" class="bloco-flutuante-venda__arquivo">
+                            Escolher arquivo
+                            <input type="file" id="escolha-arquivo" class="capiturar-produto"
+                                accept=".jpg. , .jpeg , .png ">
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+            <script src="script.js"></script>
+            <script src="teste.js"></script>
+            <script src="overlay.js"></script>
+            <script src="btnAdicionar.js"></script>
+
 </body>
 
 

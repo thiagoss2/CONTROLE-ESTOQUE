@@ -1,5 +1,13 @@
 
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+}
 
 .bloco-movimentos {
     margin-bottom: 30px;
@@ -112,15 +120,16 @@
     color: black;
 }
 
-  .cabecalho__btn--fechamento {
-    display:none;
-   
-} 
+.cabecalho__btn--fechamento {
+    display: none;
+
+}
+
 .cabecalho__btn--despesa {
-   border-radius: 0;
-   background-color: #FED74D;
-   color: #987601;
-   font-weight: bold;
+    border-radius: 0;
+    background-color: #FED74D;
+    color: #987601;
+    font-weight: bold;
 }
 
 .cabecalho__btn--despesa .cabecalho__btn-titulo {
@@ -129,6 +138,13 @@
 }
 
 
+/*  ============ BLOCO FLUTUANTE ========== */
+
+
+.container-bloco-flutuante {
+    padding: 0 24px;
+}
+
 .bloco-funtutante-venda {
     width: 512px;
     background-color: #fff;
@@ -136,6 +152,25 @@
     position: absolute;
     top: 0;
     right: 0;
-    box-shadow:  1px 1px 5px black;
+    box-shadow: 1px 1px 5px black;
+    padding: 24px 0 ;
+    box-sizing: border-box;     
 
 }
+
+.bloco-flutuante-venda__arquivo {
+    border: 1px solid red;
+    padding: 8px 16px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+
+.bloco-funtutante-venda__titulo {
+    margin-bottom: 16px;
+}
+
+.capiturar-produto {
+    display: none;
+}
+
