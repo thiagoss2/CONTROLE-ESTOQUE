@@ -155,8 +155,35 @@
     padding: 24px 0 ;
     box-sizing: border-box;
     display: none;
+    transition: 0.2s ease;
+    
+   
 
 }
+
+ .bloco-funtutante-venda {
+  animation: mover .2s ease ;
+}
+
+
+@keyframes mover {
+  0% {
+    right: -500px;
+    display: block;
+
+  }
+
+  100% {
+    right: 0;
+    display: block;
+
+  }
+    
+}
+ 
+
+
+
 
 .container-bloco-flutuante {
     padding: 0 24px;
