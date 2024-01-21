@@ -1,0 +1,113 @@
+
+
+
+.bloco-movimentos {
+    margin-bottom: 30px;
+}
+
+
+.bloco-movimentos__item-lista {
+    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.bloco-movimentos__item-lista:hover {
+
+    background-color: #FFF1C2;
+
+}
+
+.bloco-movimentos__link {
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    color: black;
+    font-size: 13px;
+
+}
+
+.bloco-movimentos__link i {
+    font-size: 15px;
+}
+
+.bloco-movimentos__titulo {}
+
+
+
+
+.bloco-gerenciar {
+    margin-bottom: 20px;
+}
+
+
+
+.bloco-gerenciar__titulo {
+    text-transform: uppercase;
+    font-size: 9px;
+    margin-bottom: 25px;
+    color: #0F935C;
+    font-weight: bold;
+}
+
+.bloco-gerenciar__lista {
+    border-bottom: 2px solid var(--cor-cinza-bloco);
+}
+
+.bloco-gerenciar__item-lista {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bloco-gerenciar__item-lista:hover {
+    background-color: var(--cor-cinza-bloco);
+
+}
+
+.bloco-gerenciar__link {
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    font-size: 13px;
+    color: black;
+}
+
+.bloco-gerenciar__link i {
+    font-size: 15px;
+}
+
+
+.bloco-termos__item-lista {
+    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.bloco-termos__item-lista .icone-sair {
+    color: red;
+
+}
+
+.bloco-termos__link {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+
+.bloco-termos__link i {
+    font-size: 15px;
+
+}
+
+/* ============ BLOCO ESQUERDO =========== */
+
+
+
+ .cabecalho__btn   .cabecalho__btn--fechamento {
+    display:none;
+} 
+
