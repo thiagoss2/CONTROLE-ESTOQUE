@@ -107,7 +107,14 @@
 
 
 
- .cabecalho__btn   .cabecalho__btn--fechamento {
+  .cabecalho__btn--fechamento {
     display:none;
 } 
+.cabecalho__btn--despesa {
+   border: 0;
+}
 
+.cabecalho__btn--despesa .cabecalho__btn-titulo {
+    font-size: 13px;
+    border: none;
+}
