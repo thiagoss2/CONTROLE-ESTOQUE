@@ -8,6 +8,7 @@
     width: 100%;
     height: 100vh;
     display: none;
+    
 }
 
 .bloco-movimentos {
@@ -152,7 +153,8 @@
     right: 0;
     box-shadow: 1px 1px 5px black;
     padding: 24px 0 ;
-    box-sizing: border-box;     
+    box-sizing: border-box;
+    display: none;
 
 }
 
