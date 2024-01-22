@@ -106,8 +106,9 @@
 } 
 
 .bloco-flutuante-venda__barra-scrrol {
-    overflow-y: scroll;
-    margin-bottom: 80px;
+    overflow-y: auto;
+    height: 485px;
+
 }
 
 
@@ -227,5 +228,7 @@
 .bloco-flutuante-venda__botao-adicionar {
     padding: 8px 24px 0;
     width: 100%;
-    height: 56px;
+    height: 40px;
+    margin-top: 15px;
+
 }
