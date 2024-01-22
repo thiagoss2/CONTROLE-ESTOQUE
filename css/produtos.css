@@ -105,7 +105,10 @@
     cursor: pointer;
 } 
 
-
+.bloco-flutuante-venda__barra-scrrol {
+    overflow-y: scroll;
+    margin-bottom: 80px;
+}
 
 
 
@@ -219,4 +222,10 @@
     color: #acb4bb;
     font-weight: 600;
     margin-bottom: 5px;
+}
+
+.bloco-flutuante-venda__botao-adicionar {
+    padding: 8px 24px 0;
+    width: 100%;
+    height: 56px;
 }
