@@ -7,21 +7,32 @@ body {
 
 :root {
     --cor-cinza-bloco: #d0d7de;
+    --cor-amarelo-claro:#FFF1C2;
+    --cor-cinza-empresa: #F3F5F7;
+    --cor-verde-botao:#2ea173;
+    --cor-vermelho-botao:#CC3E33;
+    --cor-escura:black;
+
+    
+    --fz-menus:12px;    
+    --fz-logo-empreza:10px;
+    --fz-botoes:11px;
+    --fz-btn-grande:13px;
+    --fz-icones-menu:15px;
+
+
 }
 
 
-.container {
-    padding: 0 24px;
-}
 
-
+/* ============== BLOCO ESQUERDO =========== */
 .bloco-esquerdo {
     padding: 16px 16px 0;
 }
 
 .bloco-esquerdo__empresa {
     padding: 12px;
-    background-color: #F3F5F7;
+    background-color:var(--cor-cinza-empresa);
     border-radius: 10px;
     margin-bottom: 35px;
     padding-bottom: 5px;
@@ -45,14 +56,14 @@ body {
 
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa {
-    font-size: 12px;
+    font-size: var(--fz-menus);
     margin-bottom: 8px;
 
 }
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa-subtitulo {
 
-    font-size: 12px;
+    font-size: var(--fz-menus);
     margin-bottom: 17px;
 }
 
@@ -66,7 +77,7 @@ body {
     display: flex;
     text-decoration: none;
     gap: 10px;
-    font-size: 12px;
+    font-size: var(--fz-logo-empreza);
     margin-bottom: 10px;
     color: black;
     font-weight: bold;
@@ -77,7 +88,7 @@ body {
 }
 
 
-
+/* ============== BLOCO MOVIMENTOS ================ */
 .bloco-movimentos {
     margin-bottom: 30px;
 }
@@ -91,34 +102,40 @@ body {
 }
 
 .bloco-movimentos__item-lista:nth-child(1) {
-    background-color: #FFF1C2;
+    background-color: var(--cor-amarelo-claro);
     
 }
 
 
 .bloco-movimentos__item-lista:hover {
 
-    background-color: #FFF1C2;
+    background-color:var(--cor-cinza-empresa);
 
+}
+
+.bloco-movimentos__item-lista:hover:nth-child(1) {
+    background-color: var(--cor-amarelo-claro);
 }
 
 .bloco-movimentos__link {
     display: flex;
     text-decoration: none;
     gap: 10px;
-    color: black;
-    font-size: 13px;
+    color:var(--cor-escura);
+    font-size: var(--fz-menus);
 
 }
 
 .bloco-movimentos__link i {
-    font-size: 15px;
+    font-size: var(--fz-icones-menu);
 }
 
 .bloco-movimentos__titulo {}
 
 
 
+
+/* ========== BLOCO GERENCIAR ============ */
 
 .bloco-gerenciar {
     margin-bottom: 20px;
@@ -130,7 +147,7 @@ body {
     text-transform: uppercase;
     font-size: 9px;
     margin-bottom: 25px;
-    color: #0F935C;
+    color: var(--cor-verde-botao);
     font-weight: bold;
 }
 
@@ -144,7 +161,7 @@ body {
 }
 
 .bloco-gerenciar__item-lista:hover {
-    background-color: var(--cor-cinza-bloco);
+    background-color: var(--cor-cinza-empresa);
 
 }
 
@@ -152,14 +169,16 @@ body {
     display: flex;
     text-decoration: none;
     gap: 10px;
-    font-size: 13px;
-    color: black;
+    font-size: var(--fz-menus);
+    color: var(--cor-escura);
 }
 
 .bloco-gerenciar__link i {
-    font-size: 15px;
+    font-size: var(--fz-icones-menu);
 }
 
+
+/* ========== BLOCO TERMOS ============ */
 
 .bloco-termos__item-lista {
     margin-bottom: 7px;
@@ -169,16 +188,16 @@ body {
 }
 
 .bloco-termos__item-lista .icone-sair {
-    color: red;
+    color: var(--cor-vermelho-botao);
 
 }
 
 .bloco-termos__link {
     display: flex;
     gap: 10px;
-    font-size: 13px;
+    font-size: var(--fz-menus);
     text-decoration: none;
-    color: black;
+    color: var(--cor-escura);
 }
 
 .bloco-termos__link i {
@@ -197,7 +216,7 @@ body {
 
 .cabecalho {
     padding-top: 30px;
-    border-bottom: 1px solid  #2ea173;
+    border-bottom: 1px solid  var(--cor-verde-botao);
     padding-bottom: 15px;
 
 }
@@ -254,7 +273,7 @@ body {
 } 
 
 .cabecalho__btn--venda {
-    background-color: #2ea173;
+    background-color: var(--cor-verde-botao);
     border: none;
     color: #fff;
     font-weight: bold;
@@ -270,6 +289,13 @@ body {
 
 }
 
+/* ========== CONTEUDO PRINCIPAL ========= */
+
+/* CONTAINER TODO BLOCO ESQUERDO */
+
+.container {
+    padding: 0 24px;
+}
 .conteudo-principal {
     padding: 24px;
 }
@@ -287,7 +313,7 @@ body {
 }
 
 .conteudo-principal__conjunto-btn-btn:hover {
-    background-color: #2ea173;
+    background-color:var(--cor-verde-botao);
     transition: 0.5s ease;
 }
 
