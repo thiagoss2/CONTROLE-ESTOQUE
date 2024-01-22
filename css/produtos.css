@@ -184,7 +184,7 @@
     border-radius: 5px;
     height: 40px;
     font-size: 16px;
-    margin-bottom: 9px;
+    margin-bottom: 12px;
 }
 
 .estilos__input {
@@ -202,6 +202,21 @@
 
 .bloco-flutuante-venda__mensagem-erro {
     color: #d86c64;
-    font-size: 13px;
+    font-size: 15px;
+    margin-bottom: 10px;
 
+}
+
+.bloco-flutuante-venda__codigo-barras__titulo {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+.bloco-flutuante-venda__codigo-barras__subtitulo {
+    font-size: 13px;
+    color: #acb4bb;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
