@@ -11,7 +11,7 @@
     
 }
 
-    
+
 
 /* ============ BLOCO ESQUERDO =========== */
 
@@ -128,6 +128,7 @@
     font-size: 15px;
     font-weight: bold;
     background-color: rgb(205, 229, 254);
+    margin-bottom: 15px;
 }
 
 .bloco-flutuante-venda__arquivo i {
@@ -143,3 +144,64 @@
     display: none;
 }
 
+
+.container-bloco-flutuante__titulo-imagem {
+    font-size: 12px;
+     color:  #acb4bb;
+    font-weight: 600;
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+/* SEÇÃO 1 */
+.bloco-flutuante-venda__arquivo-info {
+
+     
+}
+
+.bloco-flutuante-venda__nome-produto {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+
+.bloco-flutuante-venda__lembrete {
+    font-size: 13px;
+    color:#acb4bb;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.bloco-flutuante-venda__produto-input {
+    width: 100%;
+    padding: 8px 16px;
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #acb4bb;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 9px;
+}
+
+.estilos__input {
+    width: 100%;
+    padding: 8px 16px;
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #acb4bb;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 16px;
+}
+
+
+.bloco-flutuante-venda__mensagem-erro {
+    color: #d86c64;
+    font-size: 13px;
+
+}
