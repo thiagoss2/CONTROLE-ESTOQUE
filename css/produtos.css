@@ -108,6 +108,7 @@
 .bloco-flutuante-venda__barra-scrrol {
     overflow-y: auto;
     height: 485px;
+    margin-bottom: 40px;
 
 }
 
