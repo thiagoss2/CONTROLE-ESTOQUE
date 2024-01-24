@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    
-    <div class="overlay" >
+
+    <div class="overlay">
 
 
     </div>
 
 
-   
+
     <section class="bloco-esquerdo">
         <div class="bloco-esquerdo__empresa">
             <div class="bloco-esquerdo__empresa-bloco">
@@ -169,69 +169,95 @@
                         <i class='bx bxs-x-circle botao-fechar-js'></i>
 
                     </div>
-                    <div class="bloco-flutuante-venda__barra-scrrol">
+                    <div class="conjunto-barra-scrool-e-btn">
+                        <div class="bloco-flutuante-venda__barra-scrrol">
 
 
-                        <label for="escolha-arquivo" class="bloco-flutuante-venda__arquivo">
-                            <i class='bx bxs-up-arrow-alt '></i>
-                            Carregar imagem
-                            <input type="file" id="escolha-arquivo" class="capiturar-produto"
-                                accept=".jpg. , .jpeg , .png ">
+                            <label for="escolha-arquivo" class="bloco-flutuante-venda__arquivo">
+                                <i class='bx bxs-up-arrow-alt '></i>
+                                Carregar imagem
+                                <input type="file" id="escolha-arquivo" class="capiturar-produto"
+                                    accept=".jpg. , .jpeg , .png ">
 
-                        </label>
+                            </label>
 
-                        <p class="container-bloco-flutuante__titulo-imagem">Recomendamos que a imagem tenha tamanho de 500 x 500 px no formato PNG e pese no máximo 2MB.</p>
+                            <p class="container-bloco-flutuante__titulo-imagem">Recomendamos que a imagem tenha tamanho
+                                de 500 x 500 px no formato PNG e pese no máximo 2MB.</p>
 
-                        <section class="bloco-flutuante-venda__arquivo-info">
-                          <p class="bloco-flutuante-venda__nome-produto">Nome do produto*</p>
-                          <p class="bloco-flutuante-venda__lembrete">Lembre-se, isso deve ser único em seu inventário</p>
-                          <input type="text" class="bloco-flutuante-venda__produto-input" placeholder="Escreva o nome do produto">
-                          <p class="bloco-flutuante-venda__mensagem-erro">Este campo é obrigatório</p>
-                        </section>
+                            <section class="bloco-flutuante-venda__arquivo-info">
+                                <p class="bloco-flutuante-venda__nome-produto">Nome do produto*</p>
+                                <p class="bloco-flutuante-venda__lembrete">Lembre-se, isso deve ser único em seu
+                                    inventário</p>
+                                <input type="text" class="bloco-flutuante-venda__produto-input"
+                                    placeholder="Escreva o nome do produto">
+                                <p class="bloco-flutuante-venda__mensagem-erro">Este campo é obrigatório</p>
+                            </section>
 
-                        <section class="bloco-flutuante-venda__codigo-barras">
-                            <p class="bloco-flutuante-venda__codigo-barras__titulo">Codigo de Barras</p>
-                            <p class="bloco-flutuante-venda__codigo-barras__subtitulo">Escreva ou digitalize</p>
-                           <div class="bloco-flutuante-venda__input-bloco">
-                            <input type="text" class="bloco-flutuante-venda__codigo-barras__input estilos__input" placeholder="0000000000000"> 
-                            <i class='bx bx-barcode-reader' ></i>
-                           </div>                       
-                          </section>
+                            <section class="bloco-flutuante-venda__codigo-barras">
+                                <p class="bloco-flutuante-venda__codigo-barras__titulo">Codigo de Barras</p>
+                                <p class="bloco-flutuante-venda__codigo-barras__subtitulo">Escreva ou digitalize</p>
+                                <div class="bloco-flutuante-venda__input-bloco">
+                                    <input type="text"
+                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input"
+                                        placeholder="0000000000000">
+                                    <i class='bx bx-barcode-reader'></i>
+                                </div>
+                            </section>
 
-                          <section class="bloco-flutuante-venda__codigo-barras">
-                            <p class="bloco-flutuante-venda__codigo-barras__titulo">Quantidade disponivel</p>
-                            <p class="bloco-flutuante-venda__codigo-barras__subtitulo">Escreva ou digitalize</p>
-                           <div class="bloco-flutuante-venda__input-bloco">
-                            <input type="text" class="bloco-flutuante-venda__codigo-barras__input estilos__input" placeholder="0000000000000"> 
-                            <i class='bx bx-barcode-reader' ></i>
-                           </div>                       
-                          </section>
-                       
+                            <section class="bloco-flutuante-venda__quantidade">
+                                <p class="bloco-flutuante-venda__quantidade-titulo">Quantidade disponivel</p>
+                                <div class="bloco-flutuante-venda__input-bloco">
+                                    <i class='bx bx-minus-circle'></i>
+                                    <input type="text"
+                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input">
+                                    <i class='bx bx-plus-circle'></i>
+                                </div>
+                            </section>
 
-                          
-                          <section class="bloco-flutuante-venda__codigo-barras">
-                            <p class="bloco-flutuante-venda__codigo-barras__titulo">Quantidade disponivel</p>
-                            <p class="bloco-flutuante-venda__codigo-barras__subtitulo">Escreva ou digitalize</p>
-                           <div class="bloco-flutuante-venda__input-bloco">
-                            <input type="text" class="bloco-flutuante-venda__codigo-barras__input estilos__input" placeholder="0000000000000"> 
-                            <i class='bx bx-barcode-reader' ></i>
-                           </div>                       
-                          </section>
 
-                          
 
+                            <section class="bloco-flutuante-venda__custo">
+                                <p class="bloco-flutuante-venda__custo__titulo">Custo unitario</p>
+                                <p class="bloco-flutuante-venda__custo__subtitulo">Valor que você paga ao fornecedor
+                                    pelo produto</p>
+                                <div class="bloco-flutuante-venda__input-bloco">
+                                    <input type="text"
+                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input"
+                                        placeholder="">
+
+                                </div>
+                            </section>
+
+                            <section class="bloco-flutuante-venda__preco">
+                                <p class="bloco-flutuante-venda__preco__titulo">Preço</p>
+                                <div class="bloco-flutuante-venda__input-bloco">
+                                    <input type="text"
+                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input"
+                                        placeholder="">
+
+                                </div>
+                            </section>
+
+                            <section class="bloco-flutuante-venda__descricao">
+                                <p class="bloco-flutuante-venda__descricao__titulo">Descrição</p>
+                                <div class="bloco-flutuante-venda__input-bloco">
+                                 <textarea name="" id="" cols="30" rows="10"></textarea>
+                                </div>
+                            </section>
+
+                        </div>
+
+                        <button class="bloco-flutuante-venda__botao-adicionar">
+                            <p class="bloco-flutuante-venda__botao-texto">Criar produto</p>
+                        </button>
                     </div>
-
-                    <button class="bloco-flutuante-venda__botao-adicionar">
-                        <p class="bloco-flutuante-venda__botao-texto">Criar produto</p>
-                    </button>
 
                 </div>
 
             </div>
 
 
-       
+
 
 
 
