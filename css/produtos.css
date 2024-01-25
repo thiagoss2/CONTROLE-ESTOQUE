@@ -229,6 +229,7 @@
 .bloco-flutuante-venda__input-bloco--codigo-barras {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 1px solid #acb4bb;
     padding: 8px 16px;
     border-radius: 5px;
@@ -254,5 +255,6 @@
     height: 40px;
     box-sizing: border-box;
     margin-bottom: 15px;
+    align-items: center;
 
 } 

@@ -1,19 +1,12 @@
 
-let inputArquivo = document.querySelector(".capiturar-produto");
-console.log(inputArquivo)
+// let inputArquivo = document.querySelector(".capiturar-produto");
+const elemento = document.querySelector(".bloco-movimentos__titulo").textContent;
 
-inputArquivo.addEventListener('change', function() {
-    let imagem = inputArquivo.files[0];
-    if (imagem) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let imgElement = document.createElement("img");
-            imgElement.src = e.target.result;
-            document.body.appendChild(imgElement);
-        }
-        reader.readAsDataURL(imagem);
-    }
-});
+console.log(elemento);
+// inputArquivo.addEventListener('change', function(event) {
+//     console.log(event); // Aqui você pode inspecionar o objeto event
+//     // Outras ações com base no evento
+// });
 
 
 // document.addEventListener('DOMContentLoaded', function () {
