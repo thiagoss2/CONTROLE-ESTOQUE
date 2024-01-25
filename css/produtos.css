@@ -1,5 +1,3 @@
-
-
 .overlay {
     position: absolute;
     top: 0;
@@ -8,10 +6,53 @@
     width: 100%;
     height: 100vh;
     display: none;
-    
+
+}
+
+/* ESTILOS REUTILIZAVEIS */
+
+.titulo-input {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+
+}
+
+.subtitulo-input {
+
+    font-size: 13px;
+    color: #acb4bb;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 
+
+.estilos__input {
+    width: 100%;
+    padding: 8px 16px;
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #acb4bb;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.estilos__textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 16px;
+    outline: none;
+    border: 1px solid #acb4bb;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+
+}
 
 /* ============ BLOCO ESQUERDO =========== */
 
@@ -52,35 +93,35 @@
     top: 0;
     right: 0;
     box-shadow: 1px 1px 5px black;
-    padding: 24px 0 ;
+    padding: 24px 0;
     box-sizing: border-box;
     display: none;
     transition: 0.2s ease;
-    
-   
+
+
 
 }
 
- .bloco-funtutante-venda {
-  animation: mover .2s ease ;
+.bloco-funtutante-venda {
+    animation: mover .2s ease;
 }
 
 
 @keyframes mover {
-  0% {
-    right: -500px;
-    display: block;
+    0% {
+        right: -500px;
+        display: block;
 
-  }
+    }
 
-  100% {
-    right: 0;
-    display: block;
+    100% {
+        right: 0;
+        display: block;
 
-  }
-    
+    }
+
 }
- 
+
 
 
 
@@ -94,8 +135,9 @@
     justify-content: space-between;
     margin-bottom: 60px;
 
-} 
-.bloco-funtutante-venda__superior-titulo  {
+}
+
+.bloco-funtutante-venda__superior-titulo {
     font-size: 20px;
     font-weight: bold;
 }
@@ -103,7 +145,7 @@
 .bloco-funtutante-venda__superior i {
     font-size: 25px;
     cursor: pointer;
-} 
+}
 
 .bloco-flutuante-venda__barra-scrrol {
     overflow-y: auto;
@@ -123,7 +165,7 @@
     height: 112px;
     box-sizing: border-box;
     width: 112px;
-    border: 1px dashed #0d74da;    
+    border: 1px dashed #0d74da;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,7 +180,7 @@
 
 .bloco-flutuante-venda__arquivo i {
     font-size: 32px;
-} 
+}
 
 
 .bloco-funtutante-venda__titulo {
@@ -152,57 +194,19 @@
 
 .container-bloco-flutuante__titulo-imagem {
     font-size: 12px;
-     color:  #acb4bb;
+    color: #acb4bb;
     font-weight: 600;
     margin-bottom: 14px;
     line-height: 1.2;
 }
 
 /* SEÇÃO 1 */
-.bloco-flutuante-venda__arquivo-info {
-
-     
-}
-
-.bloco-flutuante-venda__nome-produto {
-    font-size: 13px;
-    margin-bottom: 10px;
-    color: black;
-    font-weight: bold;
-}
+.bloco-flutuante-venda__arquivo-info {}
 
 
-.bloco-flutuante-venda__lembrete {
-    font-size: 13px;
-    color:#acb4bb;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
 
-.bloco-flutuante-venda__produto-input {
-    width: 100%;
-    padding: 8px 16px;
-    display: block;
-    box-sizing: border-box;
-    outline: none;
-    border: 1px solid #acb4bb;
-    border-radius: 5px;
-    height: 40px;
-    font-size: 16px;
-    margin-bottom: 12px;
-}
 
-.estilos__input {
-    width: 100%;
-    padding: 8px 16px;
-    display: block;
-    box-sizing: border-box;
-    outline: none;
-    border: 1px solid #acb4bb;
-    border-radius: 5px;
-    height: 40px;
-    font-size: 16px;
-}
+
 
 
 .bloco-flutuante-venda__mensagem-erro {
@@ -212,19 +216,7 @@
 
 }
 
-.bloco-flutuante-venda__codigo-barras__titulo {
-    font-size: 13px;
-    margin-bottom: 10px;
-    color: black;
-    font-weight: bold;
-}
 
-.bloco-flutuante-venda__codigo-barras__subtitulo {
-    font-size: 13px;
-    color: #acb4bb;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
 
 .bloco-flutuante-venda__botao-adicionar {
     padding: 8px 24px 0;
@@ -233,3 +225,34 @@
     margin-top: 15px;
 
 }
+
+.bloco-flutuante-venda__input-bloco--codigo-barras {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #acb4bb;
+    padding: 8px 16px;
+    border-radius: 5px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+
+}
+
+.bloco-flutuante-venda__codigo-barras__input  {
+    border: none;
+    outline: none;
+    font-size: 16px;
+ 
+}
+
+.bloco-flutuante-venda__input-bloco--quantidade {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #acb4bb;
+    padding: 8px 16px;
+    border-radius: 5px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+
+} 

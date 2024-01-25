@@ -185,63 +185,68 @@
                                 de 500 x 500 px no formato PNG e pese no máximo 2MB.</p>
 
                             <section class="bloco-flutuante-venda__arquivo-info">
-                                <p class="bloco-flutuante-venda__nome-produto">Nome do produto*</p>
-                                <p class="bloco-flutuante-venda__lembrete">Lembre-se, isso deve ser único em seu
+                                <p class="bloco-flutuante-venda__nome-produto titulo-input">Nome do produto*</p>
+                                <p class="bloco-flutuante-venda__lembrete subtitulo-input">Lembre-se, isso deve ser
+                                    único em seu
                                     inventário</p>
-                                <input type="text" class="bloco-flutuante-venda__produto-input"
+                                <input type="text" class="bloco-flutuante-venda__produto-input estilos__input"
                                     placeholder="Escreva o nome do produto">
                                 <p class="bloco-flutuante-venda__mensagem-erro">Este campo é obrigatório</p>
                             </section>
 
                             <section class="bloco-flutuante-venda__codigo-barras">
-                                <p class="bloco-flutuante-venda__codigo-barras__titulo">Codigo de Barras</p>
-                                <p class="bloco-flutuante-venda__codigo-barras__subtitulo">Escreva ou digitalize</p>
-                                <div class="bloco-flutuante-venda__input-bloco">
+                                <p class="bloco-flutuante-venda__codigo-barras__titulo titulo-input">Codigo de Barras
+                                </p>
+                                <p class="bloco-flutuante-venda__codigo-barras__subtitulo subtitulo-input">Escreva ou
+                                    digitalize</p>
+                                <div class="bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--codigo-barras">
                                     <input type="text"
-                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input"
+                                        class="bloco-flutuante-venda__codigo-barras__input "
                                         placeholder="0000000000000">
                                     <i class='bx bx-barcode-reader'></i>
                                 </div>
                             </section>
 
                             <section class="bloco-flutuante-venda__quantidade">
-                                <p class="bloco-flutuante-venda__quantidade-titulo">Quantidade disponivel</p>
-                                <div class="bloco-flutuante-venda__input-bloco">
+                                <p class="bloco-flutuante-venda__quantidade-titulo titulo-input">Quantidade disponivel
+                                </p>
+                                <div class="bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--quantidade">
                                     <i class='bx bx-minus-circle'></i>
                                     <input type="text"
-                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input">
-                                    <i class='bx bx-plus-circle'></i>
+                                        class="bloco-flutuante-venda__quantidade__input ">
+                                        <i class='bx bx-plus-circle'></i>
                                 </div>
                             </section>
 
 
 
                             <section class="bloco-flutuante-venda__custo">
-                                <p class="bloco-flutuante-venda__custo__titulo">Custo unitario</p>
-                                <p class="bloco-flutuante-venda__custo__subtitulo">Valor que você paga ao fornecedor
+                                <p class="bloco-flutuante-venda__custo__titulo titulo-input">Custo unitario</p>
+                                <p class="bloco-flutuante-venda__custo__subtitulo subtitulo-input">Valor que você paga ao fornecedor
                                     pelo produto</p>
                                 <div class="bloco-flutuante-venda__input-bloco">
                                     <input type="text"
-                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input"
-                                        placeholder="">
+                                        class="bloco-flutuante-venda__custo__input estilos__input"
+                                        placeholder="" value="R$ 0">
 
                                 </div>
                             </section>
 
                             <section class="bloco-flutuante-venda__preco">
-                                <p class="bloco-flutuante-venda__preco__titulo">Preço</p>
+                                <p class="bloco-flutuante-venda__preco__titulo titulo-input">Preço</p>
+                                <p class="bloco-flutuante-venda__preco__subtitulo subtitulo-input" >Valor que voce ira vender</p>
                                 <div class="bloco-flutuante-venda__input-bloco">
                                     <input type="text"
-                                        class="bloco-flutuante-venda__codigo-barras__input estilos__input"
-                                        placeholder="">
+                                        class="bloco-flutuante-venda__preco__input estilos__input"
+                                        value="R$ 0"    >
 
                                 </div>
                             </section>
 
                             <section class="bloco-flutuante-venda__descricao">
-                                <p class="bloco-flutuante-venda__descricao__titulo">Descrição</p>
+                                <p class="bloco-flutuante-venda__descricao__titulo titulo-input">Descrição</p>
                                 <div class="bloco-flutuante-venda__input-bloco">
-                                 <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="" id="" cols="30" rows="10" class="bloco-flutuante-venda__descricao-produto estilos__textarea " placeholder="Adicione uma descricao" ></textarea>
                                 </div>
                             </section>
 
