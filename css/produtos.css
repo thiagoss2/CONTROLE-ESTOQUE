@@ -257,4 +257,16 @@
     margin-bottom: 15px;
     align-items: center;
 
+
 } 
+
+.bloco-flutuante-venda__quantidade__input {
+    border: none;
+    outline: none;
+}
+
+.quantidade__input-js {
+    
+    text-align: center;
+    
+}
