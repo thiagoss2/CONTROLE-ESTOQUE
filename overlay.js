@@ -39,9 +39,9 @@ botaoFechar.addEventListener('click', function () {
 });
 
 
-iconeMenos.addEventListener('click' , function() {
+iconeMenos.addEventListener('click', function () {
     quantidadeProdutos--;
-    if(quantidadeProdutos <= 0) {
+    if (quantidadeProdutos <= 0) {
         quantidadeProdutos = 0;
     }
     inputQuantidade.value = quantidadeProdutos;
@@ -49,51 +49,66 @@ iconeMenos.addEventListener('click' , function() {
 
 })
 
-iconeMais.addEventListener('click' , function() {
+iconeMais.addEventListener('click', function () {
     quantidadeProdutos++
     inputQuantidade.value = quantidadeProdutos;
 });
 
 
-function formataValorDeMoeda(lingua , paisOrigem , valor) {
-    // Formata como moeda usando o formato específico para o Brasil
-const formatoMoeda = new Intl.NumberFormat(lingua, {
-    style: 'currency',
-    currency: paisOrigem,
-  });   
+setTimeout(() => {
+    inputCusto.addEventListener('input', function () {
 
-  return formatoMoeda.format(valor);
+        // inputCusto.value = formataValorDeMoeda('pt-BR', 'BRL', inputCusto.value);
+        // custoProduto = inputCusto.value;
+        console.log(inputCusto.value)
+    
+    });
+      
+
+}, 100);
+
+
+function formataValorDeMoeda(lingua, paisOrigem, valor) {
+    // Formata como moeda usando o formato específico para o Brasil
+
+    // Verifica se o valor é um dado do tipo double ou int
+    if (!isNaN(valor)) {
+        const formatoMoeda = new Intl.NumberFormat(lingua, {
+            style: 'currency',
+            currency: paisOrigem,
+        });
+        console.log(formatoMoeda.format(valor));
+
+        return formatoMoeda.format(valor);
+
+    }
+
+    return 0;
 }
 
 
-inputCusto.addEventListener('change' , function () {
-     
 
-
-    inputCusto.value = formataValorDeMoeda('pr-BR' , 'BRL', inputCusto.value); 
-    custoProduto = inputCusto.value;
-    console.log(custoProduto)
-
-
-}   );
 
 
 
 function removeSimboloMoeda(valor) {
 
-// Substituir o símbolo de moeda por uma string vazia
-let valorSemSimbolo = valor.replace('R$', '').trim();
- return valorSemSimbolo;
+    // Substituir o símbolo de moeda por uma string vazia
+    // pode haver espaços vazios ai o trim remove da String
+    let valorSemSimbolo = valor.replace('R$', '').trim();
+    return valorSemSimbolo;
 
 
 }
 
-function removeVirgulaDeMoedas(valor){
-   let moeda = removeSimboloMoeda(valor);
-   let moedaSemVirgula = moeda.replace( ',', '.');
+function removeVirgulaDeMoedas(valor) {
+    let moeda = removeSimboloMoeda(valor);
+    let moedaSemVirgula = moeda.replace(',', '.');
 
-   return moedaSemVirgula;
+    return moedaSemVirgula;
 
-}  
+}
 
 console.log(removeVirgulaDeMoedas("R$ 700.000.000,00"));
+
+    formataValorDeMoeda('pt-BR', 'BRL' ,  "20000");

@@ -54,6 +54,29 @@
 
 }
 
+/* ========== BLOCO MOVIMENTOS ======== */
+
+.bloco-movimentos__item-lista:nth-child(1) {
+    background-color: transparent;
+    
+}
+
+.bloco-movimentos__item-lista:hover:nth-child(1) {
+    background-color:var(--cor-cinza-empresa);
+}
+
+
+.bloco-movimentos__item-lista:nth-child(2) {
+    background-color: var(--cor-amarelo-claro);
+    
+}
+
+.bloco-movimentos__item-lista:hover:nth-child(2) {
+    background-color: var(--cor-amarelo-claro);
+}
+
+
+
 /* ============ BLOCO ESQUERDO =========== */
 
 .btn-branco {
