@@ -112,7 +112,7 @@
     width: 512px;
     background-color: #fff;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     box-shadow: 1px 1px 5px black;
@@ -311,10 +311,11 @@
 }
 
 
-@media screen and (min-width:1000px) {
+@media screen and (min-width:800px) {
 
+  
     .bloco-flutuante-venda__barra-scrrol {
-        height: 843px;        
+         height: 843px;  
     }
 
    .bloco-flutuante-venda__descricao-produto  {
