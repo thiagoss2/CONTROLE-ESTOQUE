@@ -172,7 +172,7 @@
 
 .bloco-flutuante-venda__barra-scrrol {
     overflow-y: auto;
-    height: 485px;
+    height: 476px;
     margin-bottom: 40px;
 
 }
@@ -309,3 +309,17 @@
 
 
 }
+
+
+@media screen and (min-width:1000px) {
+
+    .bloco-flutuante-venda__barra-scrrol {
+        height: 843px;        
+    }
+
+   .bloco-flutuante-venda__descricao-produto  {
+      height: 150px;
+   } 
+
+}
+
