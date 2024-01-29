@@ -324,3 +324,13 @@
 
 }
 
+@media screen and (max-height:1000px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        height: 410px;  
+   }
+
+
+}
+
+
+
