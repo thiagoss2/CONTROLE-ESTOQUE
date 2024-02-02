@@ -205,12 +205,15 @@
 
     width: 112px;
     height: 112px;
+    display: none;
+    margin-bottom: 15px
 
 }
 
 
 .bloco-flutuante-venda__arquivo i {
     font-size: 32px;
+
 }
 
 

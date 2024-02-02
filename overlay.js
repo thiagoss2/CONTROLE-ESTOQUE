@@ -7,7 +7,8 @@ const iconeMais = document.querySelector(".icone-mais-js")
 const inputQuantidade = document.querySelector('.bloco-flutuante-venda__quantidade__input');
 const inputCusto = document.querySelector('.bloco-flutuante-venda__custo__input');
 const inputArquivo = document.querySelector('.capiturar-produto');
-const imagemArquivo = document.querySelector('.bloco-flutuante-venda__imagem-imagem');
+const imagemArquivo = document.getElementById('imagem-arquivo');
+const labelEscolhaArquivo = document.getElementById('label-arquivo');
 
 
 
@@ -24,18 +25,25 @@ let custoProduto = 0;
 inputArquivo.addEventListener('change', function (e) {
     if (inputArquivo.files && inputArquivo.files[0]) {
         const arquivo = inputArquivo.files[0];
-        
+
         const reader = new FileReader();
 
         // obrigatorio esse evento quando a leitura do arquivo for concluida com sucesso
         reader.onload = function (event) {
 
-           imagemArquivo.src =  event.target.result;
-                            
+            imagemArquivo.src = event.target.result;
+
         };
 
-reader.readAsDataURL(arquivo); // Isso irá ler o arquivo como um Data URL
+        reader.readAsDataURL(arquivo); // Isso irá ler o arquivo como um Data URL
     }
+    // se te imagem
+     if(imagemArquivo) {
+        imagemArquivo.style.display = 'block'
+        labelEscolhaArquivo.style.display = 'none'; 
+        
+
+     }
 });
 
 
