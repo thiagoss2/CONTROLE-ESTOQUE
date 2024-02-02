@@ -201,6 +201,14 @@
     margin-bottom: 15px;
 }
 
+.bloco-flutuante-venda__bloco-imagem img {
+
+    width: 112px;
+    height: 112px;
+
+}
+
+
 .bloco-flutuante-venda__arquivo i {
     font-size: 32px;
 }
