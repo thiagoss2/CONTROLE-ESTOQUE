@@ -1,3 +1,5 @@
+
+
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -9,18 +11,51 @@ const inputCusto = document.querySelector('.bloco-flutuante-venda__custo__input'
 const inputArquivo = document.querySelector('.capiturar-produto');
 const imagemArquivo = document.getElementById('imagem-arquivo');
 const labelEscolhaArquivo = document.getElementById('label-arquivo');
-
-
-
-
-
+const inputNomeProduto = document.querySelector('.bloco-flutuante-venda__produto-input');
+const inputCodigoBarras = document.querySelector('.bloco-flutuante-venda__codigo-barras__input')
+const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input');
+const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
+const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 
 let quantidadeProdutos = 0;
 
-let custoProduto = 0;
+const produto = {
+    imagem: '',
+    nomeProduto: '',
+    codigoBarras: '',
+    quantidade: 0,
+    custo: 0.00,
+    preco: 0.00,
+    descricao: ''
+
+}
 
 
 
+
+botaoAdicionarProduto.addEventListener('click', function () {
+    produto.imagem = imagemArquivo;
+    produto.nomeProduto = inputNomeProduto.value;
+    produto.codigoBarras = inputCodigoBarras.value;
+    produto.quantidade = inputQuantidade.value;
+    produto.custo = removeSimboloMoeda(inputCusto.value);
+    produto.preco = removeSimboloMoeda(inputPreco.value);
+    produto.descricao = textAreaDescricaoProduto.value;
+
+    // Exiba as informações do produto no console
+    console.log('Imagem:', produto.imagem);
+    console.log('Nome do produto:', produto.nomeProduto);
+    console.log('Código de barras:', produto.codigoBarras);
+    console.log('Quantidade:', produto.quantidade);
+    console.log('Custo:', produto.custo);
+    console.log('Preço:', produto.preco);
+    console.log('Descrição:', produto.descricao);
+
+    
+
+ 
+
+})
 
 inputArquivo.addEventListener('change', function (e) {
     if (inputArquivo.files && inputArquivo.files[0]) {
@@ -32,18 +67,19 @@ inputArquivo.addEventListener('change', function (e) {
         reader.onload = function (event) {
 
             imagemArquivo.src = event.target.result;
+        
 
         };
 
         reader.readAsDataURL(arquivo); // Isso irá ler o arquivo como um Data URL
     }
     // se te imagem
-     if(imagemArquivo) {
+    if (imagemArquivo) {
         imagemArquivo.style.display = 'block'
-        labelEscolhaArquivo.style.display = 'none'; 
-        
+        labelEscolhaArquivo.style.display = 'none';
 
-     }
+
+    }
 });
 
 
@@ -72,18 +108,24 @@ botaoFechar.addEventListener('click', function () {
 
 
 iconeMenos.addEventListener('click', function () {
-    quantidadeProdutos--;
-    if (quantidadeProdutos <= 0) {
-        quantidadeProdutos = 0;
+     inputQuantidade.value--;
+
+    if (inputQuantidade.value  <= 0) {
+        inputQuantidade.value = 0;
     }
-    inputQuantidade.value = quantidadeProdutos;
-
-
+    
 })
 
 iconeMais.addEventListener('click', function () {
     quantidadeProdutos++
-    inputQuantidade.value = quantidadeProdutos;
+    inputQuantidade.value++;
+
+ 
+    console.log(inputQuantidade.value);
+
+
+
+
 });
 
 
@@ -123,7 +165,7 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
 
 
 
-function removeSimboloMoeda(valor) {
+    function removeSimboloMoeda(valor) {
 
     // Substituir o símbolo de moeda por uma string vazia
     // pode haver espaços vazios ai o trim remove da String
