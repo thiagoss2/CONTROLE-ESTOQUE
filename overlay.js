@@ -52,7 +52,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log('Custo:', produto.custo);
     console.log('Preço:', produto.preco);
     console.log('Descrição:', produto.descricao);
-    console.log('dados da imagem' + BlobImagem);
+    console.log('dados da imagem ' + BlobImagem.size  + ' bytes');
 
 
 
@@ -65,10 +65,10 @@ inputArquivo.addEventListener('change', function (event) {
         const arquivo = inputArquivo.files[0];
 
         const reader = new FileReader();
-         // o contexto le o arquivo como um caminho  url
+        // o contexto le o arquivo como um caminho  url
         reader.readAsDataURL(arquivo);
-        
-        reader.onload = function(event) {
+
+        reader.onload = function (event) {
             imagemArquivo.src = event.target.result;
 
         }
@@ -76,19 +76,19 @@ inputArquivo.addEventListener('change', function (event) {
         const reader2 = new FileReader();
         // o contexto le o arquivo como um array de buffer
         reader2.readAsArrayBuffer(arquivo);
-        reader2.onload = function(event) {
-        
-        const arrayBuffer = event.target.result;
-        const BlobImagem = new Blob([arrayBuffer] , {type:arquivo.type})
-        console.log(BlobImagem);
+        reader2.onload = function (event) {
 
-                  
-            
+            const arrayBuffer = event.target.result;
+            BlobImagem = new Blob([arrayBuffer], { type: arquivo.type })
+            console.log(BlobImagem);
+
+
+
         }
 
 
 
-     
+
     }
     // se tem imagem
     if (imagemArquivo) {
