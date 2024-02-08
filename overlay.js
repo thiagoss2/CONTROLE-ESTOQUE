@@ -17,6 +17,8 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 
+let BlobImagem = {};
+
 let quantidadeProdutos = 0;
 
 const produto = {
@@ -50,33 +52,49 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log('Custo:', produto.custo);
     console.log('Preço:', produto.preco);
     console.log('Descrição:', produto.descricao);
+    console.log('dados da imagem' + BlobImagem);
 
-    
 
- 
+
+
 
 })
 
-inputArquivo.addEventListener('change', function (e) {
+inputArquivo.addEventListener('change', function (event) {
     if (inputArquivo.files && inputArquivo.files[0]) {
         const arquivo = inputArquivo.files[0];
 
         const reader = new FileReader();
-
-        // obrigatorio esse evento quando a leitura do arquivo for concluida com sucesso
-        reader.onload = function (event) {
-
-            imagemArquivo.src = event.target.result;
+         // o contexto le o arquivo como um caminho  url
+        reader.readAsDataURL(arquivo);
         
+        reader.onload = function(event) {
+            imagemArquivo.src = event.target.result;
 
-        };
+        }
 
-        reader.readAsDataURL(arquivo); // Isso irá ler o arquivo como um Data URL
+        const reader2 = new FileReader();
+        // o contexto le o arquivo como um array de buffer
+        reader2.readAsArrayBuffer(arquivo);
+        reader2.onload = function(event) {
+        
+        const arrayBuffer = event.target.result;
+        const BlobImagem = new Blob([arrayBuffer] , {type:arquivo.type})
+        console.log(BlobImagem);
+
+                  
+            
+        }
+
+
+
+     
     }
-    // se te imagem
+    // se tem imagem
     if (imagemArquivo) {
         imagemArquivo.style.display = 'block'
         labelEscolhaArquivo.style.display = 'none';
+
 
 
     }
@@ -108,19 +126,19 @@ botaoFechar.addEventListener('click', function () {
 
 
 iconeMenos.addEventListener('click', function () {
-     inputQuantidade.value--;
+    inputQuantidade.value--;
 
-    if (inputQuantidade.value  <= 0) {
+    if (inputQuantidade.value <= 0) {
         inputQuantidade.value = 0;
     }
-    
+
 })
 
 iconeMais.addEventListener('click', function () {
     quantidadeProdutos++
     inputQuantidade.value++;
 
- 
+
     console.log(inputQuantidade.value);
 
 
@@ -165,7 +183,7 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
 
 
 
-    function removeSimboloMoeda(valor) {
+function removeSimboloMoeda(valor) {
 
     // Substituir o símbolo de moeda por uma string vazia
     // pode haver espaços vazios ai o trim remove da String
