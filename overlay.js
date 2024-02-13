@@ -1,6 +1,5 @@
 
-import { inserindoDados } from "./produto_banco_db.js";
-import { excluindoDados } from "./produto_banco_db.js";
+import { inserindoDados } from './produto_banco_db.mjs';
 
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
@@ -56,10 +55,8 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log('dados da imagem ' + BlobImagem.size + ' bytes');
 
 
-
-
-
-
+    inserindoDados(inputNomeProduto.value, inputCodigoBarras.value, inputQuantidade.value, removeSimboloMoeda(inputCusto.value),
+        removeSimboloMoeda(inputPreco.value), textAreaDescricaoProduto.value, BlobImagem);
 
 })
 
