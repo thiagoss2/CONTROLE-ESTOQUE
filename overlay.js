@@ -1,4 +1,6 @@
 
+import { inserindoDados } from "./produto_banco_db.js";
+import { excluindoDados } from "./produto_banco_db.js";
 
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
@@ -181,9 +183,6 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
 
 
 
-
-
-
 function removeSimboloMoeda(valor) {
 
     // Substituir o símbolo de moeda por uma string vazia
@@ -203,30 +202,8 @@ function removeVirgulaDeMoedas(valor) {
 }
 
 
-function inserirProduto(id ,nome, codigoBarras, quantidade, custo, preco, descricao, blobImagem) {
-    // Conexão com o banco de dados
-    const sqlite3 = require('sqlite3').verbose();
-    const db = new sqlite3.Database('database.sqlite');
-
-    // Preparação da consulta SQL
-    const stmt = db.prepare('INSERT INTO produtos ( id ,nome, codigo_barras, quantidade, custo, preco, descricao, imagem) VALUES (?, ?, ?, ?, ?, ?, ?)');
-
-    // Vinculação dos parâmetros à consulta
-    stmt.bind(1 , id);
-    stmt.bind(2, nome);
-    stmt.bind(3, codigoBarras);
-    stmt.bind(4, quantidade);
-    stmt.bind(5, custo);
-    stmt.bind(6, preco);
-    stmt.bind(7, descricao);
-    stmt.bind(8, blobImagem);
-
-    // Execução da consulta
-    stmt.run();
-
-    // Fechamento da conexão
-    db.close();
-}
 console.log(removeVirgulaDeMoedas("R$ 700.000.000,00"));
 
 formataValorDeMoeda('pt-BR', 'BRL', "20000");
+
+

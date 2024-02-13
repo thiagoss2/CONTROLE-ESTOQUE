@@ -1,39 +1,92 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3  from 'sqlite3';
+const db = new sqlite3.Database('database.sqlite2');
 
-// Abrindo o banco de dados
-const db = new sqlite3.Database('banco.db');
+function criarTabela() {
 
-db.run(`
-CREATE TABLE IF NOT EXISTS produtos (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  nome TEXT NOT NULL,
-  descricao TEXT,
-  preco REAL NOT NULL
-);
-`);
+  let stmt = null;
 
-// inserido dados
-const produto = {
-    nome:'Geladeira',
-    descricao:'Geladeira Bastemp',
-    preco: 500.00
+
+  const createTableQuery =
+    "CREATE TABLE IF NOT EXISTS produtos (\n" +
+    "  id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+    "  nome TEXT NOT NULL,\n" +
+    "  codigo_barras TEXT NOT NULL,\n" +
+    "  quantidade INTEGER NOT NULL,\n" +
+    "  custo REAL NOT NULL,\n" +
+    "  preco REAL NOT NULL,\n" +
+    "  descricao TEXT NOT NULL,\n" +
+    "  imagem BLOB\n" +
+    ");";
+
+  stmt = db.prepare(createTableQuery);
+  stmt.run();
+
+  console.log('Tabela produtos criada com sucesso!');
+
 }
 
-db.run('INSERT INTO produtos(nome , descricao , preco) values(?, ?, ?)' , 
-[produto.nome , produto.preco , produto.descricao]);
 
-// realizando uma consulta
+// TESTE CONCLUIDO
+ export function inserindoDados(nome, codigoBarras, quantidade, custo, preco, descricao, imagem) {
 
-db.all(`
-SELECT * FROM produtos;
-`, (err, produtos) => {
-  if (err) {
-    throw err;
-  }
+  const query = ('INSERT INTO produtos(nome , codigo_barras , quantidade , custo, preco, descricao, imagem)values(?,?,?,?,?,?,?)');
+  const values = [nome, codigoBarras, quantidade, custo, preco, descricao, imagem];
 
-  // Exibir os produtos
-  console.log(produtos);
-});
+  db.run(query, values, (err) => {
+    if (err) {
+      console.log(err);
+      return
+    }
 
-// Fechando o banco de dados
-db.close();
+    console.log('dados inseridos com sucesso');
+
+
+  });
+
+}
+
+function consultarDados() {
+
+  const stmt = db.prepare('SELECT * FROM produtos');
+  stmt.all((err, rows) => {
+    if (err) {
+      console.error(err);
+    } else {
+      // As linhas da tabela "produtos" estão armazenadas em "rows"
+      console.log(rows);
+    }
+  });
+  
+
+}
+
+
+ export function excluindoDados(identificador) {
+
+  const sql = 'DELETE FROM produtos WHERE id = ? '
+  const array = [identificador] ;
+
+  db.run(sql, array, (err) =>  {
+    if (err) {
+      console.log(err);
+      return
+    }
+    console.log('produto removido com sucesso')
+
+  });
+
+
+
+}
+ // criarTabela();
+ inserindoDados('Macarrao', '3444-4455-444', 12, 4.00, 8.00, 'Macarrao Instantaneo', null);
+
+  // excluindoDados(4);
+  // excluindoDados(3);
+  // excluindoDados(2);
+  // excluindoDados(1);
+
+   consultarDados();
+
+   
+

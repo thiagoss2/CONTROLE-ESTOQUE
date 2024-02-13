@@ -1,5 +1,9 @@
 {
+
+  "type": "module",
+
   "dependencies": {
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
   }
+
 }
