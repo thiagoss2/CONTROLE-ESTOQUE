@@ -1,5 +1,4 @@
-
-import { inserindoDados } from './produto_banco_db.mjs';
+const db = indexedDB.open('minha-database', 1);
 
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
@@ -198,9 +197,5 @@ function removeVirgulaDeMoedas(valor) {
 
 }
 
-
-console.log(removeVirgulaDeMoedas("R$ 700.000.000,00"));
-
-formataValorDeMoeda('pt-BR', 'BRL', "20000");
 
 
