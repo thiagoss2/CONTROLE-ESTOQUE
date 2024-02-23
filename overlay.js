@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
-const db = indexedDB.open('minha-database', 1);
->>>>>>> 02d9f6cd2c141c993664b0ae1fde12bffbb2d84c
-
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -21,27 +14,10 @@ const inputCodigoBarras = document.querySelector('.bloco-flutuante-venda__codigo
 const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input');
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
-
-<<<<<<< HEAD
+let  BlobImagem  = {};
 let quantidadeProdutos = 0;
 let custoProduto = 0;
-=======
-let BlobImagem = {};
-
-let quantidadeProdutos = 0;
-
-const produto = {
-    imagem: '',
-    nomeProduto: '',
-    codigoBarras: '',
-    quantidade: 0,
-    custo: 0.00,
-    preco: 0.00,
-    descricao: ''
-
-}
->>>>>>> 02d9f6cd2c141c993664b0ae1fde12bffbb2d84c
-
+let produto = {};
 
 
 
@@ -64,8 +40,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log('dados da imagem ' + BlobImagem.size + ' bytes');
 
 
-    inserindoDados(inputNomeProduto.value, inputCodigoBarras.value, inputQuantidade.value, removeSimboloMoeda(inputCusto.value),
-        removeSimboloMoeda(inputPreco.value), textAreaDescricaoProduto.value, BlobImagem);
+   
 
 })
 
@@ -207,15 +182,5 @@ function removeVirgulaDeMoedas(valor) {
     return moedaSemVirgula;
 
 }
-
-<<<<<<< HEAD
-
-function zerarValores(){
-    imagemArquivo.src = " ";
-  
-}
-console.log(removeVirgulaDeMoedas("R$ 700.000.000,00"));
-=======
->>>>>>> 02d9f6cd2c141c993664b0ae1fde12bffbb2d84c
 
 
