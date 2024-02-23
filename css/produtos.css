@@ -25,6 +25,7 @@
     color: #acb4bb;
     font-weight: 600;
     margin-bottom: 5px;
+    
 }
 
 
@@ -343,5 +344,40 @@
 
 }
 
+/*  */
+.pesquisa-produto__bloco-container {
+    display: flex;
+    gap: 5px;
+    height: 33.66px;
+    
 
+}
+.pesquisa-produto__bloco {
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center ;
+    gap: 6px;
+   
+}
 
+.pesquisa-produto__bloco i {
+    padding-left: 8px;
+    
+  }
+  
+ .pesquisa-produto__input {
+    height: inherit ;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+ }
+  
+.pesquisa-produto__btn-btn {
+    box-sizing: border-box;
+    display: flex;
+    height: 33.65px;
+    align-items: center;
+    gap: 5px;
+}

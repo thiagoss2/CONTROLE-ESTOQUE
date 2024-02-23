@@ -28,6 +28,8 @@ body {
 /* ============== BLOCO ESQUERDO =========== */
 .bloco-esquerdo {
     padding: 16px 16px 0;
+    height: inherit;
+    box-sizing: border-box;
 }
 
 .bloco-esquerdo__empresa {
@@ -213,6 +215,7 @@ body {
 
 .bloco-principal {
     border-left: 1px solid var(--cor-cinza-bloco);
+    height: inherit;
 
 }
 
@@ -300,6 +303,8 @@ body {
 }
 .conteudo-principal {
     padding: 24px;
+    height: calc(100vh - 83.19px);
+    box-sizing: border-box;
 }
 
 .conteudo-principal__conjunto-btn {

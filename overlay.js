@@ -1,3 +1,6 @@
+
+
+
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -10,13 +13,7 @@ const inputArquivo = document.querySelector('.capiturar-produto');
 const imagemArquivo = document.getElementById('imagem-arquivo');
 const labelEscolhaArquivo = document.getElementById('label-arquivo');
 
-
-
-
-
-
 let quantidadeProdutos = 0;
-
 let custoProduto = 0;
 
 
@@ -67,6 +64,7 @@ botaoAdicionar.addEventListener("click", function () {
 botaoFechar.addEventListener('click', function () {
     overlay.style.display = "none";
     blocoFlutunte.style.display = "none";
+    zerarValores();
 
 });
 
@@ -141,6 +139,11 @@ function removeVirgulaDeMoedas(valor) {
 
 }
 
+
+function zerarValores(){
+    imagemArquivo.src = " ";
+  
+}
 console.log(removeVirgulaDeMoedas("R$ 700.000.000,00"));
 
 formataValorDeMoeda('pt-BR', 'BRL', "20000");
