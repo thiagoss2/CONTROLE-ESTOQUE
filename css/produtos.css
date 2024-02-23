@@ -349,6 +349,7 @@
     display: flex;
     gap: 5px;
     height: 33.66px;
+    margin-bottom: 20px;
     
 
 }
@@ -381,3 +382,44 @@
     align-items: center;
     gap: 5px;
 }
+
+
+/* PESQUISA PRODUTO CATEGORIAS   */
+.pesquisa-produto-categorias {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+
+}
+
+.pesquisa-produto-categorias__inventario-bloco {
+    background-color: #fff;
+    padding: 16px 30px;
+    border-radius: 10px;
+    box-shadow: 3px 7px 20px #d9d9d9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+}
+
+.pesquisa-produto-categorias__inventario-bloco i {
+   font-size: 30px;
+}
+
+.pesquisa-produto-categorias-bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.pesquisa-produto-categorias__referencias-titulo {
+
+}
+
+.pesquisa-produto-categorias__referencias-valor {
+
+}
+
+
