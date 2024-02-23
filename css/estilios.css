@@ -216,6 +216,7 @@ body {
 .bloco-principal {
     border-left: 1px solid var(--cor-cinza-bloco);
     height: inherit;
+    background-color: #fbfbfb;
 
 }
 
