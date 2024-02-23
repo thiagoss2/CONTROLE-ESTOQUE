@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 
+=======
+const db = indexedDB.open('minha-database', 1);
+>>>>>>> 02d9f6cd2c141c993664b0ae1fde12bffbb2d84c
 
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
@@ -12,35 +16,97 @@ const inputCusto = document.querySelector('.bloco-flutuante-venda__custo__input'
 const inputArquivo = document.querySelector('.capiturar-produto');
 const imagemArquivo = document.getElementById('imagem-arquivo');
 const labelEscolhaArquivo = document.getElementById('label-arquivo');
+const inputNomeProduto = document.querySelector('.bloco-flutuante-venda__produto-input');
+const inputCodigoBarras = document.querySelector('.bloco-flutuante-venda__codigo-barras__input')
+const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input');
+const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
+const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 
+<<<<<<< HEAD
 let quantidadeProdutos = 0;
 let custoProduto = 0;
+=======
+let BlobImagem = {};
+
+let quantidadeProdutos = 0;
+
+const produto = {
+    imagem: '',
+    nomeProduto: '',
+    codigoBarras: '',
+    quantidade: 0,
+    custo: 0.00,
+    preco: 0.00,
+    descricao: ''
+
+}
+>>>>>>> 02d9f6cd2c141c993664b0ae1fde12bffbb2d84c
 
 
 
 
-inputArquivo.addEventListener('change', function (e) {
+botaoAdicionarProduto.addEventListener('click', function () {
+    produto.imagem = imagemArquivo;
+    produto.nomeProduto = inputNomeProduto.value;
+    produto.codigoBarras = inputCodigoBarras.value;
+    produto.quantidade = inputQuantidade.value;
+    produto.custo = removeSimboloMoeda(inputCusto.value);
+    produto.preco = removeSimboloMoeda(inputPreco.value);
+    produto.descricao = textAreaDescricaoProduto.value;
+
+    // Exiba as informações do produto no console
+    console.log('Nome do produto:', produto.nomeProduto);
+    console.log('Código de barras:', produto.codigoBarras);
+    console.log('Quantidade:', produto.quantidade);
+    console.log('Custo:', produto.custo);
+    console.log('Preço:', produto.preco);
+    console.log('Descrição:', produto.descricao);
+    console.log('dados da imagem ' + BlobImagem.size + ' bytes');
+
+
+    inserindoDados(inputNomeProduto.value, inputCodigoBarras.value, inputQuantidade.value, removeSimboloMoeda(inputCusto.value),
+        removeSimboloMoeda(inputPreco.value), textAreaDescricaoProduto.value, BlobImagem);
+
+})
+
+inputArquivo.addEventListener('change', function (event) {
     if (inputArquivo.files && inputArquivo.files[0]) {
         const arquivo = inputArquivo.files[0];
 
         const reader = new FileReader();
+        // o contexto le o arquivo como um caminho  url
+        reader.readAsDataURL(arquivo);
 
-        // obrigatorio esse evento quando a leitura do arquivo for concluida com sucesso
         reader.onload = function (event) {
-
             imagemArquivo.src = event.target.result;
 
-        };
+        }
 
-        reader.readAsDataURL(arquivo); // Isso irá ler o arquivo como um Data URL
+        const reader2 = new FileReader();
+        // o contexto le o arquivo como um array de buffer
+        reader2.readAsArrayBuffer(arquivo);
+        reader2.onload = function (event) {
+
+            const arrayBuffer = event.target.result;
+            BlobImagem = new Blob([arrayBuffer], { type: arquivo.type })
+            console.log(BlobImagem);
+
+
+
+        }
+
+
+
+
     }
-    // se te imagem
-     if(imagemArquivo) {
+    // se tem imagem
+    if (imagemArquivo) {
         imagemArquivo.style.display = 'block'
-        labelEscolhaArquivo.style.display = 'none'; 
-        
+        labelEscolhaArquivo.style.display = 'none';
 
-     }
+
+
+    }
 });
 
 
@@ -70,18 +136,24 @@ botaoFechar.addEventListener('click', function () {
 
 
 iconeMenos.addEventListener('click', function () {
-    quantidadeProdutos--;
-    if (quantidadeProdutos <= 0) {
-        quantidadeProdutos = 0;
-    }
-    inputQuantidade.value = quantidadeProdutos;
+    inputQuantidade.value--;
 
+    if (inputQuantidade.value <= 0) {
+        inputQuantidade.value = 0;
+    }
 
 })
 
 iconeMais.addEventListener('click', function () {
     quantidadeProdutos++
-    inputQuantidade.value = quantidadeProdutos;
+    inputQuantidade.value++;
+
+
+    console.log(inputQuantidade.value);
+
+
+
+
 });
 
 
@@ -118,9 +190,6 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
 
 
 
-
-
-
 function removeSimboloMoeda(valor) {
 
     // Substituir o símbolo de moeda por uma string vazia
@@ -139,11 +208,14 @@ function removeVirgulaDeMoedas(valor) {
 
 }
 
+<<<<<<< HEAD
 
 function zerarValores(){
     imagemArquivo.src = " ";
   
 }
 console.log(removeVirgulaDeMoedas("R$ 700.000.000,00"));
+=======
+>>>>>>> 02d9f6cd2c141c993664b0ae1fde12bffbb2d84c
 
-formataValorDeMoeda('pt-BR', 'BRL', "20000");
+
