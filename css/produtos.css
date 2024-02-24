@@ -428,7 +428,75 @@
 
 .pesquisa-produto-categorias__referencias-valor {
     font-size: 20px;
-    font-weight: 700    ;
+    font-weight: 700;
 }
 
 
+
+/* PARTE DOS PROFUTOS */
+
+.pesquisa-produto-produto {
+    height: calc(100vh - 311px);
+}
+
+.pesquisa-produto-produto__lista {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+  
+
+}
+
+.pesquisa-produto-produto__item-lista {
+    height: 224px;
+    width: 176px;
+    border: 1px solid black ;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.pesquisa-produto-produto__item-lista:hover{
+    box-shadow: 1px -1px 1px black, -1px 1px 1px black;
+}
+
+
+
+.pesquisa-produto-produto__link {
+   text-decoration: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 15px;
+   padding: 16px 12px;
+   height: inherit;
+   box-sizing: border-box;
+
+
+}
+
+.pesquisa-produto-produto__imagem {
+    height: 80px;
+    object-fit: contain;
+
+}
+
+.pesquisa-produto-produto__preco {
+    font-size: 15px;
+    color: black;
+    font-weight: 200;
+
+}
+
+.pesquisa-produto-produto__nome {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+.pesquisa-produto-produto__quantidade {
+    color: #91A1B0;
+    font-size: 14px;
+
+}
