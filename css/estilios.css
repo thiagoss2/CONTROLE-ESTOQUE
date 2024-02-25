@@ -300,10 +300,10 @@ body {
 /* CONTAINER TODO BLOCO ESQUERDO */
 
 .container {
-    padding: 0 40px;
+    padding: 0 5%;
 }
 .conteudo-principal {
-    padding: 24px;
+    padding: 24px 0;
     height: calc(100vh - 83.19px);
     box-sizing: border-box;
 }

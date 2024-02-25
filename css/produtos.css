@@ -121,6 +121,7 @@
     box-sizing: border-box;
     display: none;
     transition: 0.2s ease;
+    z-index: 10;
 
 
 
@@ -323,18 +324,6 @@
 }
 
 
-@media screen and (min-width:800px) {
-
-  
-    .bloco-flutuante-venda__barra-scrrol {
-         height: 843px;  
-    }
-
-   .bloco-flutuante-venda__descricao-produto  {
-      height: 150px;
-   } 
-
-}
 
 @media screen and (max-height:1000px) {
     .bloco-flutuante-venda__barra-scrrol {
@@ -433,7 +422,7 @@
 
 
 
-/* PARTE DOS PROFUTOS */
+/* PARTE DOS PRODUTOS */
 
 .pesquisa-produto-produto {
     height: calc(100vh - 311px);
@@ -441,16 +430,24 @@
 
 .pesquisa-produto-produto__lista {
     height: inherit;
-    display: grid;
-    grid-template-columns: repeat(8 , 176px) ;
+    display: flex;
     gap: 45px;
-   
+   flex-wrap: wrap;
     overflow-y:auto ;
-  
-
-  
 
 }
+
+
+@media screen and (min-width:1279px) {
+
+    .pesquisa-produto-produto__lista {
+        gap: 74px;
+    
+    }
+    
+    
+}
+
 
 .pesquisa-produto-produto__item-lista {
     height: 224px;
