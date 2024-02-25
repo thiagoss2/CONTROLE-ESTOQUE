@@ -25,10 +25,23 @@ let produto = {};
 
 
 botaoAdicionarProduto.addEventListener('click', function () {
+
+    
+
     criarDadosProduto(produto);
+
+    validaDados(produto);       
+
     console.log(produto);
-   const itemDaLista =  criarItemLista(produto);    
+
+    const itemDaLista = criarItemLista(produto);
+
     insereProdutoNaTela(itemDaLista);
+
+
+
+
+
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -43,7 +56,7 @@ inputArquivo.addEventListener('change', function (event) {
             imagemArquivo.src = event.target.result;
         }
 
-       
+
     }
     // se tem imagem
     if (imagemArquivo) {
@@ -119,16 +132,17 @@ function insereProdutoNaTela(produto) {
 }
 
 function criarDadosProduto(produto) {
-    
-   
 
-    produto.imagem =  imagemArquivo.src;
+
+
+    produto.imagem = imagemArquivo.src;
     produto.nome = inputNomeProduto.value;
     produto.codigoBarras = inputCodigoBarras.value;
     produto.quantidade = inputQuantidade.value;
     produto.custo = removeSimboloMoeda(inputCusto.value);
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
+    
 
     // Exiba as informações do produto no console
     console.log('Nome do produto:', produto.nome);
@@ -141,41 +155,54 @@ function criarDadosProduto(produto) {
 
 }
 
+
+function validaDados(produto) {
+
+    const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
+
+    if(produto.nome == '') {
+
+        mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
+
+    }
+
+}
+
 function criarItemLista(produto) {
     const itemLista = document.createElement('li');
     itemLista.classList.add('pesquisa-produto-produto__item-lista');
-  
+
     const link = document.createElement('a');
     link.classList.add('pesquisa-produto-produto__link');
     link.href = ''; // Insira o link do produto aqui
-  
+
     const imagem = document.createElement('img');
     imagem.classList.add('pesquisa-produto-produto__imagem');
     imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
-  
+
     const preco = document.createElement('h3');
     preco.classList.add('pesquisa-produto-produto__preco');
     preco.textContent = `R$ ${produto.preco}`;
-  
+
     const nome = document.createElement('p');
     nome.classList.add('pesquisa-produto-produto__nome');
     nome.textContent = produto.nome;
-  
+
     const quantidade = document.createElement('p');
     quantidade.classList.add('pesquisa-produto-produto__quantidade');
     quantidade.textContent = `${produto.quantidade} disponiveis`;
-  
+
     // Adicione os elementos filho ao link
     link.appendChild(imagem);
     link.appendChild(preco);
     link.appendChild(nome);
     link.appendChild(quantidade);
-  
+
     // Adicione o link ao elemento `li`
     itemLista.appendChild(link);
-  
+
     return itemLista;
-  }
+}
 
 function formataValorDeMoeda(lingua, paisOrigem, valor) {
     // Formata como moeda usando o formato específico para o Brasil
