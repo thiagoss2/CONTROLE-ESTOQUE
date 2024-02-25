@@ -25,23 +25,11 @@ let produto = {};
 
 
 botaoAdicionarProduto.addEventListener('click', function () {
-
-    
-
     criarDadosProduto(produto);
-
-    validaDados(produto);       
-
+    validaDados(produto);
     console.log(produto);
-
     const itemDaLista = criarItemLista(produto);
-
     insereProdutoNaTela(itemDaLista);
-
-
-
-
-
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -124,6 +112,23 @@ setTimeout(() => {
 
 }, 100);
 
+function zerarValores() {
+
+
+    imagemArquivo.src = ''
+
+    labelEscolhaArquivo.style.display = 'block';
+    imagemArquivo.style.display = 'none';
+    inputNomeProduto.value = '';
+    inputCodigoBarras.value = 0;
+    inputCusto.value = 0;
+    inputPreco.value = 0
+    textAreaDescricaoProduto.textContent = '';
+    inputQuantidade.value = 0;
+
+    
+
+}
 
 function insereProdutoNaTela(produto) {
     console.log(produto)
@@ -142,7 +147,7 @@ function criarDadosProduto(produto) {
     produto.custo = removeSimboloMoeda(inputCusto.value);
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
-    
+
 
     // Exiba as informações do produto no console
     console.log('Nome do produto:', produto.nome);
@@ -160,7 +165,7 @@ function validaDados(produto) {
 
     const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
 
-    if(produto.nome == '') {
+    if (produto.nome == '') {
 
         mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
 
