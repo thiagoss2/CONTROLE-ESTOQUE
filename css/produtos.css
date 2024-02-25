@@ -442,8 +442,8 @@
 .pesquisa-produto-produto__lista {
     height: inherit;
     display: grid;
-    grid-template-columns: repeat(10 , 176px) ;
-    gap: 25px;
+    grid-template-columns: repeat(8 , 176px) ;
+    gap: 45px;
    
     overflow-y:auto ;
   
