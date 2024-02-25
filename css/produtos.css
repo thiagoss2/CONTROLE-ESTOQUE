@@ -442,9 +442,12 @@
 .pesquisa-produto-produto__lista {
     height: inherit;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    column-gap: 30px;
-    overflow: auto;
+    grid-template-columns: repeat(10 , 176px) ;
+    gap: 25px;
+   
+    overflow-y:auto ;
+  
+
   
 
 }
@@ -458,7 +461,9 @@
 }
 
 .pesquisa-produto-produto__item-lista:hover{
-    box-shadow: 1px -1px 1px black, -1px 1px 1px black;
+    border: 3px solid var(--cor-verde-botao);  
+    box-sizing: border-box;
+    
 }
 
 
@@ -479,6 +484,8 @@
 .pesquisa-produto-produto__imagem {
     height: 80px;
     object-fit: contain;
+    width: 88px;
+
 
 }
 
