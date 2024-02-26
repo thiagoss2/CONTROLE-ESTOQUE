@@ -29,7 +29,14 @@ botaoAdicionarProduto.addEventListener('click', function () {
     validaDados(produto);
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
+
     insereProdutoNaTela(itemDaLista);
+
+    selecionarProdutos()
+
+
+
+
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -112,6 +119,25 @@ setTimeout(() => {
 
 }, 100);
 
+
+
+
+function selecionarProdutos() {
+    const listaProdutos = document.querySelector('.pesquisa-produto-produto__lista');
+    const quantidadeDeElementos = listaProdutos.children.length;
+
+    if (quantidadeDeElementos > 0) {
+        const produtos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
+        console.log(produtos)
+
+        for(let index = 0 ; index < produtos.length ; index ++) {
+             produtos[index].addEventListener('click' , function() {
+                console.log('teste');
+             })
+        }
+    }
+}
+
 function zerarValores() {
 
 
@@ -126,13 +152,11 @@ function zerarValores() {
     textAreaDescricaoProduto.textContent = '';
     inputQuantidade.value = 0;
 
-    
+
 
 }
 
 function insereProdutoNaTela(produto) {
-    console.log(produto)
-
     produtoElementoContainer.appendChild(produto);
 }
 
