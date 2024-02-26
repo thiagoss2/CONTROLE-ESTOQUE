@@ -179,7 +179,7 @@ function criarItemLista(produto) {
 
     const link = document.createElement('a');
     link.classList.add('pesquisa-produto-produto__link');
-    link.href = ''; // Insira o link do produto aqui
+    link.href = '#'; // Insira o link do produto aqui
 
     const imagem = document.createElement('img');
     imagem.classList.add('pesquisa-produto-produto__imagem');
