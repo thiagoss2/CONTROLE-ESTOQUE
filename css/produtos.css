@@ -187,22 +187,29 @@
 }
 
 
-@media screen and (max-height:1200px) {
+@media screen and (min-height:1200px) {
     .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: unset;
         
         height:unset
     }
 }
 
 
-@media screen and (max-height:768px) {
+
+@media screen and (min-height:768px) {
     .bloco-flutuante-venda__barra-scrrol {
         
-        height: 537px;
+        height: 300px;
     }
 }
 
-
+@media screen and (min-height:767px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        
+        height:740px
+    }
+}
 
 
 .bloco-flutuante-venda__arquivo {
