@@ -125,11 +125,9 @@ setTimeout(() => {
 
 
 function selecionarProdutos() {
+    
     const listaProdutos = document.querySelector('.pesquisa-produto-produto__lista');
-
     const quantidadeDeElementos = listaProdutos.children.length;
-    console.log(quantidadeDeElementos)
-    let elementoClicado = false;
     let armazemProdutos = [];
 
     if (quantidadeDeElementos > 0) {
