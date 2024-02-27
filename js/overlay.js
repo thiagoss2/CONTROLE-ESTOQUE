@@ -32,7 +32,9 @@ botaoAdicionarProduto.addEventListener('click', function () {
 
     insereProdutoNaTela(itemDaLista);
 
-    selecionarProdutos()
+    selecionarProdutos();
+
+
 
 
 
@@ -124,19 +126,38 @@ setTimeout(() => {
 
 function selecionarProdutos() {
     const listaProdutos = document.querySelector('.pesquisa-produto-produto__lista');
+
     const quantidadeDeElementos = listaProdutos.children.length;
+    console.log(quantidadeDeElementos)
+    let elementoClicado = false;
+    let armazemProdutos = [];
 
     if (quantidadeDeElementos > 0) {
-        const produtos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
-        console.log(produtos)
+        for (let index = 0; index < listaProdutos.children.length; index++) {
 
-        for(let index = 0 ; index < produtos.length ; index ++) {
-             produtos[index].addEventListener('click' , function() {
-                console.log('teste');
-             })
+            if (listaProdutos.children.length > 0) {
+                const produtos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
+                produtos[index].addEventListener('click', function () {
+
+                    const imagemProduto = produtos[index].querySelector('.pesquisa-produto-produto__imagem');
+                    const nomeProduto = produtos[index].querySelector('.pesquisa-produto-produto__nome');
+                    const precoProduto = produtos[index].querySelector('.pesquisa-produto-produto__preco');
+                    const quantidadeProduto = produtos[index].querySelector('.pesquisa-produto-produto__quantidade');
+
+                    armazemProdutos = [nomeProduto, imagemProduto, precoProduto, quantidadeProduto];
+
+                    console.log(nomeProduto.textContent);
+                    console.log(imagemProduto.src);
+                    console.log(armazemProdutos);
+                })
+            }
+
         }
     }
 }
+
+
+
 
 function zerarValores() {
 
