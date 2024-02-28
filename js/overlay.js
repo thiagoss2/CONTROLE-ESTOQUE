@@ -16,29 +16,17 @@ const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda_
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
 
-
-
+let armazemProdutos = [];
 let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
-
-
 
 botaoAdicionarProduto.addEventListener('click', function () {
     criarDadosProduto(produto);
     validaDados(produto);
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
-
     insereProdutoNaTela(itemDaLista);
-
-    selecionarProdutos();
-
-
-
-
-
-
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -49,11 +37,10 @@ inputArquivo.addEventListener('change', function (event) {
         const reader = new FileReader();
         // o contexto le o arquivo como um caminho  url
         reader.readAsDataURL(arquivo);
+
         reader.onload = function (event) {
             imagemArquivo.src = event.target.result;
         }
-
-
     }
     // se tem imagem
     if (imagemArquivo) {
@@ -66,26 +53,17 @@ overlay.addEventListener("click", function () {
 
     overlay.style.display = "none";
     blocoFlutunte.style.display = "none";
-
 })
-
 
 botaoAdicionar.addEventListener("click", function () {
-
     overlay.style.display = "block";
     blocoFlutunte.style.display = "block";
-
-
 })
-
-
 botaoFechar.addEventListener('click', function () {
     overlay.style.display = "none";
     blocoFlutunte.style.display = "none";
     zerarValores();
-
 });
-
 
 iconeMenos.addEventListener('click', function () {
     inputQuantidade.value--;
@@ -99,69 +77,18 @@ iconeMenos.addEventListener('click', function () {
 iconeMais.addEventListener('click', function () {
     quantidadeProdutos++
     inputQuantidade.value++;
-
-
-    console.log(inputQuantidade.value);
-
-
-
-
 });
-
 
 setTimeout(() => {
     inputCusto.addEventListener('input', function () {
-
         // inputCusto.value = formataValorDeMoeda('pt-BR', 'BRL', inputCusto.value);
         // custoProduto = inputCusto.value;
         console.log(inputCusto.value)
-
     });
-
-
 }, 100);
 
-
-
-
-function selecionarProdutos() {
-    
-    const listaProdutos = document.querySelector('.pesquisa-produto-produto__lista');
-    const quantidadeDeElementos = listaProdutos.children.length;
-    let armazemProdutos = [];
-
-    if (quantidadeDeElementos > 0) {
-        for (let index = 0; index < listaProdutos.children.length; index++) {
-
-            if (listaProdutos.children.length > 0) {
-                const produtos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
-                produtos[index].addEventListener('click', function () {
-
-                    const imagemProduto = produtos[index].querySelector('.pesquisa-produto-produto__imagem');
-                    const nomeProduto = produtos[index].querySelector('.pesquisa-produto-produto__nome');
-                    const precoProduto = produtos[index].querySelector('.pesquisa-produto-produto__preco');
-                    const quantidadeProduto = produtos[index].querySelector('.pesquisa-produto-produto__quantidade');
-
-                    armazemProdutos = [nomeProduto, imagemProduto, precoProduto, quantidadeProduto];
-
-                    console.log(nomeProduto.textContent);
-                    console.log(imagemProduto.src);
-                    console.log(armazemProdutos);
-                })
-            }
-
-        }
-    }
-}
-
-
-
-
 function zerarValores() {
-
-
     imagemArquivo.src = ''
-
     labelEscolhaArquivo.style.display = 'block';
     imagemArquivo.style.display = 'none';
     inputNomeProduto.value = '';
@@ -170,18 +97,14 @@ function zerarValores() {
     inputPreco.value = 0
     textAreaDescricaoProduto.textContent = '';
     inputQuantidade.value = 0;
-
-
-
 }
 
 function insereProdutoNaTela(produto) {
+
     produtoElementoContainer.appendChild(produto);
 }
 
 function criarDadosProduto(produto) {
-
-
 
     produto.imagem = imagemArquivo.src;
     produto.nome = inputNomeProduto.value;
@@ -190,7 +113,6 @@ function criarDadosProduto(produto) {
     produto.custo = removeSimboloMoeda(inputCusto.value);
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
-
 
     // Exiba as informações do produto no console
     console.log('Nome do produto:', produto.nome);
@@ -203,17 +125,12 @@ function criarDadosProduto(produto) {
 
 }
 
-
 function validaDados(produto) {
-
-    const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
-
+    const mensagemErroNomeProdudo =
+        document.querySelector('.bloco-flutuante-venda__mensagem-erro');
     if (produto.nome == '') {
-
         mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
-
     }
-
 }
 
 function criarItemLista(produto) {
@@ -245,9 +162,18 @@ function criarItemLista(produto) {
     link.appendChild(preco);
     link.appendChild(nome);
     link.appendChild(quantidade);
-
     // Adicione o link ao elemento `li`
     itemLista.appendChild(link);
+
+    itemLista.addEventListener('click', function () {
+        console.log('Nome do produto ' + produto.nome);
+        console.log('Codigo de barras ' + produto.codigoBarras);
+        console.log('Quantidade ' + produto.quantidade);
+        console.log('Custo do produto ' + produto.custo);
+        console.log('Preco do produto ' + produto.preco);
+        console.log('Descrição produto ' + produto.descricao);
+        console.log('Imagem produto ' + produto.imagem);
+    })
 
     return itemLista;
 }
@@ -262,32 +188,23 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
             currency: paisOrigem,
         });
         console.log(formatoMoeda.format(valor));
-
         return formatoMoeda.format(valor);
-
     }
 
     return 0;
 }
 
-
-
 function removeSimboloMoeda(valor) {
-
     // Substituir o símbolo de moeda por uma string vazia
     // pode haver espaços vazios ai o trim remove da String
     let valorSemSimbolo = valor.replace('R$', '').trim();
     return valorSemSimbolo;
-
-
 }
 
 function removeVirgulaDeMoedas(valor) {
     let moeda = removeSimboloMoeda(valor);
     let moedaSemVirgula = moeda.replace(',', '.');
-
     return moedaSemVirgula;
-
 }
 
 
