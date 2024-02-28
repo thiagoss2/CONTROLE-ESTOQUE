@@ -15,48 +15,30 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
-
-
-
 let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
 
-
-
 botaoAdicionarProduto.addEventListener('click', function () {
+
     criarDadosProduto(produto);
     validaDados(produto);
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
-
     insereProdutoNaTela(itemDaLista);
-
-    selecionarProdutos();
-
-
-
-
-
-
 })
 
 inputArquivo.addEventListener('change', function (event) {
     if (inputArquivo.files && inputArquivo.files[0]) {
 
         const arquivo = inputArquivo.files[0];
-
         const reader = new FileReader();
         // o contexto le o arquivo como um caminho  url
         reader.readAsDataURL(arquivo);
         reader.onload = function (event) {
             imagemArquivo.src = event.target.result;
         }
-
-
-    }
-    // se tem imagem
-    if (imagemArquivo) {
+    } if (imagemArquivo) {
         imagemArquivo.style.display = 'block'
         labelEscolhaArquivo.style.display = 'none';
     }
@@ -66,102 +48,64 @@ overlay.addEventListener("click", function () {
 
     overlay.style.display = "none";
     blocoFlutunte.style.display = "none";
-
 })
-
 
 botaoAdicionar.addEventListener("click", function () {
 
     overlay.style.display = "block";
     blocoFlutunte.style.display = "block";
-
-
 })
 
-
 botaoFechar.addEventListener('click', function () {
+
     overlay.style.display = "none";
     blocoFlutunte.style.display = "none";
     zerarValores();
-
 });
 
-
 iconeMenos.addEventListener('click', function () {
+
     inputQuantidade.value--;
 
     if (inputQuantidade.value <= 0) {
         inputQuantidade.value = 0;
     }
-
 })
 
 iconeMais.addEventListener('click', function () {
+
     quantidadeProdutos++
     inputQuantidade.value++;
-
-
     console.log(inputQuantidade.value);
-
-
-
-
 });
-
 
 setTimeout(() => {
     inputCusto.addEventListener('input', function () {
 
-        // inputCusto.value = formataValorDeMoeda('pt-BR', 'BRL', inputCusto.value);
-        // custoProduto = inputCusto.value;
         console.log(inputCusto.value)
-
     });
-
-
 }, 100);
 
+selecionarProdutos2();
 
+function selecionarProdutos2() {
 
-
-function selecionarProdutos() {
-    
+    console.log('teste  ')
+    const listDeProdutos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
     const listaProdutos = document.querySelector('.pesquisa-produto-produto__lista');
     const quantidadeDeElementos = listaProdutos.children.length;
-    let armazemProdutos = [];
 
-    if (quantidadeDeElementos > 0) {
-        for (let index = 0; index < listaProdutos.children.length; index++) {
-
-            if (listaProdutos.children.length > 0) {
-                const produtos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
-                produtos[index].addEventListener('click', function () {
-
-                    const imagemProduto = produtos[index].querySelector('.pesquisa-produto-produto__imagem');
-                    const nomeProduto = produtos[index].querySelector('.pesquisa-produto-produto__nome');
-                    const precoProduto = produtos[index].querySelector('.pesquisa-produto-produto__preco');
-                    const quantidadeProduto = produtos[index].querySelector('.pesquisa-produto-produto__quantidade');
-
-                    armazemProdutos = [nomeProduto, imagemProduto, precoProduto, quantidadeProduto];
-
-                    console.log(nomeProduto.textContent);
-                    console.log(imagemProduto.src);
-                    console.log(armazemProdutos);
-                })
-            }
-
+    if (listaProdutos.children.length > 0) {
+        for (let index = 0; index < quantidadeDeElementos.length; index++) {
+            listaDeProdutos[index].addEventListener('click', function () {
+                console.log(index);
+            });
         }
     }
 }
 
-
-
-
 function zerarValores() {
-
-
     imagemArquivo.src = ''
-
     labelEscolhaArquivo.style.display = 'block';
     imagemArquivo.style.display = 'none';
     inputNomeProduto.value = '';
@@ -170,9 +114,6 @@ function zerarValores() {
     inputPreco.value = 0
     textAreaDescricaoProduto.textContent = '';
     inputQuantidade.value = 0;
-
-
-
 }
 
 function insereProdutoNaTela(produto) {
@@ -180,8 +121,6 @@ function insereProdutoNaTela(produto) {
 }
 
 function criarDadosProduto(produto) {
-
-
 
     produto.imagem = imagemArquivo.src;
     produto.nome = inputNomeProduto.value;
@@ -191,8 +130,6 @@ function criarDadosProduto(produto) {
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
 
-
-    // Exiba as informações do produto no console
     console.log('Nome do produto:', produto.nome);
     console.log('Imagem do produto:', produto.imagem);
     console.log('Código de barras:', produto.codigoBarras);
@@ -200,94 +137,72 @@ function criarDadosProduto(produto) {
     console.log('Custo:', produto.custo);
     console.log('Preço:', produto.preco);
     console.log('Descrição:', produto.descricao);
-
 }
 
-
 function validaDados(produto) {
-
     const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
 
     if (produto.nome == '') {
-
         mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
-
     }
 
-}
+    function criarItemLista(produto) {
+        const itemLista = document.createElement('li');
+        itemLista.classList.add('pesquisa-produto-produto__item-lista');
 
-function criarItemLista(produto) {
-    const itemLista = document.createElement('li');
-    itemLista.classList.add('pesquisa-produto-produto__item-lista');
+        const link = document.createElement('a');
+        link.classList.add('pesquisa-produto-produto__link');
+        link.href = '#'; // Insira o link do produto aqui
 
-    const link = document.createElement('a');
-    link.classList.add('pesquisa-produto-produto__link');
-    link.href = '#'; // Insira o link do produto aqui
+        const imagem = document.createElement('img');
+        imagem.classList.add('pesquisa-produto-produto__imagem');
+        imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
 
-    const imagem = document.createElement('img');
-    imagem.classList.add('pesquisa-produto-produto__imagem');
-    imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
+        const preco = document.createElement('h3');
+        preco.classList.add('pesquisa-produto-produto__preco');
+        preco.textContent = `R$ ${produto.preco}`;
 
-    const preco = document.createElement('h3');
-    preco.classList.add('pesquisa-produto-produto__preco');
-    preco.textContent = `R$ ${produto.preco}`;
+        const nome = document.createElement('p');
+        nome.classList.add('pesquisa-produto-produto__nome');
+        nome.textContent = produto.nome;
 
-    const nome = document.createElement('p');
-    nome.classList.add('pesquisa-produto-produto__nome');
-    nome.textContent = produto.nome;
+        const quantidade = document.createElement('p');
+        quantidade.classList.add('pesquisa-produto-produto__quantidade');
+        quantidade.textContent = `${produto.quantidade} disponiveis`;
 
-    const quantidade = document.createElement('p');
-    quantidade.classList.add('pesquisa-produto-produto__quantidade');
-    quantidade.textContent = `${produto.quantidade} disponiveis`;
+        // Adicione os elementos filho ao link
+        link.appendChild(imagem);
+        link.appendChild(preco);
+        link.appendChild(nome);
+        link.appendChild(quantidade);
 
-    // Adicione os elementos filho ao link
-    link.appendChild(imagem);
-    link.appendChild(preco);
-    link.appendChild(nome);
-    link.appendChild(quantidade);
+        // Adicione o link ao elemento `li`
+        itemLista.appendChild(link);
 
-    // Adicione o link ao elemento `li`
-    itemLista.appendChild(link);
-
-    return itemLista;
-}
-
-function formataValorDeMoeda(lingua, paisOrigem, valor) {
-    // Formata como moeda usando o formato específico para o Brasil
-
-    // Verifica se o valor é um dado do tipo double ou int
-    if (!isNaN(valor)) {
-        const formatoMoeda = new Intl.NumberFormat(lingua, {
-            style: 'currency',
-            currency: paisOrigem,
-        });
-        console.log(formatoMoeda.format(valor));
-
-        return formatoMoeda.format(valor);
-
+        return itemLista;
     }
 
-    return 0;
-}
+    function formataValorDeMoeda(lingua, paisOrigem, valor) {
+        if (!isNaN(valor)) {
+            const formatoMoeda = new Intl.NumberFormat(lingua, {
+                style: 'currency',
+                currency: paisOrigem,
+            });
+            console.log(formatoMoeda.format(valor));
+            return formatoMoeda.format(valor);
+        }
+        return 0;
+    }
 
+    function removeSimboloMoeda(valor) {
+        let valorSemSimbolo = valor.replace('R$', '').trim();
+        return valorSemSimbolo;
+    }
 
-
-function removeSimboloMoeda(valor) {
-
-    // Substituir o símbolo de moeda por uma string vazia
-    // pode haver espaços vazios ai o trim remove da String
-    let valorSemSimbolo = valor.replace('R$', '').trim();
-    return valorSemSimbolo;
-
-
-}
-
-function removeVirgulaDeMoedas(valor) {
-    let moeda = removeSimboloMoeda(valor);
-    let moedaSemVirgula = moeda.replace(',', '.');
-
-    return moedaSemVirgula;
-
-}
+    function removeVirgulaDeMoedas(valor) {
+        let moeda = removeSimboloMoeda(valor);
+        let moedaSemVirgula = moeda.replace(',', '.');
+        return moedaSemVirgula;
+    }
 
 
