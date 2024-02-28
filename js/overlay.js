@@ -15,6 +15,7 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
+let armazemProdutos = [];
 let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
@@ -35,6 +36,7 @@ inputArquivo.addEventListener('change', function (event) {
         const reader = new FileReader();
         // o contexto le o arquivo como um caminho  url
         reader.readAsDataURL(arquivo);
+
         reader.onload = function (event) {
             imagemArquivo.src = event.target.result;
         }
@@ -51,11 +53,9 @@ overlay.addEventListener("click", function () {
 })
 
 botaoAdicionar.addEventListener("click", function () {
-
     overlay.style.display = "block";
     blocoFlutunte.style.display = "block";
 })
-
 botaoFechar.addEventListener('click', function () {
 
     overlay.style.display = "none";
@@ -81,7 +81,6 @@ iconeMais.addEventListener('click', function () {
 
 setTimeout(() => {
     inputCusto.addEventListener('input', function () {
-
         console.log(inputCusto.value)
     });
 }, 100);
@@ -117,6 +116,7 @@ function zerarValores() {
 }
 
 function insereProdutoNaTela(produto) {
+
     produtoElementoContainer.appendChild(produto);
 }
 
