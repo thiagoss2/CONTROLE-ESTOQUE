@@ -23,27 +23,29 @@ let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
 
+let acumulaValoresCusto = [];
 
-async function verificarElementos() {
-    const listaUl = document.querySelector(".pesquisa-produto-produto__lista");
-    const numElementos = listaUl.querySelectorAll("li").length;
-  
-    if (numElementos > 0) {
-      for(let i = 0 ; i < numElementos.length; i++) {
-        console.log('fazendo a leitura ' +  i);
 
-      }
-      console.log("Executando código porque há elementos na lista!");
-      console.log('quantidade de elementos ' + numElementos);
-    } else {
-      console.log("Nenhum elemento na lista, aguardando...");
-      await new Promise(resolve => setTimeout(resolve, 100)); // Aguarda 100ms
-      verificarElementos(); // Chama a função novamente para verificar
-    }
-  }
-  
-  verificarElementos();
-  
+// async function verificarElementos() {
+//     const listaUl = document.querySelector(".pesquisa-produto-produto__lista");
+//     const numElementos = listaUl.querySelectorAll("li").length;
+
+//     if (numElementos > 0) {
+//       for(let i = 0 ; i < numElementos.length; i++) {
+//         console.log('fazendo a leitura ' +  i);
+
+//       }
+//       console.log("Executando código porque há elementos na lista!");
+//       console.log('quantidade de elementos ' + numElementos);
+//     } else {
+//       console.log("Nenhum elemento na lista, aguardando...");
+//       await new Promise(resolve => setTimeout(resolve, 100)); // Aguarda 100ms
+//       verificarElementos(); // Chama a função novamente para verificar
+//     }
+//   }
+
+//   verificarElementos();
+
 
 
 botaoAdicionarProduto.addEventListener('click', function () {
@@ -52,7 +54,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     validaDados(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
-    // somaQuantidadeProdutos();
+    adicionaCustoDoProduto(produtoElementoContainer);
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -163,15 +165,15 @@ function criarItemLista(produto) {
     const preco = document.createElement('h3');
     preco.classList.add('pesquisa-produto-produto__preco');
 
-    preco.textContent = formataValorDeMoeda('pt-BR' , 'BRL', produto.preco);
+    preco.textContent = formataValorDeMoeda('pt-BR', 'BRL', produto.preco);
 
     const nome = document.createElement('p');
     nome.classList.add('pesquisa-produto-produto__nome');
     nome.textContent = produto.nome;
 
-    const custo =  document.createElement('p');
+    const custo = document.createElement('p');
     custo.classList.add('pesquisa-produto-produto__custo');
-    custo.textContent = formataValorDeMoeda('pt-BR' , 'BRL', produto.custo);    
+    custo.textContent = formataValorDeMoeda('pt-BR', 'BRL', produto.custo);
 
     const quantidade = document.createElement('p');
     quantidade.classList.add('pesquisa-produto-produto__quantidade');
@@ -188,29 +190,40 @@ function criarItemLista(produto) {
     itemLista.appendChild(link);
 
     adicionaEventoNoProduto(itemLista);
-   
+
+
     return itemLista;
 }
 
 function adicionaEventoNoProduto(itemLista) {
 
-    itemLista.addEventListener('click' , function() {  
+    itemLista.addEventListener('click', function () {
         console.log('teste')
-    })  
+    })
 }
 
 function adicionaCustoDoProduto(listaDeProdutos) {
     let quantidadeProdutos = listaDeProdutos.children.length;
     let produtos = listaDeProdutos.querySelectorAll('li');
 
+    let somaValores = 0;
+  
     if (quantidadeProdutos > 0) {
+      
         for (let index = 0; index < produtos.length; index++) {
-          let custo = produtos.querySelector('.pesquisa-produto-produto__custo').textContent;  
-          
-          console.log('custo do produto' + custo)
-           custoPrecoProduto.textContent += custo;         
-        }
+           const itemLista = listaDeProdutos.querySelector('li');
+            let custoProduto = itemLista.
+                querySelector('.pesquisa-produto-produto__custo').textContent;
+            let custoProdutoSemSimbolo = removeSimboloMoeda(custoProduto);
+            let custoProdutoSemVirgula = removeVirgulaDeMoedas(custoProdutoSemSimbolo);
+             
+            somaValores += parseFloat(custoProdutoSemVirgula);
+            console.log(somaValores)
+             
     }
+  } 
+
+  console.log(acumulaValoresCusto);
 }
 
 
@@ -221,7 +234,6 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
             style: 'currency',
             currency: paisOrigem,
         });
-        console.log(formatoMoeda.format(valor));
         return formatoMoeda.format(valor);
     }
     return 0;
