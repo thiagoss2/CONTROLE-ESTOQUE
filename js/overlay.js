@@ -162,7 +162,8 @@ function criarItemLista(produto) {
 
     const preco = document.createElement('h3');
     preco.classList.add('pesquisa-produto-produto__preco');
-    preco.textContent = `R$ ${produto.preco}`;
+
+    preco.textContent = formataValorDeMoeda('pt-BR' , 'BRL', produto.preco);
 
     const nome = document.createElement('p');
     nome.classList.add('pesquisa-produto-produto__nome');
@@ -170,7 +171,7 @@ function criarItemLista(produto) {
 
     const custo =  document.createElement('p');
     custo.classList.add('pesquisa-produto-produto__custo');
-    custo.textContent = produto.custo;
+    custo.textContent = formataValorDeMoeda('pt-BR' , 'BRL', produto.custo);    
 
     const quantidade = document.createElement('p');
     quantidade.classList.add('pesquisa-produto-produto__quantidade');
