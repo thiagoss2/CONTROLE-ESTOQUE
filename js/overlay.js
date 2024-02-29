@@ -50,7 +50,6 @@ botaoAdicionarProduto.addEventListener('click', function () {
 
     criarDadosProduto(produto);
     validaDados(produto);
-    console.log(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
     // somaQuantidadeProdutos();
@@ -136,18 +135,10 @@ function criarDadosProduto(produto) {
     produto.codigoBarras = inputCodigoBarras.value;
     produto.quantidade = inputQuantidade.value;
     produto.custo = removeSimboloMoeda(inputCusto.value);
-
-   
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
 
-    console.log('Nome do produto:', produto.nome);
-    console.log('Imagem do produto:', produto.imagem);
-    console.log('Código de barras:', produto.codigoBarras);
-    console.log('Quantidade:', produto.quantidade);
-    console.log('Custo:', produto.custo);
-    console.log('Preço:', produto.preco);
-    console.log('Descrição:', produto.descricao);
+    console.table(produto);
 }
 
 function validaDados(produto) {
@@ -181,7 +172,6 @@ function criarItemLista(produto) {
     custo.classList.add('pesquisa-produto-produto__custo');
     custo.textContent = produto.custo;
 
-
     const quantidade = document.createElement('p');
     quantidade.classList.add('pesquisa-produto-produto__quantidade');
     quantidade.textContent = `${produto.quantidade} disponiveis`;
@@ -196,20 +186,16 @@ function criarItemLista(produto) {
     // Adicione o link ao elemento `li`
     itemLista.appendChild(link);
 
-    // let valorMonetario = parseFloat(produto.preco);
-    // let incremento =  incremento +  valorMonetario;
-    // let valorDeMoeda = formataValorDeMoeda('pt-br' , 'BRL', incremento);
-    
-    // console.log(valorDeMoeda);
-    // custoTotalIventario  = valorDeMoeda;
-    //  quantidadeReferencias.textContent += 1;    
-
-    itemLista.addEventListener('click' , function() {
-       
-
-    })  
-
+    adicionaEventoNoProduto(itemLista);
+   
     return itemLista;
+}
+
+function adicionaEventoNoProduto(itemLista) {
+
+    itemLista.addEventListener('click' , function() {  
+        console.log('teste')
+    })  
 }
 
 function adicionaCustoDoProduto(listaDeProdutos) {
@@ -252,13 +238,3 @@ function removeVirgulaDeMoedas(valor) {
 }
 
 
-let objeto = {
-
-    somaValores(valor1 , valor2) {
-        return valor1 + valor2;
-    }
-}
-
-let array = [objeto];
-let valor = array[0].somaValores(12 , 15);
-console.log(valor);
