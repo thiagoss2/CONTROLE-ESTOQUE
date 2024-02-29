@@ -534,6 +534,9 @@
     font-weight: 200;
 
 }
+.pesquisa-produto-produto__custo {
+    display: none;
+}
 
 .pesquisa-produto-produto__nome {
     color: black;
@@ -547,3 +550,5 @@
     font-size: 14px;
 
 }
+
+

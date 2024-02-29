@@ -27,6 +27,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
+    adicionaCustoDoProduto(produtoElementoContainer)
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -153,6 +154,11 @@ function criarItemLista(produto) {
     nome.classList.add('pesquisa-produto-produto__nome');
     nome.textContent = produto.nome;
 
+    const custo =  document.createElement('p');
+    custo.classList.add('.pesquisa-produto-produto__custo');
+    custo.textContent = produto.custo;
+
+
     const quantidade = document.createElement('p');
     quantidade.classList.add('pesquisa-produto-produto__quantidade');
     quantidade.textContent = `${produto.quantidade} disponiveis`;
@@ -160,6 +166,7 @@ function criarItemLista(produto) {
     // Adicione os elementos filho ao link
     link.appendChild(imagem);
     link.appendChild(preco);
+    link.appendChild(custo);
     link.appendChild(nome);
     link.appendChild(quantidade);
     // Adicione o link ao elemento `li`
@@ -177,6 +184,20 @@ function criarItemLista(produto) {
 
     return itemLista;
 }
+
+function adicionaCustoDoProduto(listaDeProdutos) {
+    let quantidadeProdutos = listaDeProdutos.children.length;
+    let produtos = listaDeProdutos.querySelectorAll('li');
+
+    if (quantidadeProdutos > 0) {
+        for (let index = 0; index < produtos.length; index++) {
+            //   precoProduto = produtos.querySelector();
+        }
+
+    }
+}
+
+
 
 function formataValorDeMoeda(lingua, paisOrigem, valor) {
     // Formata como moeda usando o formato específico para o Brasil
