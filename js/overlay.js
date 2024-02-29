@@ -1,3 +1,5 @@
+
+
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -15,19 +17,36 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
-let custoTotalIventario = document.querySelector('.pesquisa-produto-categorias__referencias-valor');
-const quantidadeReferencias = document.querySelector('.pesquisa-produto-categorias__referencias-valor');
+let custoTotalIventario = document.querySelector('.total-custo');
+const quantidadeReferencias = document.querySelector('.total-referencias');
 
 let armazemProdutos = [];
 let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
 
-function somaQuantidadeProdutos() {
-    quantidadeReferencias.textContent = produtoElementoContainer.children.length;   
-    console.log( 'quantidade referencias'  + quantidadeReferencias ); 
- 
-}
+
+async function verificarElementos() {
+    const listaUl = document.querySelector(".pesquisa-produto-produto__lista");
+    const numElementos = listaUl.querySelectorAll("li").length;
+  
+    if (numElementos > 0) {
+      for(let i = 0 ; i < numElementos.length; i++) {
+        console.log('fazendo a leitura ' +  i);
+
+      }
+      console.log("Executando código porque há elementos na lista!");
+      console.log('quantidade de elementos ' + numElementos);
+    } else {
+      console.log("Nenhum elemento na lista, aguardando...");
+      await new Promise(resolve => setTimeout(resolve, 100)); // Aguarda 100ms
+      verificarElementos(); // Chama a função novamente para verificar
+    }
+  }
+  
+  verificarElementos();
+  
+
 
 botaoAdicionarProduto.addEventListener('click', function () {
 
@@ -36,7 +55,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
-    somaQuantidadeProdutos();
+    // somaQuantidadeProdutos();
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -173,12 +192,13 @@ function criarItemLista(produto) {
     // Adicione o link ao elemento `li`
     itemLista.appendChild(link);
 
-    let valorMonetario = parseFloat(produto.preco);
-    console.log(valorMonetario);
-    let valorDeMoeda = formataValorDeMoeda('pt-br' , 'BRL', valorMonetario);
-    console.log(valorDeMoeda);
-    custoTotalIventario += valorDeMoeda;
-     quantidadeReferencias.textContent += 1;    
+    // let valorMonetario = parseFloat(produto.preco);
+    // let incremento =  incremento +  valorMonetario;
+    // let valorDeMoeda = formataValorDeMoeda('pt-br' , 'BRL', incremento);
+    
+    // console.log(valorDeMoeda);
+    // custoTotalIventario  = valorDeMoeda;
+    //  quantidadeReferencias.textContent += 1;    
 
     itemLista.addEventListener('click' , function() {
        
