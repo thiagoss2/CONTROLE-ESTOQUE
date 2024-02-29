@@ -15,10 +15,19 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
+let custoTotalIventario = document.querySelector('.pesquisa-produto-categorias__referencias-valor');
+const quantidadeReferencias = document.querySelector('.pesquisa-produto-categorias__referencias-valor');
+
 let armazemProdutos = [];
 let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
+
+function somaQuantidadeProdutos() {
+    quantidadeReferencias.textContent = produtoElementoContainer.children.length;   
+    console.log( 'quantidade referencias'  + quantidadeReferencias ); 
+ 
+}
 
 botaoAdicionarProduto.addEventListener('click', function () {
 
@@ -27,6 +36,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
+    somaQuantidadeProdutos();
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -85,24 +95,6 @@ setTimeout(() => {
     });
 }, 100);
 
-selecionarProdutos2();
-
-function selecionarProdutos2() {
-
-    console.log('teste  ')
-    const listDeProdutos = document.querySelectorAll('.pesquisa-produto-produto__item-lista');
-    const listaProdutos = document.querySelector('.pesquisa-produto-produto__lista');
-    const quantidadeDeElementos = listaProdutos.children.length;
-
-    if (listaProdutos.children.length > 0) {
-        for (let index = 0; index < quantidadeDeElementos.length; index++) {
-            listaDeProdutos[index].addEventListener('click', function () {
-                console.log(index);
-            });
-        }
-    }
-}
-
 function zerarValores() {
     imagemArquivo.src = ''
     labelEscolhaArquivo.style.display = 'block';
@@ -127,6 +119,8 @@ function criarDadosProduto(produto) {
     produto.codigoBarras = inputCodigoBarras.value;
     produto.quantidade = inputQuantidade.value;
     produto.custo = removeSimboloMoeda(inputCusto.value);
+
+   
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
 
@@ -141,68 +135,80 @@ function criarDadosProduto(produto) {
 
 function validaDados(produto) {
     const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
-
     if (produto.nome == '') {
         mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
     }
+}
 
-    function criarItemLista(produto) {
-        const itemLista = document.createElement('li');
-        itemLista.classList.add('pesquisa-produto-produto__item-lista');
+function criarItemLista(produto) {
+    const itemLista = document.createElement('li');
+    itemLista.classList.add('pesquisa-produto-produto__item-lista');
 
-        const link = document.createElement('a');
-        link.classList.add('pesquisa-produto-produto__link');
-        link.href = '#'; // Insira o link do produto aqui
+    const link = document.createElement('a');
+    link.classList.add('pesquisa-produto-produto__link');
+    link.href = '#'; // Insira o link do produto aqui
 
-        const imagem = document.createElement('img');
-        imagem.classList.add('pesquisa-produto-produto__imagem');
-        imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
+    const imagem = document.createElement('img');
+    imagem.classList.add('pesquisa-produto-produto__imagem');
+    imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
 
-        const preco = document.createElement('h3');
-        preco.classList.add('pesquisa-produto-produto__preco');
-        preco.textContent = `R$ ${produto.preco}`;
+    const preco = document.createElement('h3');
+    preco.classList.add('pesquisa-produto-produto__preco');
+    preco.textContent = `R$ ${produto.preco}`;
 
-        const nome = document.createElement('p');
-        nome.classList.add('pesquisa-produto-produto__nome');
-        nome.textContent = produto.nome;
+    const nome = document.createElement('p');
+    nome.classList.add('pesquisa-produto-produto__nome');
+    nome.textContent = produto.nome;
 
-        const quantidade = document.createElement('p');
-        quantidade.classList.add('pesquisa-produto-produto__quantidade');
-        quantidade.textContent = `${produto.quantidade} disponiveis`;
+    const quantidade = document.createElement('p');
+    quantidade.classList.add('pesquisa-produto-produto__quantidade');
+    quantidade.textContent = `${produto.quantidade} disponiveis`;
 
-        // Adicione os elementos filho ao link
-        link.appendChild(imagem);
-        link.appendChild(preco);
-        link.appendChild(nome);
-        link.appendChild(quantidade);
+    // Adicione os elementos filho ao link
+    link.appendChild(imagem);
+    link.appendChild(preco);
+    link.appendChild(nome);
+    link.appendChild(quantidade);
 
-        // Adicione o link ao elemento `li`
-        itemLista.appendChild(link);
+    // Adicione o link ao elemento `li`
+    itemLista.appendChild(link);
 
-        return itemLista;
+    let valorMonetario = parseFloat(produto.preco);
+    console.log(valorMonetario);
+    let valorDeMoeda = formataValorDeMoeda('pt-br' , 'BRL', valorMonetario);
+    console.log(valorDeMoeda);
+    custoTotalIventario += valorDeMoeda;
+     quantidadeReferencias.textContent += 1;    
+
+    itemLista.addEventListener('click' , function() {
+       
+
+    })  
+
+    return itemLista;
+}
+
+function formataValorDeMoeda(lingua, paisOrigem, valor) {
+    if (!isNaN(valor)) {
+        const formatoMoeda = new Intl.NumberFormat(lingua, {
+            style: 'currency',
+            currency: paisOrigem,
+        });
+        console.log(formatoMoeda.format(valor));
+        return formatoMoeda.format(valor);
     }
+    return 0;
+}
 
-    function formataValorDeMoeda(lingua, paisOrigem, valor) {
-        if (!isNaN(valor)) {
-            const formatoMoeda = new Intl.NumberFormat(lingua, {
-                style: 'currency',
-                currency: paisOrigem,
-            });
-            console.log(formatoMoeda.format(valor));
-            return formatoMoeda.format(valor);
-        }
-        return 0;
-    }
+function removeSimboloMoeda(valor) {
+    let valorSemSimbolo = valor.replace('R$', '').trim();
+    return valorSemSimbolo;
+}
 
-    function removeSimboloMoeda(valor) {
-        let valorSemSimbolo = valor.replace('R$', '').trim();
-        return valorSemSimbolo;
-    }
-
-    function removeVirgulaDeMoedas(valor) {
-        let moeda = removeSimboloMoeda(valor);
-        let moedaSemVirgula = moeda.replace(',', '.');
-        return moedaSemVirgula;
-    }
+function removeVirgulaDeMoedas(valor) {
+    let moeda = removeSimboloMoeda(valor);
+    let moedaSemVirgula = moeda.replace(',', '.');
+    return moedaSemVirgula;
+}
 
 
