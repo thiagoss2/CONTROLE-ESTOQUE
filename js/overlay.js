@@ -1,5 +1,3 @@
-
-
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -13,12 +11,12 @@ const imagemArquivo = document.getElementById('imagem-arquivo');
 const labelEscolhaArquivo = document.getElementById('label-arquivo');
 const inputNomeProduto = document.querySelector('.bloco-flutuante-venda__produto-input');
 const inputCodigoBarras = document.querySelector('.bloco-flutuante-venda__codigo-barras__input')
-const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input');
+const inputPreco = document.querySelector('.bloco-flutuante-venda__preco__input');
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
 const quantidadeReferencias = document.querySelector('.total-referencias');
-const custoPrecoProduto = document.querySelector('.js-custo-produto');
+const custoPrecoProduto = document.getElementById('js-custo-produto');
 
 let armazemProdutos = [];
 let quantidadeProdutos = 0;
@@ -220,8 +218,10 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
     if (quantidadeProdutos > 0) {
         for (let index = 0; index < produtos.length; index++) {
-          let custo = produtos.querySelector('.pesquisa-produto-produto__custo');        
-           custoPrecoProduto.textContent += custo.textContent;         
+          let custo = produtos.querySelector('.pesquisa-produto-produto__custo').textContent;  
+          
+          console.log('custo do produto' + custo)
+           custoPrecoProduto.textContent += custo;         
         }
     }
 }
