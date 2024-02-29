@@ -1,3 +1,5 @@
+
+
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -15,26 +17,55 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
+let custoTotalIventario = document.querySelector('.total-custo');
+const quantidadeReferencias = document.querySelector('.total-referencias');
 
 let armazemProdutos = [];
 let quantidadeProdutos = 0;
 let custoProduto = 0;
 let produto = {};
 
+
+async function verificarElementos() {
+    const listaUl = document.querySelector(".pesquisa-produto-produto__lista");
+    const numElementos = listaUl.querySelectorAll("li").length;
+  
+    if (numElementos > 0) {
+      for(let i = 0 ; i < numElementos.length; i++) {
+        console.log('fazendo a leitura ' +  i);
+
+      }
+      console.log("Executando código porque há elementos na lista!");
+      console.log('quantidade de elementos ' + numElementos);
+    } else {
+      console.log("Nenhum elemento na lista, aguardando...");
+      await new Promise(resolve => setTimeout(resolve, 100)); // Aguarda 100ms
+      verificarElementos(); // Chama a função novamente para verificar
+    }
+  }
+  
+  verificarElementos();
+  
+
+
 botaoAdicionarProduto.addEventListener('click', function () {
+
     criarDadosProduto(produto);
     validaDados(produto);
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
+<<<<<<< HEAD
     adicionaCustoDoProduto(produtoElementoContainer)
+=======
+    // somaQuantidadeProdutos();
+>>>>>>> aeaa341748fd76bd8dff52ccea5c1354224cb0d5
 })
 
 inputArquivo.addEventListener('change', function (event) {
     if (inputArquivo.files && inputArquivo.files[0]) {
 
         const arquivo = inputArquivo.files[0];
-
         const reader = new FileReader();
         // o contexto le o arquivo como um caminho  url
         reader.readAsDataURL(arquivo);
@@ -42,9 +73,7 @@ inputArquivo.addEventListener('change', function (event) {
         reader.onload = function (event) {
             imagemArquivo.src = event.target.result;
         }
-    }
-    // se tem imagem
-    if (imagemArquivo) {
+    } if (imagemArquivo) {
         imagemArquivo.style.display = 'block'
         labelEscolhaArquivo.style.display = 'none';
     }
@@ -61,29 +90,30 @@ botaoAdicionar.addEventListener("click", function () {
     blocoFlutunte.style.display = "block";
 })
 botaoFechar.addEventListener('click', function () {
+
     overlay.style.display = "none";
     blocoFlutunte.style.display = "none";
     zerarValores();
 });
 
 iconeMenos.addEventListener('click', function () {
+
     inputQuantidade.value--;
 
     if (inputQuantidade.value <= 0) {
         inputQuantidade.value = 0;
     }
-
 })
 
 iconeMais.addEventListener('click', function () {
+
     quantidadeProdutos++
     inputQuantidade.value++;
+    console.log(inputQuantidade.value);
 });
 
 setTimeout(() => {
     inputCusto.addEventListener('input', function () {
-        // inputCusto.value = formataValorDeMoeda('pt-BR', 'BRL', inputCusto.value);
-        // custoProduto = inputCusto.value;
         console.log(inputCusto.value)
     });
 }, 100);
@@ -112,10 +142,11 @@ function criarDadosProduto(produto) {
     produto.codigoBarras = inputCodigoBarras.value;
     produto.quantidade = inputQuantidade.value;
     produto.custo = removeSimboloMoeda(inputCusto.value);
+
+   
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
 
-    // Exiba as informações do produto no console
     console.log('Nome do produto:', produto.nome);
     console.log('Imagem do produto:', produto.imagem);
     console.log('Código de barras:', produto.codigoBarras);
@@ -123,12 +154,10 @@ function criarDadosProduto(produto) {
     console.log('Custo:', produto.custo);
     console.log('Preço:', produto.preco);
     console.log('Descrição:', produto.descricao);
-
 }
 
 function validaDados(produto) {
-    const mensagemErroNomeProdudo =
-        document.querySelector('.bloco-flutuante-venda__mensagem-erro');
+    const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
     if (produto.nome == '') {
         mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
     }
@@ -169,18 +198,22 @@ function criarItemLista(produto) {
     link.appendChild(custo);
     link.appendChild(nome);
     link.appendChild(quantidade);
+
     // Adicione o link ao elemento `li`
     itemLista.appendChild(link);
 
-    itemLista.addEventListener('click', function () {
-        console.log('Nome do produto ' + produto.nome);
-        console.log('Codigo de barras ' + produto.codigoBarras);
-        console.log('Quantidade ' + produto.quantidade);
-        console.log('Custo do produto ' + produto.custo);
-        console.log('Preco do produto ' + produto.preco);
-        console.log('Descrição produto ' + produto.descricao);
-        console.log('Imagem produto ' + produto.imagem);
-    })
+    // let valorMonetario = parseFloat(produto.preco);
+    // let incremento =  incremento +  valorMonetario;
+    // let valorDeMoeda = formataValorDeMoeda('pt-br' , 'BRL', incremento);
+    
+    // console.log(valorDeMoeda);
+    // custoTotalIventario  = valorDeMoeda;
+    //  quantidadeReferencias.textContent += 1;    
+
+    itemLista.addEventListener('click' , function() {
+       
+
+    })  
 
     return itemLista;
 }
@@ -200,9 +233,6 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
 
 function formataValorDeMoeda(lingua, paisOrigem, valor) {
-    // Formata como moeda usando o formato específico para o Brasil
-
-    // Verifica se o valor é um dado do tipo double ou int
     if (!isNaN(valor)) {
         const formatoMoeda = new Intl.NumberFormat(lingua, {
             style: 'currency',
@@ -211,13 +241,10 @@ function formataValorDeMoeda(lingua, paisOrigem, valor) {
         console.log(formatoMoeda.format(valor));
         return formatoMoeda.format(valor);
     }
-
     return 0;
 }
 
 function removeSimboloMoeda(valor) {
-    // Substituir o símbolo de moeda por uma string vazia
-    // pode haver espaços vazios ai o trim remove da String
     let valorSemSimbolo = valor.replace('R$', '').trim();
     return valorSemSimbolo;
 }
