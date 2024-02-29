@@ -17,8 +17,8 @@ const inputPreco = document.querySelector('.bloco-flutuante-venda__custo__input'
 const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
 const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
-let custoTotalIventario = document.querySelector('.total-custo');
 const quantidadeReferencias = document.querySelector('.total-referencias');
+const custoPrecoProduto = document.querySelector('.js-custo-produto');
 
 let armazemProdutos = [];
 let quantidadeProdutos = 0;
@@ -180,7 +180,7 @@ function criarItemLista(produto) {
     nome.textContent = produto.nome;
 
     const custo =  document.createElement('p');
-    custo.classList.add('.pesquisa-produto-produto__custo');
+    custo.classList.add('pesquisa-produto-produto__custo');
     custo.textContent = produto.custo;
 
 
@@ -220,9 +220,9 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
     if (quantidadeProdutos > 0) {
         for (let index = 0; index < produtos.length; index++) {
-            //   precoProduto = produtos.querySelector();
+          let custo = produtos.querySelector('.pesquisa-produto-produto__custo');        
+           custoPrecoProduto.textContent += custo.textContent;         
         }
-
     }
 }
 
@@ -252,3 +252,13 @@ function removeVirgulaDeMoedas(valor) {
 }
 
 
+let objeto = {
+
+    somaValores(valor1 , valor2) {
+        return valor1 + valor2;
+    }
+}
+
+let array = [objeto];
+let valor = array[0].somaValores(12 , 15);
+console.log(valor);

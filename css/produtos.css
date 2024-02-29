@@ -533,8 +533,7 @@
 
 }
 .pesquisa-produto-produto__custo {
-    position: absolute;
-    top: -100000000000000000000;
+    display: none;
 }
 
 .pesquisa-produto-produto__nome {
