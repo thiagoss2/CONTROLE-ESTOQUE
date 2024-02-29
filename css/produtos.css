@@ -524,8 +524,6 @@
     height: 80px;
     object-fit: contain;
     width: 88px;
-
-
 }
 
 .pesquisa-produto-produto__preco {
@@ -535,7 +533,8 @@
 
 }
 .pesquisa-produto-produto__custo {
-    display: none;
+    position: absolute;
+    top: -100000000000000000000;
 }
 
 .pesquisa-produto-produto__nome {

@@ -55,11 +55,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
     console.log(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
-<<<<<<< HEAD
-    adicionaCustoDoProduto(produtoElementoContainer)
-=======
     // somaQuantidadeProdutos();
->>>>>>> aeaa341748fd76bd8dff52ccea5c1354224cb0d5
 })
 
 inputArquivo.addEventListener('change', function (event) {
