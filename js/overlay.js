@@ -52,7 +52,7 @@ botaoAdicionarProduto.addEventListener('click', function () {
 
 
     criarDadosProduto(produto);
-    const itemDaLista = criarItemLista(produto);
+   
     insereProdutoNaTela(itemDaLista);
     adicionaCustoDoProduto(produtoElementoContainer);
 })
@@ -171,11 +171,16 @@ function criarDadosProduto(produto) {
     } else {
         mensagemErroQuantidade.style.display = 'none';
         produto.quantidade = inputQuantidade.value;
-    } 
+    }
 
+    if ((inputNomeProduto.src != '' || inputNomeProduto.src != null)
+        && (imagemArquivo.src != null || imagemArquivo.src != "")
+        && (inputCodigoBarras.value != '' || inputCodigoBarras.value != null)
+        && (inputQuantidade.value != 0)) {
 
+            const itemDaLista = criarItemLista(produto);
 
-
+    }
 
 
 
