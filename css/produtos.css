@@ -258,7 +258,12 @@
 .capiturar-produto {
     display: none;
 }
-
+.bloco-flutuante-venda__mensagem-erro-imagem {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red; 
+}
 
 .container-bloco-flutuante__titulo-imagem {
     font-size: 12px;

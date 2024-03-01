@@ -49,9 +49,9 @@ let acumulaValoresCusto = [];
 
 
 botaoAdicionarProduto.addEventListener('click', function () {
+  
 
-    criarDadosProduto(produto);
-    validaDados(produto);
+    criarDadosProduto(produto); 
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
     adicionaCustoDoProduto(produtoElementoContainer);
@@ -131,7 +131,15 @@ function insereProdutoNaTela(produto) {
 }
 
 function criarDadosProduto(produto) {
+   const mensagemErro = document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
 
+    if( imagemArquivo.src == "http://127.0.0.1:5500/produtos.html" || imagemArquivo == null ||
+            imagemArquivo.src == "" ) {
+       
+        mensagemErro.textContent = 'Este campo è obrigatorio'
+    } else {
+        mensagemErro.style.display = 'none';    
+    }
     produto.imagem = imagemArquivo.src;
     produto.nome = inputNomeProduto.value;
     produto.codigoBarras = inputCodigoBarras.value;
@@ -140,14 +148,7 @@ function criarDadosProduto(produto) {
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
 
-    console.table(produto);
-}
-
-function validaDados(produto) {
-    const mensagemErroNomeProdudo = document.querySelector('.bloco-flutuante-venda__mensagem-erro');
-    if (produto.nome == '') {
-        mensagemErroNomeProdudo.textContent = 'Este campo é obrigadorio';
-    }
+    console.log(produto);
 }
 
 function criarItemLista(produto) {
