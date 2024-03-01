@@ -53,9 +53,9 @@ botaoAdicionarProduto.addEventListener('click', function () {
 
     criarDadosProduto(produto);
     console.log(inputNomeProduto.value);
-   
-   
-   
+
+
+
 })
 
 inputArquivo.addEventListener('change', function (event) {
@@ -177,14 +177,14 @@ function criarDadosProduto(produto) {
         produto.quantidade = inputQuantidade.value;
     }
 
-    if (  inputNomeProduto.value.length > 0 &&
-          imagemArquivo.src != 'http://127.0.0.1:5500/produtos.html' && 
-          inputCodigoBarras.value.length > 0 && inputQuantidade.value > 0 
-           ){
+    if (inputNomeProduto.value.length > 0 &&
+        imagemArquivo.src != 'http://127.0.0.1:5500/produtos.html' &&
+        inputCodigoBarras.value.length > 0 && inputQuantidade.value > 0 
+    ) {
 
-            const itemDaLista = criarItemLista(produto);
-             insereProdutoNaTela(itemDaLista);
-            // adicionaCustoDoProduto(produtoElementoContainer);
+        const itemDaLista = criarItemLista(produto);
+        insereProdutoNaTela(itemDaLista);
+        // adicionaCustoDoProduto(produtoElementoContainer);
     }
 
 
