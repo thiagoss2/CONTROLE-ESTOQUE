@@ -263,6 +263,7 @@
     font-size: 18px;
     font-weight: bold;
     color: red; 
+    display:none;
 }
 
 .container-bloco-flutuante__titulo-imagem {
@@ -283,10 +284,12 @@
 
 
 .bloco-flutuante-venda__mensagem-erro {
-    color: #d86c64;
-    font-size: 15px;
     margin-bottom: 10px;
-
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    display: none;
+}
 }
 
 
@@ -310,6 +313,14 @@
     box-sizing: border-box;
     margin-bottom: 15px;
 
+}
+
+.bloco-flutuante-venda__mensagem-erro-codigo-barras {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    display: none;
 }
 
 .bloco-flutuante-venda__codigo-barras__input  {

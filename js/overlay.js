@@ -49,9 +49,9 @@ let acumulaValoresCusto = [];
 
 
 botaoAdicionarProduto.addEventListener('click', function () {
-  
 
-    criarDadosProduto(produto); 
+
+    criarDadosProduto(produto);
     const itemDaLista = criarItemLista(produto);
     insereProdutoNaTela(itemDaLista);
     adicionaCustoDoProduto(produtoElementoContainer);
@@ -131,17 +131,41 @@ function insereProdutoNaTela(produto) {
 }
 
 function criarDadosProduto(produto) {
-   const mensagemErro = document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
+    const mensagemErro = 
+              document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
+    const mensagemErroNome = 
+              document.querySelector('.bloco-flutuante-venda__mensagem-erro');
+    
+    const mensagemErroCodigoBarras =
+              document.querySelector('.bloco-flutuante-venda__mensagem-erro-codigo-barras');
+   
+    console.log(mensagemErroCodigoBarras)
 
-    if( imagemArquivo.src == "http://127.0.0.1:5500/produtos.html" || imagemArquivo == null ||
-            imagemArquivo.src == "" ) {
-       
+    if (imagemArquivo.src == "http://127.0.0.1:5500/produtos.html" || imagemArquivo == null ||
+        imagemArquivo.src == '') {
+        mensagemErro.style.display = "block";  
         mensagemErro.textContent = 'Este campo è obrigatorio'
+
     } else {
-        mensagemErro.style.display = 'none';    
+        mensagemErro.style.display = 'none';
+        produto.imagem = imagemArquivo.src;
+    } if(inputNomeProduto.value == ''  ) {
+        
+         mensagemErroNome.style.display = 'block';     
+         mensagemErroNome.textContent = 'Digite o nome do produto';    
+    } else {
+       mensagemErroNome.style.display = 'none';
+       produto.nome = inputNomeProduto.value;
+    } if(inputCodigoBarras == '' || inputCodigoBarras == null) {
+           mensagemErroCodigoBarras.textContent = 'Digite o codigo de barras'
+           mensagemErro.style.display = 'block';
     }
-    produto.imagem = imagemArquivo.src;
-    produto.nome = inputNomeProduto.value;
+
+
+
+
+    
+   
     produto.codigoBarras = inputCodigoBarras.value;
     produto.quantidade = inputQuantidade.value;
     produto.custo = removeSimboloMoeda(inputCusto.value);
@@ -208,23 +232,22 @@ function adicionaCustoDoProduto(listaDeProdutos) {
     let produtos = listaDeProdutos.querySelectorAll('li');
 
     let somaValores = 0;
-  
+
     if (quantidadeProdutos > 0) {
-      
+
         for (let index = 0; index < produtos.length; index++) {
-           const itemLista = listaDeProdutos.querySelector('li');
+            const itemLista = listaDeProdutos.querySelector('li');
             let custoProduto = itemLista.
                 querySelector('.pesquisa-produto-produto__custo').textContent;
             let custoProdutoSemSimbolo = removeSimboloMoeda(custoProduto);
             let custoProdutoSemVirgula = removeVirgulaDeMoedas(custoProdutoSemSimbolo);
-             
+
             somaValores += parseFloat(custoProdutoSemVirgula);
             console.log(somaValores)
-             
+        }
     }
-  } 
 
-  console.log(acumulaValoresCusto);
+    console.log(acumulaValoresCusto);
 }
 
 
