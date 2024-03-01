@@ -169,7 +169,7 @@ function criarDadosProduto(produto) {
         mensagemErroCodigoBarras.style.display = 'none';
 
     } if (inputQuantidade.value == 0) {
-        mensagemErroQuantidade.textContent = 'Selecione a Quantid   ade';
+        mensagemErroQuantidade.textContent = 'Selecione a Quantidade';
         mensagemErroQuantidade.style.display = 'block';
 
     } else {
@@ -179,7 +179,7 @@ function criarDadosProduto(produto) {
 
     if (inputNomeProduto.value.length > 0 &&
         imagemArquivo.src != 'http://127.0.0.1:5500/produtos.html' &&
-        inputCodigoBarras.value.length > 0 && inputQuantidade.value > 0 
+        inputCodigoBarras.value.length > 0 && inputQuantiade.value > 0 
     ) {
 
         const itemDaLista = criarItemLista(produto);
