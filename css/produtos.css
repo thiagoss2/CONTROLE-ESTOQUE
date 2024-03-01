@@ -341,7 +341,6 @@
     margin-bottom: 15px;
     align-items: center;
 
-
 } 
 
 .bloco-flutuante-venda__quantidade__input {
@@ -355,6 +354,13 @@
     
 }
 
+.bloco-flutuante-venda__mensagem-erro-quantidade {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    display: none;
+}
 .bloco-flutuante-venda__botao-adicionar {
   background-color:rgb(23, 39, 50);
   border: none;
@@ -437,9 +443,9 @@
 }
 
 .pesquisa-produto-categorias__inventario-bloco i {
-    position: relative;
+   position: relative;
    font-size: 30px;
-   z-index: 5;
+   z-index: 1;
  
 }
 
@@ -454,6 +460,7 @@
     transform:translate(-50%, -50%);
     z-index: -10;
     border-radius: 50%;
+    z-index: -100;
    
  
 }

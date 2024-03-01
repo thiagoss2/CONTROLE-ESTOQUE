@@ -131,43 +131,55 @@ function insereProdutoNaTela(produto) {
 }
 
 function criarDadosProduto(produto) {
-    const mensagemErro = 
-              document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
-    const mensagemErroNome = 
-              document.querySelector('.bloco-flutuante-venda__mensagem-erro');
-    
+    const mensagemErro =
+        document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
+    const mensagemErroNome =
+        document.querySelector('.bloco-flutuante-venda__mensagem-erro');
+
     const mensagemErroCodigoBarras =
-              document.querySelector('.bloco-flutuante-venda__mensagem-erro-codigo-barras');
-   
-    console.log(mensagemErroCodigoBarras)
+        document.querySelector('.bloco-flutuante-venda__mensagem-erro-codigo-barras   ');
+
+    const mensagemErroQuantidade =
+        document.querySelector('.bloco-flutuante-venda__mensagem-erro-quantidade');
 
     if (imagemArquivo.src == "http://127.0.0.1:5500/produtos.html" || imagemArquivo == null ||
         imagemArquivo.src == '') {
-        mensagemErro.style.display = "block";  
-        mensagemErro.textContent = 'Este campo è obrigatorio'
+        mensagemErro.style.display = "block";
+        mensagemErro.textContent = 'Selecione a imagem'
 
     } else {
         mensagemErro.style.display = 'none';
         produto.imagem = imagemArquivo.src;
-    } if(inputNomeProduto.value == ''  ) {
-        
-         mensagemErroNome.style.display = 'block';     
-         mensagemErroNome.textContent = 'Digite o nome do produto';    
+    } if (inputNomeProduto.value == '') {
+
+        mensagemErroNome.style.display = 'block';
+        mensagemErroNome.textContent = 'Digite o nome do produto';
     } else {
-       mensagemErroNome.style.display = 'none';
-       produto.nome = inputNomeProduto.value;
-    } if(inputCodigoBarras == '' || inputCodigoBarras == null) {
-           mensagemErroCodigoBarras.textContent = 'Digite o codigo de barras'
-           mensagemErro.style.display = 'block';
-    }
+        mensagemErroNome.style.display = 'none';
+        produto.nome = inputNomeProduto.value;
+    } if (inputCodigoBarras.value == '' || inputCodigoBarras.value == null) {
+        mensagemErroCodigoBarras.textContent = 'Digite o codigo de barras'
+        mensagemErroCodigoBarras.style.display = 'block';
+    } else {
+        produto.codigoBarras = inputCodigoBarras.value;
+        mensagemErroCodigoBarras.style.display = 'none';
+
+    } if (inputQuantidade.value == 0) {
+        mensagemErroQuantidade.textContent = 'Selecione a Quantidade';
+        mensagemErroQuantidade.style.display = 'block';
+
+    } else {
+        mensagemErroQuantidade.style.display = 'none';
+        produto.quantidade = inputQuantidade.value;
+    } 
 
 
 
 
-    
-   
-    produto.codigoBarras = inputCodigoBarras.value;
-    produto.quantidade = inputQuantidade.value;
+
+
+
+
     produto.custo = removeSimboloMoeda(inputCusto.value);
     produto.preco = removeSimboloMoeda(inputPreco.value);
     produto.descricao = textAreaDescricaoProduto.value;
