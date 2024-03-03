@@ -1,3 +1,6 @@
+
+
+
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -110,11 +113,66 @@ iconeMais.addEventListener('click', function () {
     console.log(inputQuantidade.value);
 });
 
-setTimeout(() => {
-    inputCusto.addEventListener('input', function () {
-        console.log(inputCusto.value)
+
+function formataValorDeMoeda(valor) {
+
+    if (isNaN(valor)) {
+        return
+
+    }
+    // Converte o valor para um número de ponto flutuante
+    const novoValor = parseFloat(valor);
+
+    // Cria um objeto formatador de números para o idioma português brasileiro e a moeda real brasileiro
+    const formatoMoeda = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
     });
-}, 100);
+
+    // Formata o valor e retorna a string formatada
+    return formatoMoeda.format(novoValor);
+}
+
+
+
+inputCusto.addEventListener('keyup', (event) => {
+
+
+
+
+    // Obtém o valor digitado no input
+    const valorDigitado = event.target.value;
+
+    // Formata o valor digitado
+    const valorFormatado = formataValorDeMoeda(valorDigitado);
+
+    if (inputCusto.value.length >= 6) {
+
+        // Atualiza o valor do input com o valor formatado
+        inputCusto.value = valorFormatado;
+
+
+
+    } else if (inputCusto.value.length >= 4) {
+
+        setTimeout(() => {
+            // Atualiza o valor do input com o valor formatado
+            inputCusto.value = valorFormatado;
+
+        }, 1000);
+
+
+
+
+    }
+
+
+
+
+});
+
+
+
 
 function zerarValores() {
     imagemArquivo.src = ''
@@ -179,7 +237,7 @@ function criarDadosProduto(produto) {
 
     if (inputNomeProduto.value.length > 0 &&
         imagemArquivo.src != 'http://127.0.0.1:5500/produtos.html' &&
-        inputCodigoBarras.value.length > 0 && inputQuantidade.value  > 0 
+        inputCodigoBarras.value.length > 0 && inputQuantidade.value > 0
     ) {
 
         const itemDaLista = criarItemLista(produto);
@@ -274,16 +332,6 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
 
 
-function formataValorDeMoeda(lingua, paisOrigem, valor) {
-    if (!isNaN(valor)) {
-        const formatoMoeda = new Intl.NumberFormat(lingua, {
-            style: 'currency',
-            currency: paisOrigem,
-        });
-        return formatoMoeda.format(valor);
-    }
-    return 0;
-}
 
 function removeSimboloMoeda(valor) {
     let valorSemSimbolo = valor.replace('R$', '').trim();
@@ -295,5 +343,19 @@ function removeVirgulaDeMoedas(valor) {
     let moedaSemVirgula = moeda.replace(',', '.');
     return moedaSemVirgula;
 }
+
+
+function testandoTimeOut() {
+    for (let index = 0; index < 10; index++) {
+        setTimeout(() => {
+
+        }, 2000);
+
+    }
+}
+
+
+
+
 
 

@@ -1,376 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-      rel='stylesheet'>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/estilios.css">
-    <link rel="stylesheet" href="./css/produtos.css">
-    <title>Produtos</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/estilios.css">
+  <link rel="stylesheet" href="./css/produtos.css">
+  <title>Produtos</title>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="overlay">
+  <div class="overlay">
+
+  </div>
+
+  <section class="bloco-esquerdo">
+    <div class="bloco-esquerdo__empresa">
+      <div class="bloco-esquerdo__empresa-bloco">
+        <div class="info-propietario">
+          <section class="bloco-esquerdo__empresa-logo__propietario">
+            <img src alt class="imagem-empresa">
+
+          </section>
+          <section class="bloco-esquerdo__titulo-subtitulo">
+            <p class="bloco-esquerdo__titulo-subtitulo-titulo-empresa">Reparo
+              de Celulares</p>
+            <p class="bloco-esquerdo__titulo-subtitulo-titulo-empresa-subtitulo">Cleber</p>
+
+          </section>
+        </div>
+
+      </div>
+
+      <div class="bloco-esquerdo__empresa-bloco-configuracoes">
+        <ul class="bloco-esquerdo__empresa-bloco-configuracoes-lista">
+          <li class="bloco-esquerdo__empresa-bloco-configuracoes-item__lista">
+            <a href class="bloco-esquerdo__empresa-bloco-configuracoes__link">
+              <i class='bx bx-cog'></i>
+              <p class="bloco-esquerdo__empresa-bloco-configuracoes__texto">Configuraçoes</p>
+
+            </a>
+          </li>
+          <li class="bloco-esquerdo__empresa-bloco-configuracoes-item__lista">
+            <a href class="bloco-esquerdo__empresa-bloco-configuracoes__link">
+              <i class='bx bx-plus-circle'></i>
+              <p class="bloco-esquerdo__empresa-bloco-configuracoes__texto">Adicionar
+                outro negocio</p>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+    <div class="bloco-movimentos">
+      <ul class="bloco-movimentos__lista">
+        <li class="bloco-movimentos__item-lista">
+          <a href="./index.html" class="bloco-movimentos__link">
+            <i class='bx bx-shopping-bag'></i>
+            <p class="bloco-movimentos__titulo">Movimentos</p>
+          </a>
+        </li>
+
+        <li class="bloco-movimentos__item-lista">
+          <a href class="bloco-movimentos__link">
+            <i class='bx bx-wallet'></i>
+            <p class="bloco-movimentos__titulo">Produtos</p>
+          </a>
+        </li>
+
+        <li class="bloco-movimentos__item-lista">
+          <a href class="bloco-movimentos__link">
+            <i class='bx bx-face'></i>
+            <p class="bloco-movimentos__titulo">Funcionarios</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="bloco-gerenciar">
+      <ul class="bloco-gerenciar__lista">
+        <p class="bloco-gerenciar__titulo">Gerencie Seus Contatos</p>
+        <li class="bloco-gerenciar__item-lista">
+          <a href class="bloco-gerenciar__link">
+            <i class='bx bx-user'></i>
+            <p class="bloco-gerenciar__texto">Clientes</p>
+          </a>
+        </li>
+
+        <li class="bloco-gerenciar__item-lista">
+          <a href class="bloco-gerenciar__link">
+            <i class='bx bx-car'></i>
+            <p class="bloco-gerenciar__texto">Fornecedores</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="bloco-termos">
+      <ul class="bloco-termos__item">
+        <li class="bloco-termos__item-lista"><a href class="bloco-termos__link">
+            <i class='bx bx-book'></i>
+            <p class="bloclo-termos__titulo">Termos e condiçoes</p>
+          </a>
+        </li>
+
+        <li class="bloco-termos__item-lista"><a href class="bloco-termos__link">
+            <i class='bx bx-x-circle'></i>
+            <p class="bloclo-termos__titulo">Politica de Privacidade</p>
+          </a>
+        </li>
+
+        <li class="bloco-termos__item-lista"><a href class="bloco-termos__link">
+            <i class='bx bx-arrow-from-left icone-sair'></i>
+            <p class="bloclo-termos__titulo">Sair</p>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </section>
+  <!-- BLOCO ESQUERDO -->
+  <section class="bloco-principal">
+    <div class="cabecalho">
+      <div class="container">
+        <div class="cabecalho-bloco">
+          <h2 class="cabecalho__titulo">Inventario
+          </h2>
+          <div class="cabecalho__conjunto-botoes">
+
+            <button class="cabecalho__btn cabecalho__btn--fechamento">
+              <i class='bx bx-printer'></i>
+              <p class="cabecalho__btn-titulo">Fechar caixa</p>
+            </button>
+
+            <button class="cabecalho__btn cabecalho__btn--venda btn-branco">
+
+              <p class="cabecalho__btn-titulo ">Criar categoria</p>
+            </button>
+
+            <button class="cabecalho__btn cabecalho__btn--despesa" id="cabecalho__btn--despesa-js">
+              <p class="cabecalho__btn-titulo">Adcionar produtos</p>
+            </button>
+
+          </div>
+        </div>
+      </div>
 
     </div>
 
-    <section class="bloco-esquerdo">
-      <div class="bloco-esquerdo__empresa">
-        <div class="bloco-esquerdo__empresa-bloco">
-          <div class="info-propietario">
-            <section class="bloco-esquerdo__empresa-logo__propietario">
-              <img src alt class="imagem-empresa">
+    <div class="conteudo-principal ">
+
+      <div class="container">
+        <div class="pesquisa-produto">
+
+          <div class="pesquisa-produto__bloco-container">
+            <section class="pesquisa-produto__bloco">
+              <i class='bx bx-search'></i>
+              <input type="text" class="pesquisa-produto__input" placeholder="Pesquisar produto...">
+            </section>
+            <section class="pesquisa-produto__btn-leitor-bloco">
+              <button class="pesquisa-produto__btn-btn">
+                <i class='bx bx-barcode-reader'></i>
+                <p class="pesquisa-produto__btn-btn-text">Ativar leitor</p>
+
+              </button>
 
             </section>
-            <section class="bloco-esquerdo__titulo-subtitulo">
-              <p class="bloco-esquerdo__titulo-subtitulo-titulo-empresa">Reparo
-                de Celulares</p>
-              <p
-                class="bloco-esquerdo__titulo-subtitulo-titulo-empresa-subtitulo">Cleber</p>
-
-            </section>
-          </div>
-
-        </div>
-
-        <div class="bloco-esquerdo__empresa-bloco-configuracoes">
-          <ul class="bloco-esquerdo__empresa-bloco-configuracoes-lista">
-            <li class="bloco-esquerdo__empresa-bloco-configuracoes-item__lista">
-              <a href class="bloco-esquerdo__empresa-bloco-configuracoes__link">
-                <i class='bx bx-cog'></i>
-                <p
-                  class="bloco-esquerdo__empresa-bloco-configuracoes__texto">Configuraçoes</p>
-
-              </a>
-            </li>
-            <li class="bloco-esquerdo__empresa-bloco-configuracoes-item__lista">
-              <a href class="bloco-esquerdo__empresa-bloco-configuracoes__link">
-                <i class='bx bx-plus-circle'></i>
-                <p
-                  class="bloco-esquerdo__empresa-bloco-configuracoes__texto">Adicionar
-                  outro negocio</p>
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-      <div class="bloco-movimentos">
-        <ul class="bloco-movimentos__lista">
-          <li class="bloco-movimentos__item-lista">
-            <a href="./index.html" class="bloco-movimentos__link">
-              <i class='bx bx-shopping-bag'></i>
-              <p class="bloco-movimentos__titulo">Movimentos</p>
-            </a>
-          </li>
-
-          <li class="bloco-movimentos__item-lista">
-            <a href class="bloco-movimentos__link">
-              <i class='bx bx-wallet'></i>
-              <p class="bloco-movimentos__titulo">Produtos</p>
-            </a>
-          </li>
-
-          <li class="bloco-movimentos__item-lista">
-            <a href class="bloco-movimentos__link">
-              <i class='bx bx-face'></i>
-              <p class="bloco-movimentos__titulo">Funcionarios</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="bloco-gerenciar">
-        <ul class="bloco-gerenciar__lista">
-          <p class="bloco-gerenciar__titulo">Gerencie Seus Contatos</p>
-          <li class="bloco-gerenciar__item-lista">
-            <a href class="bloco-gerenciar__link">
-              <i class='bx bx-user'></i>
-              <p class="bloco-gerenciar__texto">Clientes</p>
-            </a>
-          </li>
-
-          <li class="bloco-gerenciar__item-lista">
-            <a href class="bloco-gerenciar__link">
-              <i class='bx bx-car'></i>
-              <p class="bloco-gerenciar__texto">Fornecedores</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="bloco-termos">
-        <ul class="bloco-termos__item">
-          <li class="bloco-termos__item-lista"><a href
-              class="bloco-termos__link">
-              <i class='bx bx-book'></i>
-              <p class="bloclo-termos__titulo">Termos e condiçoes</p>
-            </a>
-          </li>
-
-          <li class="bloco-termos__item-lista"><a href
-              class="bloco-termos__link">
-              <i class='bx bx-x-circle'></i>
-              <p class="bloclo-termos__titulo">Politica de Privacidade</p>
-            </a>
-          </li>
-
-          <li class="bloco-termos__item-lista"><a href
-              class="bloco-termos__link">
-              <i class='bx bx-arrow-from-left icone-sair'></i>
-              <p class="bloclo-termos__titulo">Sair</p>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-
-    </section>
-    <!-- BLOCO ESQUERDO -->
-    <section class="bloco-principal">
-      <div class="cabecalho">
-        <div class="container">
-          <div class="cabecalho-bloco">
-            <h2 class="cabecalho__titulo">Inventario
-            </h2>
-            <div class="cabecalho__conjunto-botoes">
-
-              <button class="cabecalho__btn cabecalho__btn--fechamento">
+            <section class="pesquisa-produto__btn-leitor-bloco">
+              <button class="pesquisa-produto__btn-btn">
                 <i class='bx bx-printer'></i>
-                <p class="cabecalho__btn-titulo">Fechar caixa</p>
-              </button>
+                <p class="pesquisa-produto__btn-btn-text">Ativar
+                  impressora</p>
 
-              <button class="cabecalho__btn cabecalho__btn--venda btn-branco">
+            </section>
+            <section class="pesquisa-produto__inventario">
 
-                <p class="cabecalho__btn-titulo ">Criar categoria</p>
-              </button>
+            </section>
+          </div>
 
-              <button class="cabecalho__btn cabecalho__btn--despesa"
-                id="cabecalho__btn--despesa-js">
-                <p class="cabecalho__btn-titulo">Adcionar produtos</p>
-              </button>
+          <div class="pesquisa-produto-categorias">
 
+            <div class="pesquisa-produto-categorias__inventario-bloco">
+              <i class='bx bx-wallet'></i>
+              <div class="pesquisa-produto-categorias-bloco">
+                <p class="pesquisa-produto-categorias__referencias-titulo">Total
+                  de Referencias</p>
+                <span class="pesquisa-produto-categorias__referencias-valor">0</span>
+              </div>
             </div>
+
+            <div class="pesquisa-produto-categorias__inventario-bloco">
+              <i class='bx bx-money'></i>
+              <div class="pesquisa-produto-categorias-bloco">
+                <p class="pesquisa-produto-categorias__referencias-titulo">Custo
+                  total do produto</p>
+                <span class="pesquisa-produto-categorias__referencias-valor" id="js-custo-produto">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pesquisa-produto-produto">
+            <ul class="pesquisa-produto-produto__lista">
+
+            </ul>
           </div>
         </div>
 
       </div>
+    </div>
 
-      <div class="conteudo-principal ">
+    <!-- BLOCO FlUTUANTE -->
+    <div class="bloco-funtutante-venda">
 
-        <div class="container">
-          <div class="pesquisa-produto">
+      <div class="container-bloco-flutuante">
 
-            <div class="pesquisa-produto__bloco-container">
-              <section class="pesquisa-produto__bloco">
-                <i class='bx bx-search'></i>
-                <input type="text" class="pesquisa-produto__input"
-                  placeholder="Pesquisar produto...">
+        <div class="container-bloco-venda__conjunto-bloco">
+          <div class="bloco-funtutante-venda__superior">
+            <h2 class="bloco-funtutante-venda__superior-titulo">Adicionar
+              Produto</h2>
+            <i class='bx bxs-x-circle botao-fechar-js'></i>
+
+          </div>
+          <div class="conjunto-barra-scrool-e-btn">
+            <div class="bloco-flutuante-venda__barra-scrrol">
+
+              <label for="escolha-arquivo" class="bloco-flutuante-venda__arquivo" id="label-arquivo">
+                <i class='bx bxs-up-arrow-alt '></i>
+                Carregar imagem
+                <input type="file" id="escolha-arquivo" accept="image/*" class="capiturar-produto"
+                  accept=".jpg. , .jpeg , .png ">
+              </label>
+              <div class="bloco-flutuante-venda__bloco-imagem">
+                <img src alt class="bloco-flutuante-venda__imagem-imagem" id="imagem-arquivo">
+
+              </div>
+
+              <p class="bloco-flutuante-venda__mensagem-erro-imagem">Selecione a imagem</p>
+              <p class="container-bloco-flutuante__titulo-imagem">Recomendamos
+                que a imagem tenha tamanho
+                de 500 x 500 px no formato PNG e pese no máximo 2MB.</p>
+
+              <section class="bloco-flutuante-venda__arquivo-info">
+                <p class="bloco-flutuante-venda__nome-produto titulo-input">Nome
+                  do produto*</p>
+                <p class="bloco-flutuante-venda__lembrete subtitulo-input">Lembre-se,
+                  isso deve ser
+                  único em seu
+                  inventário</p>
+                <input type="text" class="bloco-flutuante-venda__produto-input estilos__input"
+                  placeholder="Escreva o nome do produto">
+                <p class="bloco-flutuante-venda__mensagem-erro"></p>
               </section>
-              <section class="pesquisa-produto__btn-leitor-bloco">
-                <button class="pesquisa-produto__btn-btn">
+
+              <section class="bloco-flutuante-venda__codigo-barras">
+                <p class="bloco-flutuante-venda__codigo-barras__titulo titulo-input">Codigo
+                  de Barras
+                </p>
+                <p class="bloco-flutuante-venda__codigo-barras__subtitulo subtitulo-input">Escreva
+                  ou
+                  digitalize</p>
+                <div class="bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--codigo-barras">
+                  <input type="text" class="bloco-flutuante-venda__codigo-barras__input " placeholder="0000000000000">
                   <i class='bx bx-barcode-reader'></i>
-                  <p class="pesquisa-produto__btn-btn-text">Ativar leitor</p>
+                </div>
 
-                </button>
+                <p class="bloco-flutuante-venda__mensagem-erro-codigo-barras"></p>
+              </section>
+
+              <section class="bloco-flutuante-venda__quantidade">
+                <p class="bloco-flutuante-venda__quantidade-titulo titulo-input">Quantidade
+                  disponivel
+                </p>
+                <div class="bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--quantidade">
+                  <i class='bx bx-minus-circle icone-menos-js'></i>
+                  <input type="number" class="bloco-flutuante-venda__quantidade__input quantidade__input-js " value="0">
+                  <i class='bx bx-plus-circle icone-mais-js'></i>
+                </div>
+
+                <p class="bloco-flutuante-venda__mensagem-erro-quantidade"></p>
 
               </section>
-              <section class="pesquisa-produto__btn-leitor-bloco">
-                <button class="pesquisa-produto__btn-btn">
-                  <i class='bx bx-printer'></i>
-                  <p class="pesquisa-produto__btn-btn-text">Ativar
-                    impressora</p>
 
-                </section>
-                <section class="pesquisa-produto__inventario">
+              <section class="bloco-flutuante-venda__custo">
+                <p class="bloco-flutuante-venda__custo__titulo titulo-input">Custo
+                  unitario</p>
+                <p class="bloco-flutuante-venda__custo__subtitulo subtitulo-input">Valor
+                  que você paga ao fornecedor
+                  pelo produto</p>
+                <div class="bloco-flutuante-venda__input-bloco">
 
-                </section>
-              </div>
+                  <input type="text" class="bloco-flutuante-venda__custo__input estilos__input" placeholder="R$ 0.00"
+                    dir="ltr" mask="R$ 000.000.000,00">
 
-              <div class="pesquisa-produto-categorias">
-
-                <div class="pesquisa-produto-categorias__inventario-bloco">
-                  <i class='bx bx-wallet'></i>
-                  <div class="pesquisa-produto-categorias-bloco">
-                    <p
-                      class="pesquisa-produto-categorias__referencias-titulo">Total
-                      de Referencias</p>
-                    <span
-                      class="pesquisa-produto-categorias__referencias-valor">0</span>
-                  </div>
                 </div>
+              </section>
 
-                <div class="pesquisa-produto-categorias__inventario-bloco">
-                  <i class='bx bx-money'></i>
-                  <div class="pesquisa-produto-categorias-bloco">
-                    <p
-                      class="pesquisa-produto-categorias__referencias-titulo">Custo
-                      total do produto</p>
-                    <span
-                      class="pesquisa-produto-categorias__referencias-valor" id="js-custo-produto">0</span>
-                  </div>
+              <section class="bloco-flutuante-venda__preco">
+                <p class="bloco-flutuante-venda__preco__titulo titulo-input">Preço</p>
+                <p class="bloco-flutuante-venda__preco__subtitulo subtitulo-input">Valor
+                  que voce ira vender</p>
+                <div class="bloco-flutuante-venda__input-bloco">
+                  <input type="text" class="bloco-flutuante-venda__preco__input estilos__input" placeholder="R$ 0.00">
+
                 </div>
-              </div>
+              </section>
 
-              <div class="pesquisa-produto-produto">
-                <ul class="pesquisa-produto-produto__lista">
-                 
-                </ul>
-              </div>
+              <section class="bloco-flutuante-venda__descricao">
+                <p class="bloco-flutuante-venda__descricao__titulo titulo-input">Descrição</p>
+                <div class="bloco-flutuante-venda__input-bloco">
+                  <textarea name id cols="30" rows="10"
+                    class="bloco-flutuante-venda__descricao-produto estilos__textarea "
+                    placeholder="Adicione uma descricao"></textarea>
+                </div>
+              </section>
+
             </div>
 
           </div>
         </div>
 
-        <!-- BLOCO FlUTUANTE -->
-        <div class="bloco-funtutante-venda">
+        <button class="bloco-flutuante-venda__botao-adicionar">
+          <p class="bloco-flutuante-venda__botao-texto">Criar produto</p>
+        </button>
+      </div>
 
-          <div class="container-bloco-flutuante">
+    </div>
 
-            <div class="container-bloco-venda__conjunto-bloco">
-              <div class="bloco-funtutante-venda__superior">
-                <h2 class="bloco-funtutante-venda__superior-titulo">Adicionar
-                  Produto</h2>
-                <i class='bx bxs-x-circle botao-fechar-js'></i>
+    <script type="module" src="./js/overlay.js"></script>
+    <script src="./js/teste.js"></script>
 
-              </div>
-              <div class="conjunto-barra-scrool-e-btn">
-                <div class="bloco-flutuante-venda__barra-scrrol">
+</body>
 
-                  <label for="escolha-arquivo"
-                    class="bloco-flutuante-venda__arquivo" id="label-arquivo">
-                    <i class='bx bxs-up-arrow-alt '></i>
-                    Carregar imagem
-                    <input type="file" id="escolha-arquivo" accept="image/*"
-                      class="capiturar-produto"
-                      accept=".jpg. , .jpeg , .png ">
-                  </label>
-                  <div class="bloco-flutuante-venda__bloco-imagem">
-                    <img src alt class="bloco-flutuante-venda__imagem-imagem"
-                      id="imagem-arquivo">
-
-                  </div>
-
-                  <p class="bloco-flutuante-venda__mensagem-erro-imagem">Selecione a imagem</p>
-                  <p
-                    class="container-bloco-flutuante__titulo-imagem">Recomendamos
-                    que a imagem tenha tamanho
-                    de 500 x 500 px no formato PNG e pese no máximo 2MB.</p>
-
-                  <section class="bloco-flutuante-venda__arquivo-info">
-                    <p
-                      class="bloco-flutuante-venda__nome-produto titulo-input">Nome
-                      do produto*</p>
-                    <p
-                      class="bloco-flutuante-venda__lembrete subtitulo-input">Lembre-se,
-                      isso deve ser
-                      único em seu
-                      inventário</p>
-                    <input type="text"
-                      class="bloco-flutuante-venda__produto-input estilos__input"
-                      placeholder="Escreva o nome do produto">
-                    <p class="bloco-flutuante-venda__mensagem-erro"></p>
-                  </section>
-
-                  <section class="bloco-flutuante-venda__codigo-barras">
-                    <p
-                      class="bloco-flutuante-venda__codigo-barras__titulo titulo-input">Codigo
-                      de Barras
-                    </p>
-                    <p
-                      class="bloco-flutuante-venda__codigo-barras__subtitulo subtitulo-input">Escreva
-                      ou
-                      digitalize</p>
-                    <div
-                      class="bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--codigo-barras">
-                      <input type="text"
-                        class="bloco-flutuante-venda__codigo-barras__input "
-                        placeholder="0000000000000">
-                      <i class='bx bx-barcode-reader'></i>
-                    </div>
-
-                    <p class="bloco-flutuante-venda__mensagem-erro-codigo-barras"></p>
-                  </section>
-
-                  <section class="bloco-flutuante-venda__quantidade">
-                    <p
-                      class="bloco-flutuante-venda__quantidade-titulo titulo-input">Quantidade
-                      disponivel
-                    </p>
-                    <div
-                      class="bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--quantidade">
-                      <i class='bx bx-minus-circle icone-menos-js'></i>
-                      <input type="number"
-                        class="bloco-flutuante-venda__quantidade__input quantidade__input-js "
-                        value="0">
-                      <i class='bx bx-plus-circle icone-mais-js'></i>
-                    </div>
-
-                    <p class="bloco-flutuante-venda__mensagem-erro-quantidade"></p>
-
-                  </section>
-
-                  <section class="bloco-flutuante-venda__custo">
-                    <p
-                      class="bloco-flutuante-venda__custo__titulo titulo-input">Custo
-                      unitario</p>
-                    <p
-                      class="bloco-flutuante-venda__custo__subtitulo subtitulo-input">Valor
-                      que você paga ao fornecedor
-                      pelo produto</p>
-                    <div class="bloco-flutuante-venda__input-bloco">
-
-                      <input type="text"
-                        class="bloco-flutuante-venda__custo__input estilos__input"
-                        placeholder="R$ 0.00">
-
-                    </div>
-                  </section>
-
-                  <section class="bloco-flutuante-venda__preco">
-                    <p
-                      class="bloco-flutuante-venda__preco__titulo titulo-input">Preço</p>
-                    <p
-                      class="bloco-flutuante-venda__preco__subtitulo subtitulo-input">Valor
-                      que voce ira vender</p>
-                    <div class="bloco-flutuante-venda__input-bloco">
-                      <input type="text"
-                        class="bloco-flutuante-venda__preco__input estilos__input"
-                        placeholder="R$ 0.00">
-
-                    </div>
-                  </section>
-
-                  <section class="bloco-flutuante-venda__descricao">
-                    <p
-                      class="bloco-flutuante-venda__descricao__titulo titulo-input">Descrição</p>
-                    <div class="bloco-flutuante-venda__input-bloco">
-                      <textarea name id cols="30" rows="10"
-                        class="bloco-flutuante-venda__descricao-produto estilos__textarea "
-                        placeholder="Adicione uma descricao"></textarea>
-                    </div>
-                  </section>
-
-                </div>
-
-              </div>
-            </div>
-
-            <button class="bloco-flutuante-venda__botao-adicionar">
-              <p class="bloco-flutuante-venda__botao-texto">Criar produto</p>
-            </button>
-          </div>
-
-        </div>
-
-        <script type="module" src="./js/overlay.js"></script>
-        <script src="./js/teste.js"></script>
-
-      </body>
-
-    </html>
+</html>
