@@ -1,6 +1,7 @@
 
 
 
+
 const overlay = document.querySelector(".overlay");
 const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
 const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
@@ -116,61 +117,31 @@ iconeMais.addEventListener('click', function () {
 
 function formataValorDeMoeda(valor) {
 
-    if (isNaN(valor)) {
-        return
-
+    if (isNaN(valor) || undefined) {
+        valor = '';
     }
-    // Converte o valor para um número de ponto flutuante
-    const novoValor = parseFloat(valor);
 
-    // Cria um objeto formatador de números para o idioma português brasileiro e a moeda real brasileiro
+    // let novoValor = parseFloat(valor);
+
     const formatoMoeda = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     });
-
     // Formata o valor e retorna a string formatada
-    return formatoMoeda.format(novoValor);
+    return formatoMoeda.format(valor);
 }
 
+inputCusto.addEventListener('change', (event) => {
 
+    let valorDigitado = event.target.value;
 
-inputCusto.addEventListener('keyup', (event) => {
+     let tempoDigitado = inputCusto.value.length;
 
-
-
-
-    // Obtém o valor digitado no input
-    const valorDigitado = event.target.value;
-
-    // Formata o valor digitado
-    const valorFormatado = formataValorDeMoeda(valorDigitado);
-
-    if (inputCusto.value.length >= 6) {
-
-        // Atualiza o valor do input com o valor formatado
-        inputCusto.value = valorFormatado;
-
-
-
-    } else if (inputCusto.value.length >= 4) {
-
-        setTimeout(() => {
-            // Atualiza o valor do input com o valor formatado
-            inputCusto.value = valorFormatado;
-
-        }, 1000);
-
-
-
-
+     if(inputCusto.value.length > 0) {
+        inputCusto.value = formataValorDeMoeda(valorDigitado);
     }
 
-
-
-
-});
-
+  })
 
 
 
@@ -344,18 +315,4 @@ function removeVirgulaDeMoedas(valor) {
     return moedaSemVirgula;
 }
 
-
-function testandoTimeOut() {
-    for (let index = 0; index < 10; index++) {
-        setTimeout(() => {
-
-        }, 2000);
-
-    }
-}
-
-
-
-
-
-
+  
