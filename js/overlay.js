@@ -309,10 +309,12 @@ function removeSimboloMoeda(valor) {
     return valorSemSimbolo;
 }
 
-function removeVirgulaDeMoedas(valor) {
+function removeSimboloEVirgula(moeda) {
     let moeda = removeSimboloMoeda(valor);
     let moedaSemVirgula = moeda.replace(',', '.');
     return moedaSemVirgula;
 }
 
-  
+let valor = 'R$ 300,00';
+let valorConvertido = removeSimboloEVirgula(valor)
+console.log(valorConvertido)
