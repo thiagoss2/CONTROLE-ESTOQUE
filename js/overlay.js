@@ -316,13 +316,13 @@ function removeSimboloEVirgula(valor) {
     return moedaSemVirgula;
 }
 
-let valor = 'R$ 1200.00,00';
-let valorConvertido = removeSimboloEVirgula(valor);
-let valorMultiplicado = valorConvertido * 2;
-console.log(valorMultiplicado);
+let valor = 'R$ 1200.00,01';
+let valorSemSimbolo = removeSimboloEVirgula(valor);
+let valorInteiro = parseFloat(valorSemSimbolo);
+console.log(valorInteiro)
 
 
-// VERIFICAR A ORIENTAÇÃO A OBJETOS
+VERIFICAR A ORIENTAÇÃO A OBJETOS
 
 class Produto {
     constructor(imagem, nome, codigoBarras, quantidade, custo, preco, descricao) {
@@ -365,6 +365,8 @@ class Produto {
       // ...
     }
   }
+
+  
   
   function criarItemLista(produto) {
     // ...
@@ -393,3 +395,13 @@ class Produto {
     // ...
   });
   
+  class ValidadorDeProduto {
+
+  }
+
+  const validadorDeProduto = new ValidadorDeProduto();
+
+validadorDeProduto.validarProdutos(produto);
+
+const criadorDeProduto = new CriadorDeProduto(produto , );
+
