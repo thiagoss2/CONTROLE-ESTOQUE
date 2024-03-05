@@ -304,17 +304,92 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
 
 
-function removeSimboloMoeda(valor) {
+function removeSimboloMoeda(valor) {    
     let valorSemSimbolo = valor.replace('R$', '').trim();
     return valorSemSimbolo;
 }
 
-function removeSimboloEVirgula(moeda) {
+// Devolve um number
+function removeSimboloEVirgula(valor) {
     let moeda = removeSimboloMoeda(valor);
     let moedaSemVirgula = moeda.replace(',', '.');
     return moedaSemVirgula;
 }
 
-let valor = 'R$ 300,00';
-let valorConvertido = removeSimboloEVirgula(valor)
-console.log(valorConvertido)
+let valor = 'R$ 1200.00,00';
+let valorConvertido = removeSimboloEVirgula(valor);
+let valorMultiplicado = valorConvertido * 2;
+console.log(valorMultiplicado);
+
+
+// VERIFICAR A ORIENTAÇÃO A OBJETOS
+
+class Produto {
+    constructor(imagem, nome, codigoBarras, quantidade, custo, preco, descricao) {
+      this.imagem = imagem;
+      this.nome = nome;
+      this.codigoBarras = codigoBarras;
+      this.quantidade = quantidade;
+      this.custo = custo;
+      this.preco = preco;
+      this.descricao = descricao;
+    }
+  
+    formatarCusto() {
+      // ...
+    }
+  
+    formatarPreco() {
+      // ...
+    }
+  }
+  
+  class ManipuladorDOM {
+    constructor() {
+      // ...
+    }
+  
+    obterElemento(seletor) {
+      // ...
+    }
+  
+    inserirElemento(elemento, container) {
+      // ...
+    }
+  
+    removerElemento(elemento) {
+      // ...
+    }
+  
+    adicionarEvento(elemento, evento, callback) {
+      // ...
+    }
+  }
+  
+  function criarItemLista(produto) {
+    // ...
+  }
+  
+  function atualizarCustoTotal() {
+    // ...
+  }
+  
+  // ...
+  
+  const manipuladorDOM = new ManipuladorDOM();
+  
+  const produtos = [
+    new Produto(...),
+    new Produto(...),
+    // ...
+  ];
+  
+  produtos.forEach((produto) => {
+    const itemLista = criarItemLista(produto);
+    manipuladorDOM.inserirElemento(itemLista, listaProdutos);
+  });
+  
+  manipuladorDOM.adicionarEvento(botaoAdicionar, 'click', () => {
+    // ...
+  });
+  
