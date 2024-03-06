@@ -320,88 +320,89 @@ let valor = 'R$ 1200.00,01';
 let valorSemSimbolo = removeSimboloEVirgula(valor);
 let valorInteiro = parseFloat(valorSemSimbolo);
 console.log(valorInteiro)
+ 
 
+//   VERIFICAR A ORIENTAÇÃO A OBJETOS
 
-VERIFICAR A ORIENTAÇÃO A OBJETOS
-
-class Produto {
-    constructor(imagem, nome, codigoBarras, quantidade, custo, preco, descricao) {
-      this.imagem = imagem;
-      this.nome = nome;
-      this.codigoBarras = codigoBarras;
-      this.quantidade = quantidade;
-      this.custo = custo;
-      this.preco = preco;
-      this.descricao = descricao;
-    }
+// class Produto {
+//     constructor(imagem, nome, codigoBarras, quantidade, custo, preco, descricao) {
+//       this.imagem = imagem;
+//       this.nome = nome;
+//       this.codigoBarras = codigoBarras;
+//       this.quantidade = quantidade;
+//       this.custo = custo;
+//       this.preco = preco;
+//       this.descricao = descricao;
+//     }
   
-    formatarCusto() {
-      // ...
-    }
+//     formatarCusto() {
+//       // ...
+//     }
   
-    formatarPreco() {
-      // ...
-    }
-  }
+//     formatarPreco() {
+//       // ...
+//     }
+//   }
   
-  class ManipuladorDOM {
-    constructor() {
-      // ...
-    }
+//   class ManipuladorDOM {
+//     constructor() {
+//       // ...
+//     }
   
-    obterElemento(seletor) {
-      // ...
-    }
+//     obterElemento(seletor) {
+//       // ...
+//     }
   
-    inserirElemento(elemento, container) {
-      // ...
-    }
+//     inserirElemento(elemento, container) {
+//       // ...
+//     }
   
-    removerElemento(elemento) {
-      // ...
-    }
+//     removerElemento(elemento) {
+//       // ...
+//     }
   
-    adicionarEvento(elemento, evento, callback) {
-      // ...
-    }
-  }
+//     adicionarEvento(elemento, evento, callback) {
+//       // ...
+//     }
+//   }
 
   
   
-  function criarItemLista(produto) {
-    // ...
-  }
+//   function criarItemLista(produto) {
+//     // ...
+//   }
   
-  function atualizarCustoTotal() {
-    // ...
-  }
+//   function atualizarCustoTotal() {
+//     // ...
+//   }
   
-  // ...
+//   // ...
   
-  const manipuladorDOM = new ManipuladorDOM();
+//   const manipuladorDOM = new ManipuladorDOM();
   
-  const produtos = [
-    new Produto(...),
-    new Produto(...),
-    // ...
-  ];
+//   const produtos = [
+//     new Produto(...),
+//     new Produto(...),
+//     // ...
+//   ];
   
-  produtos.forEach((produto) => {
-    const itemLista = criarItemLista(produto);
-    manipuladorDOM.inserirElemento(itemLista, listaProdutos);
-  });
+//   produtos.forEach((produto) => {
+//     const itemLista = criarItemLista(produto);
+//     manipuladorDOM.inserirElemento(itemLista, listaProdutos);
+//   });
   
-  manipuladorDOM.adicionarEvento(botaoAdicionar, 'click', () => {
-    // ...
-  });
+//   manipuladorDOM.adicionarEvento(botaoAdicionar, 'click', () => {
+//     // ...
+//   });
   
-  class ValidadorDeProduto {
+//   class ValidadorDeProduto {
 
-  }
+//   }
 
-  const validadorDeProduto = new ValidadorDeProduto();
+// const validadorDeProduto = new ValidadorDeProduto();
+// validadorDeProduto.validarProdutos(produto);
 
-validadorDeProduto.validarProdutos(produto);
+// validadorDeProduto.validarProdutos(produto);
 
-const criadorDeProduto = new CriadorDeProduto(produto , );
+// const criadorDeProduto = new CriadorDeProduto(produto , );
 

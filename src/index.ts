@@ -5,4 +5,3 @@ function soma(a: number, b: number): number  {
 
 let result : number = soma(12 , 13);
 
-console.log(result);
