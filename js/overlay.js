@@ -301,7 +301,31 @@ function adicionaCustoDoProduto(listaDeProdutos) {
     console.log(acumulaValoresCusto);
 }
 
-
+function buscarProdutos (nomeProduto) {
+  const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
+  let quantidadeProdutos = containerProdutos.children.length;
+  let carateresJuntos = '';
+  if(quantidadeProdutos > 0) {
+    
+    const produtos = containerProdutos.querySelectorAll('.pesquisa-produto-produto__item-lista');
+     for(let indice = 0 ; indice < produtos.length; indice++) {
+       let nomesProdutos = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
+         if(nomesProdutos.length <= nomeProduto.length ) {
+            produtos[indice].style.display = 'block';
+        }  if(nomeProduto.length == nomesProdutos.length) {
+            produtos[indice].style.display = 'none';  
+             if (nomeProduto == nomesProdutos){
+                produtos[indice].style.display = 'block'
+             }
+          }       
+    }
+  }
+}
+let barraPesquisa = document.querySelector('.pesquisa-produto__input');
+console.log(barraPesquisa.value)
+barraPesquisa.addEventListener('keyup' , function () {
+    buscarProdutos(barraPesquisa.value);
+});
 
 
 function removeSimboloMoeda(valor) {    
