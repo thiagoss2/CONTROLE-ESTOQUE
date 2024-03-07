@@ -301,25 +301,34 @@ function adicionaCustoDoProduto(listaDeProdutos) {
     console.log(acumulaValoresCusto);
 }
 
-function buscarProdutos (nomeProduto) {
-  const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
-  let quantidadeProdutos = containerProdutos.children.length;
-  let carateresJuntos = '';
-  if(quantidadeProdutos > 0) {
-    
-    const produtos = containerProdutos.querySelectorAll('.pesquisa-produto-produto__item-lista');
-     for(let indice = 0 ; indice < produtos.length; indice++) {
-       let nomesProdutos = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
-         if(nomesProdutos.length <= nomeProduto.length ) {
-            produtos[indice].style.display = 'block';
-        }  if(nomeProduto.length == nomesProdutos.length) {
+function buscarProdutos (nomeProduto)   {
+    const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
+    let quantidadeProdutos = containerProdutos.children.length;
+    let carateresJuntos = '';
+    let produtosDiferentes = [];
+    if(quantidadeProdutos > 0) {
+      
+      const produtos = containerProdutos.querySelectorAll('.pesquisa-produto-produto__item-lista');
+       for(let indice = 0 ; indice < produtos.length; indice++) {
+         let nomesProdutos = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
+         produtos[indice].style.display = 'none';  
+         if( nomeProduto  != nomesProdutos) {
             produtos[indice].style.display = 'none';  
-             if (nomeProduto == nomesProdutos){
-                produtos[indice].style.display = 'block'
+              produtosDiferentes[indice] = produtos[indice];    
+         }  else {
+          let produto = produtos[indice];
+          produto.style.border =  '3px solid red'
+         }
+  
+         if(nomeProduto.length >=0 && nomeProduto.length <= nomesProdutos.length)  {
+       
+             produtos[indice].style.display = 'block';
+             for( let indice = 0 ; indice < produtos.length; indice++) {   
              }
-          }       
+          }
+      
+        }
     }
-  }
 }
 let barraPesquisa = document.querySelector('.pesquisa-produto__input');
 console.log(barraPesquisa.value)
