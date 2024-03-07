@@ -303,38 +303,38 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
 function buscarProdutos (nomeProduto)   {
     const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
-    let quantidadeProdutos = containerProdutos.children.length;
-    let carateresJuntos = '';
-    let produtosDiferentes = [];
+    let quantidadeProdutos = containerProdutos.children.length; 
     if(quantidadeProdutos > 0) {
       
       const produtos = containerProdutos.querySelectorAll('.pesquisa-produto-produto__item-lista');
        for(let indice = 0 ; indice < produtos.length; indice++) {
-         let nomesProdutos = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
-         produtos[indice].style.display = 'none';  
+         let nomesProdutos = [] 
+        nomesProdutos [indice] = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
+         produtos[indice].style.display = 'none'; 
          produtos[indice].style.border = '1px solid black';
-         if(nomeProduto.length == 0) {
-            produtos[indice].style.display = 'block';  
-         }
-         if(nomeProduto.length >=0 && nomeProduto.length <= nomesProdutos.length)  {
-             
-              for(let indice = 0 ; indice < produtos.length; indice++){
-                 if(nomeProduto == produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent ) {
-                    console.log(produtos[indice]);
-                    produtos[indice].style.display = 'block';   
 
-                 }
+         if( nomeProduto.length >= 0 || nomeProduto != '')  {
+            produtos[indice].style.display = 'block'; 
+         }if(  nomeProduto == 
+                produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent) {
+                 let produto = produtos[indice];
+                 produto.style.display = 'block';
+                 console.log(produto);
+    
+                 
+         } if(nomeProduto.length != nomesProdutos[indice].textContent && (! nomeProduto.includes(nomesProdutos[indice].textContent)) ) {
+               console.log(produtos[indice]);
 
-              }
-             
-          }
-      
-        }
+         }  
+         
+        
+
+       }
     }
 }
 let barraPesquisa = document.querySelector('.pesquisa-produto__input');
 console.log(barraPesquisa.value)
-barraPesquisa.addEventListener('keyup' , function () {
+barraPesquisa.addEventListener('change' , function () {
     buscarProdutos(barraPesquisa.value);
 });
 
@@ -354,8 +354,19 @@ function removeSimboloEVirgula(valor) {
 let valor = 'R$ 1200.00,01';
 let valorSemSimbolo = removeSimboloEVirgula(valor);
 let valorInteiro = parseFloat(valorSemSimbolo);
-console.log(valorInteiro)
+console.log(valorInteiro);
+
+
+function funcaoTeste(a) {
+
+    for(let i = 1 ; i == a ; i++) {
+
+      console.log('numero de vezes' + i);
+    }
+
+}
  
+funcaoTeste(5);
 
 //   VERIFICAR A ORIENTAÇÃO A OBJETOS
 
