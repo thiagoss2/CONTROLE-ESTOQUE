@@ -312,19 +312,21 @@ function buscarProdutos (nomeProduto)   {
        for(let indice = 0 ; indice < produtos.length; indice++) {
          let nomesProdutos = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
          produtos[indice].style.display = 'none';  
-         if( nomeProduto  != nomesProdutos) {
-            produtos[indice].style.display = 'none';  
-              produtosDiferentes[indice] = produtos[indice];    
-         }  else {
-          let produto = produtos[indice];
-          produto.style.border =  '3px solid red'
+         produtos[indice].style.border = '1px solid black';
+         if(nomeProduto.length == 0) {
+            produtos[indice].style.display = 'block';  
          }
-  
          if(nomeProduto.length >=0 && nomeProduto.length <= nomesProdutos.length)  {
-       
-             produtos[indice].style.display = 'block';
-             for( let indice = 0 ; indice < produtos.length; indice++) {   
-             }
+             
+              for(let indice = 0 ; indice < produtos.length; indice++){
+                 if(nomeProduto == produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent ) {
+                    console.log(produtos[indice]);
+                    produtos[indice].style.display = 'block';   
+
+                 }
+
+              }
+             
           }
       
         }
