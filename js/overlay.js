@@ -301,40 +301,34 @@ function adicionaCustoDoProduto(listaDeProdutos) {
     console.log(acumulaValoresCusto);
 }
 
-function buscarProdutos (nomeProduto)   {
+function buscarProdutos (nomeBuscado)   {
     const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
     let quantidadeProdutos = containerProdutos.children.length; 
+    let nomesProdutos = []
     if(quantidadeProdutos > 0) {
       
       const produtos = containerProdutos.querySelectorAll('.pesquisa-produto-produto__item-lista');
        for(let indice = 0 ; indice < produtos.length; indice++) {
-         let nomesProdutos = [] 
-        nomesProdutos [indice] = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
+        let nomes = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
+        nomesProdutos.push(nomes); 
          produtos[indice].style.display = 'none'; 
          produtos[indice].style.border = '1px solid black';
-
-         if( nomeProduto.length >= 0 || nomeProduto != '')  {
-            produtos[indice].style.display = 'block'; 
-         }if(  nomeProduto == 
-                produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent) {
+         if( nomeBuscado.length >= 0 || nomeBuscado != '') {
+           produtos[indice].style.display = 'block'; 
+         }if(nomeBuscado.includes(nomesProdutos[indice])) {
                  let produto = produtos[indice];
                  produto.style.display = 'block';
-                 console.log(produto);
-    
-                 
-         } if(nomeProduto.length != nomesProdutos[indice].textContent && (! nomeProduto.includes(nomesProdutos[indice].textContent)) ) {
-               console.log(produtos[indice]);
-
-         }  
+                 produto.style.border = '2px solid red'
+                 console.log(produto); 
+                 break;   
+         } 
          
-        
-
        }
     }
+       
 }
 let barraPesquisa = document.querySelector('.pesquisa-produto__input');
-console.log(barraPesquisa.value)
-barraPesquisa.addEventListener('change' , function () {
+barraPesquisa.addEventListener('keyup' , function () {
     buscarProdutos(barraPesquisa.value);
 });
 
@@ -344,17 +338,7 @@ function removeSimboloMoeda(valor) {
     return valorSemSimbolo;
 }
 
-// Devolve um number
-function removeSimboloEVirgula(valor) {
-    let moeda = removeSimboloMoeda(valor);
-    let moedaSemVirgula = moeda.replace(',', '.');
-    return moedaSemVirgula;
-}
-
-let valor = 'R$ 1200.00,01';
-let valorSemSimbolo = removeSimboloEVirgula(valor);
-let valorInteiro = parseFloat(valorSemSimbolo);
-console.log(valorInteiro);
+// 
 
 
 function funcaoTeste(a) {
@@ -366,6 +350,27 @@ function funcaoTeste(a) {
 
 }
  
+testarMultiplo();
+
+function testarMultiplo () {
+    
+
+const MULTIPLO = 12;
+let result = 0;
+let  acumulador = 0
+
+
+for( let indice = 1 ; indice <= 84 ; indice++)  {
+         result = indice * MULTIPLO;
+         acumulador += result;
+
+       if( acumulador >= 60  &&  acumulador <= 84 ) {
+          console.log(acumulador);           
+       }
+  }
+
+
+}
 funcaoTeste(5);
 
 //   VERIFICAR A ORIENTAÇÃO A OBJETOS
