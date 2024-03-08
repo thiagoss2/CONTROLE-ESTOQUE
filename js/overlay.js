@@ -303,36 +303,45 @@ function adicionaCustoDoProduto(listaDeProdutos) {
 
 function buscarProdutos (nomeBuscado)   {
     const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
+    const produtosNodeList = containerProdutos.querySelectorAll('li');
+    const produtos = Array.from(produtosNodeList);
     let quantidadeProdutos = containerProdutos.children.length; 
-    let nomesProdutos = []
+    let acumuladorLetras = '';
+    console.log(acumuladorLetras);
+
     if(quantidadeProdutos > 0) {
-      
-      const produtos = containerProdutos.querySelectorAll('.pesquisa-produto-produto__item-lista');
-       for(let indice = 0 ; indice < produtos.length; indice++) {
-        let nomes = produtos[indice].querySelector('.pesquisa-produto-produto__nome').textContent;
-        nomesProdutos.push(nomes); 
-         produtos[indice].style.display = 'none'; 
-         produtos[indice].style.border = '1px solid black';
-         if( nomeBuscado.length >= 0 || nomeBuscado != '') {
-           produtos[indice].style.display = 'block'; 
-         }if(nomeBuscado.includes(nomesProdutos[indice])) {
-                 let produto = produtos[indice];
-                 produto.style.display = 'block';
-                 produto.style.border = '2px solid red'
-                 console.log(produto); 
-                 break;   
-         } 
-         
-       }
+
+        for(let indice = 0 ; indice < nomeBuscado.length ; indice++) {
+
+            acumuladorLetras += nomeBuscado.charAt(indice); 
+
+            for(let index = 0 ; index < produtos.length ; index++) {
+               let quantidadeCaractere = acumuladorLetras.length;
+               let nomeProdutos = 
+               produtos[index].querySelector('.pesquisa-produto-produto__nome').textContent;
+               let produtosTextoSubSring = 
+                     nomeProdutos.substring(0 , quantidadeCaractere); 
+                  
+                     produtos[index].style.display = 'none';
+
+                if(acumuladorLetras == produtosTextoSubSring) {
+                    produtos[index].style.display = 'block';
+                    
+                } 
+                
+            }
+        }
     }
-       
 }
 let barraPesquisa = document.querySelector('.pesquisa-produto__input');
 barraPesquisa.addEventListener('keyup' , function () {
     buscarProdutos(barraPesquisa.value);
 });
 
+function buscaStringPeloIndice(IndiceInicial ,indiceFinal ) {
 
+
+}
 function removeSimboloMoeda(valor) {    
     let valorSemSimbolo = valor.replace('R$', '').trim();
     return valorSemSimbolo;
