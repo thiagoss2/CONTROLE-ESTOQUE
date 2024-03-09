@@ -307,7 +307,8 @@ function buscarProdutos (nomeBuscado)   {
     const produtos = Array.from(produtosNodeList);
     let quantidadeProdutos = containerProdutos.children.length; 
     let acumuladorLetras = '';
-    console.log(acumuladorLetras);
+        
+
 
     if(quantidadeProdutos > 0) {
 
@@ -315,20 +316,37 @@ function buscarProdutos (nomeBuscado)   {
 
             acumuladorLetras += nomeBuscado.charAt(indice); 
 
+            console.log(acumuladorLetras)
+
             for(let index = 0 ; index < produtos.length ; index++) {
                let quantidadeCaracteres = acumuladorLetras.length;
                let nomeProdutos = 
                produtos[index].querySelector('.pesquisa-produto-produto__nome').textContent;
                let produtosTextoSubSring = 
                      nomeProdutos.substring(0 , quantidadeCaracteres); 
-                  
-                     produtos[index].style.display = 'none';
 
-                if(acumuladorLetras == produtosTextoSubSring) {
-                    produtos[index].style.display = 'block';
-                } 
+                  if(acumuladorLetras.length < 0) {
+                      console.log('teste')
+                  }   
+
+                if(acumuladorLetras != produtosTextoSubSring) {
+                  //  let produto = produtos[index];
+                 //   produto.style.display = 'block'
+                 produtos[index].style.display = 'none';        
+                } else {
+                 //   produtos[index].style.display = 'none'; 
+                }
+              
+                
             }
+             
         }
+         produtos.forEach((emelent , index) => {
+            if(nomeBuscado.length === 0) {
+                produtos[index].style.display = 'block';   
+            } 
+         });
+         
     }
 }
 let barraPesquisa = document.querySelector('.pesquisa-produto__input');
