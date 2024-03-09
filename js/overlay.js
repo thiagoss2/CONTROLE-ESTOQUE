@@ -1,399 +1,363 @@
+    const overlay = document.querySelector(".overlay");
+    const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
+    const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
+    const botaoFechar = document.querySelector(".botao-fechar-js");
+    const iconeMenos = document.querySelector(".icone-menos-js");
+    const iconeMais = document.querySelector(".icone-mais-js")
+    const inputQuantidade = document.querySelector('.bloco-flutuante-venda__quantidade__input');
+    const inputCusto = document.querySelector('.bloco-flutuante-venda__custo__input');
+    const inputArquivo = document.querySelector('.capiturar-produto');
+    const imagemArquivo = document.getElementById('imagem-arquivo');
+    const labelEscolhaArquivo = document.getElementById('label-arquivo');
+    const inputNomeProduto = document.querySelector('.bloco-flutuante-venda__produto-input');
+    const inputCodigoBarras = document.querySelector('.bloco-flutuante-venda__codigo-barras__input')
+    const inputPreco = document.querySelector('.bloco-flutuante-venda__preco__input');
+    const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
+    const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
+    const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
+    const quantidadeReferencias = document.querySelector('.total-referencias');
+    const custoPrecoProduto = document.getElementById('js-custo-produto');
+
+    let armazemProdutos = [];
+    let quantidadeProdutos = 0;
+    let custoProduto = 0;
+    let produto = {};
+
+    let acumulaValoresCusto = [];
+
+
+    // async function verificarElementos() {
+    //     const listaUl = document.querySelector(".pesquisa-produto-produto__lista");
+    //     const numElementos = listaUl.querySelectorAll("li").length;
+
+    //     if (numElementos > 0) {
+    //       for(let i = 0 ; i < numElementos.length; i++) {
+    //         console.log('fazendo a leitura ' +  i);
+
+    //       }
+    //       console.log("Executando código porque há elementos na lista!");
+    //       console.log('quantidade de elementos ' + numElementos);
+    //     } else {
+    //       console.log("Nenhum elemento na lista, aguardando...");
+    //       await new Promise(resolve => setTimeout(resolve, 100)); // Aguarda 100ms
+    //       verificarElementos(); // Chama a função novamente para verificar
+    //     }
+    //   }
+
+    //   verificarElementos();
 
 
 
-
-const overlay = document.querySelector(".overlay");
-const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
-const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
-const botaoFechar = document.querySelector(".botao-fechar-js");
-const iconeMenos = document.querySelector(".icone-menos-js");
-const iconeMais = document.querySelector(".icone-mais-js")
-const inputQuantidade = document.querySelector('.bloco-flutuante-venda__quantidade__input');
-const inputCusto = document.querySelector('.bloco-flutuante-venda__custo__input');
-const inputArquivo = document.querySelector('.capiturar-produto');
-const imagemArquivo = document.getElementById('imagem-arquivo');
-const labelEscolhaArquivo = document.getElementById('label-arquivo');
-const inputNomeProduto = document.querySelector('.bloco-flutuante-venda__produto-input');
-const inputCodigoBarras = document.querySelector('.bloco-flutuante-venda__codigo-barras__input')
-const inputPreco = document.querySelector('.bloco-flutuante-venda__preco__input');
-const textAreaDescricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto');
-const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
-const produtoElementoContainer = document.querySelector('.pesquisa-produto-produto__lista');
-const quantidadeReferencias = document.querySelector('.total-referencias');
-const custoPrecoProduto = document.getElementById('js-custo-produto');
-
-let armazemProdutos = [];
-let quantidadeProdutos = 0;
-let custoProduto = 0;
-let produto = {};
-
-let acumulaValoresCusto = [];
+    botaoAdicionarProduto.addEventListener('click', function () {
 
 
-// async function verificarElementos() {
-//     const listaUl = document.querySelector(".pesquisa-produto-produto__lista");
-//     const numElementos = listaUl.querySelectorAll("li").length;
-
-//     if (numElementos > 0) {
-//       for(let i = 0 ; i < numElementos.length; i++) {
-//         console.log('fazendo a leitura ' +  i);
-
-//       }
-//       console.log("Executando código porque há elementos na lista!");
-//       console.log('quantidade de elementos ' + numElementos);
-//     } else {
-//       console.log("Nenhum elemento na lista, aguardando...");
-//       await new Promise(resolve => setTimeout(resolve, 100)); // Aguarda 100ms
-//       verificarElementos(); // Chama a função novamente para verificar
-//     }
-//   }
-
-//   verificarElementos();
+        criarDadosProduto(produto);
+        console.log(inputNomeProduto.value);
 
 
 
-botaoAdicionarProduto.addEventListener('click', function () {
+    })
 
+    inputArquivo.addEventListener('change', function (event) {
+        if (inputArquivo.files && inputArquivo.files[0]) {
 
-    criarDadosProduto(produto);
-    console.log(inputNomeProduto.value);
+            const arquivo = inputArquivo.files[0];
+            const reader = new FileReader();
+            // o contexto le o arquivo como um caminho  url
+            reader.readAsDataURL(arquivo);
 
+            reader.onload = function (event) {
+                imagemArquivo.src = event.target.result;
+            }
+        } if (imagemArquivo) {
+            imagemArquivo.style.display = 'block'
+            labelEscolhaArquivo.style.display = 'none';
 
-
-})
-
-inputArquivo.addEventListener('change', function (event) {
-    if (inputArquivo.files && inputArquivo.files[0]) {
-
-        const arquivo = inputArquivo.files[0];
-        const reader = new FileReader();
-        // o contexto le o arquivo como um caminho  url
-        reader.readAsDataURL(arquivo);
-
-        reader.onload = function (event) {
-            imagemArquivo.src = event.target.result;
+            console.log(imagemArquivo.src)
         }
-    } if (imagemArquivo) {
-        imagemArquivo.style.display = 'block'
-        labelEscolhaArquivo.style.display = 'none';
+    });
 
-        console.log(imagemArquivo.src)
+    overlay.addEventListener("click", function () {
+
+        overlay.style.display = "none";
+        blocoFlutunte.style.display = "none";
+    })
+
+    botaoAdicionar.addEventListener("click", function () {
+        overlay.style.display = "block";
+        blocoFlutunte.style.display = "block";
+    })
+    botaoFechar.addEventListener('click', function () {
+
+        overlay.style.display = "none";
+        blocoFlutunte.style.display = "none";
+        zerarValores();
+    });
+
+    iconeMenos.addEventListener('click', function () {
+
+        inputQuantidade.value--;
+
+        if (inputQuantidade.value <= 0) {
+            inputQuantidade.value = 0;
+        }
+    })
+
+    iconeMais.addEventListener('click', function () {
+
+        quantidadeProdutos++
+        inputQuantidade.value++;
+        console.log(inputQuantidade.value);
+    });
+
+
+    function formataValorDeMoeda(valor) {
+
+        if (isNaN(valor) || undefined) {
+            valor = '';
+        }
+
+        // let novoValor = parseFloat(valor);
+
+        const formatoMoeda = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        });
+        // Formata o valor e retorna a string formatada
+        return formatoMoeda.format(valor);
     }
-});
 
-overlay.addEventListener("click", function () {
+    inputCusto.addEventListener('change', (event) => {
 
-    overlay.style.display = "none";
-    blocoFlutunte.style.display = "none";
-})
+        let valorDigitado = event.target.value;
 
-botaoAdicionar.addEventListener("click", function () {
-    overlay.style.display = "block";
-    blocoFlutunte.style.display = "block";
-})
-botaoFechar.addEventListener('click', function () {
+        let tempoDigitado = inputCusto.value.length;
 
-    overlay.style.display = "none";
-    blocoFlutunte.style.display = "none";
-    zerarValores();
-});
+        if(inputCusto.value.length > 0) {
+            inputCusto.value = formataValorDeMoeda(valorDigitado);
+        }
 
-iconeMenos.addEventListener('click', function () {
+    })
 
-    inputQuantidade.value--;
 
-    if (inputQuantidade.value <= 0) {
+
+    function zerarValores() {
+        imagemArquivo.src = ''
+        labelEscolhaArquivo.style.display = 'block';
+        imagemArquivo.style.display = 'none';
+        inputNomeProduto.value = '';
+        inputCodigoBarras.value = 0;
+        inputCusto.value = 0;
+        inputPreco.value = 0
+        textAreaDescricaoProduto.textContent = '';
         inputQuantidade.value = 0;
     }
-})
 
-iconeMais.addEventListener('click', function () {
+    function insereProdutoNaTela(produto) {
 
-    quantidadeProdutos++
-    inputQuantidade.value++;
-    console.log(inputQuantidade.value);
-});
-
-
-function formataValorDeMoeda(valor) {
-
-    if (isNaN(valor) || undefined) {
-        valor = '';
+        produtoElementoContainer.appendChild(produto);
     }
 
-    // let novoValor = parseFloat(valor);
+    function criarDadosProduto(produto) {
+        const mensagemErro =
+            document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
+        const mensagemErroNome =
+            document.querySelector('.bloco-flutuante-venda__mensagem-erro');
 
-    const formatoMoeda = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-    });
-    // Formata o valor e retorna a string formatada
-    return formatoMoeda.format(valor);
-}
+        const mensagemErroCodigoBarras =
+            document.querySelector('.bloco-flutuante-venda__mensagem-erro-codigo-barras   ');
 
-inputCusto.addEventListener('change', (event) => {
+        const mensagemErroQuantidade =
+            document.querySelector('.bloco-flutuante-venda__mensagem-erro-quantidade');
 
-    let valorDigitado = event.target.value;
+        if (imagemArquivo.src == "http://127.0.0.1:5500/produtos.html" || imagemArquivo == null ||
+            imagemArquivo.src == '') {
+            mensagemErro.style.display = "block";
+            mensagemErro.textContent = 'Selecione a imagem'
 
-     let tempoDigitado = inputCusto.value.length;
+        } else {
+            mensagemErro.style.display = 'none';
+            produto.imagem = imagemArquivo.src;
+            console.log(produto.imagem);
+        } if (inputNomeProduto.value == '') {
 
-     if(inputCusto.value.length > 0) {
-        inputCusto.value = formataValorDeMoeda(valorDigitado);
-    }
+            mensagemErroNome.style.display = 'block';
+            mensagemErroNome.textContent = 'Digite o nome do produto';
+        } else {
+            mensagemErroNome.style.display = 'none';
+            produto.nome = inputNomeProduto.value;
+        } if (inputCodigoBarras.value == '' || inputCodigoBarras.value == null) {
+            mensagemErroCodigoBarras.textContent = 'Digite o codigo de barras'
+            mensagemErroCodigoBarras.style.display = 'block';
+        } else {
+            produto.codigoBarras = inputCodigoBarras.value;
+            mensagemErroCodigoBarras.style.display = 'none';
 
-  })
+        } if (inputQuantidade.value == 0) {
+            mensagemErroQuantidade.textContent = 'Selecione a Quantidade';
+            mensagemErroQuantidade.style.display = 'block';
 
-
-
-function zerarValores() {
-    imagemArquivo.src = ''
-    labelEscolhaArquivo.style.display = 'block';
-    imagemArquivo.style.display = 'none';
-    inputNomeProduto.value = '';
-    inputCodigoBarras.value = 0;
-    inputCusto.value = 0;
-    inputPreco.value = 0
-    textAreaDescricaoProduto.textContent = '';
-    inputQuantidade.value = 0;
-}
-
-function insereProdutoNaTela(produto) {
-
-    produtoElementoContainer.appendChild(produto);
-}
-
-function criarDadosProduto(produto) {
-    const mensagemErro =
-        document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
-    const mensagemErroNome =
-        document.querySelector('.bloco-flutuante-venda__mensagem-erro');
-
-    const mensagemErroCodigoBarras =
-        document.querySelector('.bloco-flutuante-venda__mensagem-erro-codigo-barras   ');
-
-    const mensagemErroQuantidade =
-        document.querySelector('.bloco-flutuante-venda__mensagem-erro-quantidade');
-
-    if (imagemArquivo.src == "http://127.0.0.1:5500/produtos.html" || imagemArquivo == null ||
-        imagemArquivo.src == '') {
-        mensagemErro.style.display = "block";
-        mensagemErro.textContent = 'Selecione a imagem'
-
-    } else {
-        mensagemErro.style.display = 'none';
-        produto.imagem = imagemArquivo.src;
-        console.log(produto.imagem);
-    } if (inputNomeProduto.value == '') {
-
-        mensagemErroNome.style.display = 'block';
-        mensagemErroNome.textContent = 'Digite o nome do produto';
-    } else {
-        mensagemErroNome.style.display = 'none';
-        produto.nome = inputNomeProduto.value;
-    } if (inputCodigoBarras.value == '' || inputCodigoBarras.value == null) {
-        mensagemErroCodigoBarras.textContent = 'Digite o codigo de barras'
-        mensagemErroCodigoBarras.style.display = 'block';
-    } else {
-        produto.codigoBarras = inputCodigoBarras.value;
-        mensagemErroCodigoBarras.style.display = 'none';
-
-    } if (inputQuantidade.value == 0) {
-        mensagemErroQuantidade.textContent = 'Selecione a Quantidade';
-        mensagemErroQuantidade.style.display = 'block';
-
-    } else {
-        mensagemErroQuantidade.style.display = 'none';
-        produto.quantidade = inputQuantidade.value;
-    }
-
-    if (inputNomeProduto.value.length > 0 &&
-        imagemArquivo.src != 'http://127.0.0.1:5500/produtos.html' &&
-        inputCodigoBarras.value.length > 0 && inputQuantidade.value > 0
-    ) {
-
-        const itemDaLista = criarItemLista(produto);
-        insereProdutoNaTela(itemDaLista);
-        // adicionaCustoDoProduto(produtoElementoContainer);
-    }
-
-
-
-
-    produto.custo = removeSimboloMoeda(inputCusto.value);
-    produto.preco = removeSimboloMoeda(inputPreco.value);
-    produto.descricao = textAreaDescricaoProduto.value;
-
-    console.log(produto);
-}
-
-function criarItemLista(produto) {
-    const itemLista = document.createElement('li');
-    itemLista.classList.add('pesquisa-produto-produto__item-lista');
-
-    const link = document.createElement('a');
-    link.classList.add('pesquisa-produto-produto__link');
-    link.href = '#'; // Insira o link do produto aqui
-
-    const imagem = document.createElement('img');
-    imagem.classList.add('pesquisa-produto-produto__imagem');
-    imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
-
-    const preco = document.createElement('h3');
-    preco.classList.add('pesquisa-produto-produto__preco');
-
-    preco.textContent = formataValorDeMoeda('pt-BR', 'BRL', produto.preco);
-
-    const nome = document.createElement('p');
-    nome.classList.add('pesquisa-produto-produto__nome');
-    nome.textContent = produto.nome;
-
-    const custo = document.createElement('p');
-    custo.classList.add('pesquisa-produto-produto__custo');
-    custo.textContent = formataValorDeMoeda('pt-BR', 'BRL', produto.custo);
-
-    const quantidade = document.createElement('p');
-    quantidade.classList.add('pesquisa-produto-produto__quantidade');
-    quantidade.textContent = `${produto.quantidade} disponiveis`;
-
-    // Adicione os elementos filho ao link
-    link.appendChild(imagem);
-    link.appendChild(preco);
-    link.appendChild(custo);
-    link.appendChild(nome);
-    link.appendChild(quantidade);
-
-    // Adicione o link ao elemento `li`
-    itemLista.appendChild(link);
-
-    adicionaEventoNoProduto(itemLista);
-
-
-    return itemLista;
-}
-
-function adicionaEventoNoProduto(itemLista) {
-
-    itemLista.addEventListener('click', function () {
-        console.log('teste')
-    })
-}
-
-function adicionaCustoDoProduto(listaDeProdutos) {
-    let quantidadeProdutos = listaDeProdutos.children.length;
-    let produtos = listaDeProdutos.querySelectorAll('li');
-
-    let somaValores = 0;
-
-    if (quantidadeProdutos > 0) {
-
-        for (let index = 0; index < produtos.length; index++) {
-            const itemLista = listaDeProdutos.querySelector('li');
-            let custoProduto = itemLista.
-                querySelector('.pesquisa-produto-produto__custo').textContent;
-            let custoProdutoSemSimbolo = removeSimboloMoeda(custoProduto);
-            let custoProdutoSemVirgula = removeVirgulaDeMoedas(custoProdutoSemSimbolo);
-
-            somaValores += parseFloat(custoProdutoSemVirgula);
-            console.log(somaValores)
+        } else {
+            mensagemErroQuantidade.style.display = 'none';
+            produto.quantidade = inputQuantidade.value;
         }
+
+        if (inputNomeProduto.value.length > 0 &&
+            imagemArquivo.src != 'http://127.0.0.1:5500/produtos.html' &&
+            inputCodigoBarras.value.length > 0 && inputQuantidade.value > 0
+        ) {
+
+            const itemDaLista = criarItemLista(produto);
+            insereProdutoNaTela(itemDaLista);
+            // adicionaCustoDoProduto(produtoElementoContainer);
+        }
+
+
+
+
+        produto.custo = removeSimboloMoeda(inputCusto.value);
+        produto.preco = removeSimboloMoeda(inputPreco.value);
+        produto.descricao = textAreaDescricaoProduto.value;
+
+        console.log(produto);
     }
 
-    console.log(acumulaValoresCusto);
-}
+    function criarItemLista(produto) {
+        const itemLista = document.createElement('li');
+        itemLista.classList.add('pesquisa-produto-produto__item-lista');
 
-function buscarProdutos (nomeBuscado)   {
-    const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
-    const produtosNodeList = containerProdutos.querySelectorAll('li');
-    const produtos = Array.from(produtosNodeList);
-    let quantidadeProdutos = containerProdutos.children.length; 
-    let acumuladorLetras = '';
-        
+        const link = document.createElement('a');
+        link.classList.add('pesquisa-produto-produto__link');
+        link.href = '#'; // Insira o link do produto aqui
+
+        const imagem = document.createElement('img');
+        imagem.classList.add('pesquisa-produto-produto__imagem');
+        imagem.src = produto.imagem; // Insira a URL da imagem do produto aqui
+
+        const preco = document.createElement('h3');
+        preco.classList.add('pesquisa-produto-produto__preco');
+
+        preco.textContent = formataValorDeMoeda('pt-BR', 'BRL', produto.preco);
+
+        const nome = document.createElement('p');
+        nome.classList.add('pesquisa-produto-produto__nome');
+        nome.textContent = produto.nome;
+
+        const custo = document.createElement('p');
+        custo.classList.add('pesquisa-produto-produto__custo');
+        custo.textContent = formataValorDeMoeda('pt-BR', 'BRL', produto.custo);
+
+        const quantidade = document.createElement('p');
+        quantidade.classList.add('pesquisa-produto-produto__quantidade');
+        quantidade.textContent = `${produto.quantidade} disponiveis`;
+
+        // Adicione os elementos filho ao link
+        link.appendChild(imagem);
+        link.appendChild(preco);
+        link.appendChild(custo);
+        link.appendChild(nome);
+        link.appendChild(quantidade);
+
+        // Adicione o link ao elemento `li`
+        itemLista.appendChild(link);
+
+        adicionaEventoNoProduto(itemLista);
 
 
-    if(quantidadeProdutos > 0) {
+        return itemLista;
+    }
 
-        for(let indice = 0 ; indice < nomeBuscado.length ; indice++) {
+    function adicionaEventoNoProduto(itemLista) {
 
-            acumuladorLetras += nomeBuscado.charAt(indice); 
+        itemLista.addEventListener('click', function () {
+            console.log('teste')
+        })
+    }
 
-            console.log(acumuladorLetras)
+    function adicionaCustoDoProduto(listaDeProdutos) {
+        let quantidadeProdutos = listaDeProdutos.children.length;
+        let produtos = listaDeProdutos.querySelectorAll('li');
 
-            for(let index = 0 ; index < produtos.length ; index++) {
-               let quantidadeCaracteres = acumuladorLetras.length;
-               let nomeProdutos = 
-               produtos[index].querySelector('.pesquisa-produto-produto__nome').textContent;
-               let produtosTextoSubSring = 
-                     nomeProdutos.substring(0 , quantidadeCaracteres); 
+        let somaValores = 0;
 
-                  if(acumuladorLetras.length < 0) {
-                      console.log('teste')
-                  }   
+        if (quantidadeProdutos > 0) {
 
-                if(acumuladorLetras != produtosTextoSubSring) {
-                 
-                 setTimeout(() => {
-                    produtos[index].style.display = 'none';     
-                 }, 100);        
-                } 
+            for (let index = 0; index < produtos.length; index++) {
+                const itemLista = listaDeProdutos.querySelector('li');
+                let custoProduto = itemLista.
+                    querySelector('.pesquisa-produto-produto__custo').textContent;
+                let custoProdutoSemSimbolo = removeSimboloMoeda(custoProduto);
+                let custoProdutoSemVirgula = removeVirgulaDeMoedas(custoProdutoSemSimbolo);
+
+                somaValores += parseFloat(custoProdutoSemVirgula);
+                console.log(somaValores)
             }
-             
         }
-         produtos.forEach((emelent , index) => {
-            if(nomeBuscado.length === 0) {
-                produtos[index].style.display = 'block';   
-            } 
-         });
-         
+
+        console.log(acumulaValoresCusto);
     }
-}
-let barraPesquisa = document.querySelector('.pesquisa-produto__input');
-barraPesquisa.addEventListener('keyup' , function () {
-    buscarProdutos(barraPesquisa.value);
-});
 
-function buscaStringPeloIndice(IndiceInicial ,indiceFinal ) {
+    function buscarProdutos (nomeBuscado)   {
+        const containerProdutos = document.querySelector('.pesquisa-produto-produto__lista');
+        const produtosNodeList = containerProdutos.querySelectorAll('li');
+        const produtos = Array.from(produtosNodeList);
+        let quantidadeProdutos = containerProdutos.children.length; 
+        let acumuladorLetras = '';
+            
+              
+      atualizarProdutos(produtos , nomeBuscado);
 
+        if(quantidadeProdutos > 0) {
 
-}
-function removeSimboloMoeda(valor) {    
-    let valorSemSimbolo = valor.replace('R$', '').trim();
-    return valorSemSimbolo;
-}
+            for(let indice = 0 ; indice < nomeBuscado.length ; indice++) {
+
+                acumuladorLetras += nomeBuscado.charAt(indice); 
+
+                console.log(acumuladorLetras)
+
+                for(let index = 0 ; index < produtos.length ; index++) {
+                let quantidadeCaracteres = acumuladorLetras.length;
+                let nomeProdutos = 
+                produtos[index].querySelector('.pesquisa-produto-produto__nome').textContent;
+                let produtosTextoSubSring = 
+                        nomeProdutos.substring(0 , quantidadeCaracteres); 
+
+                    if(acumuladorLetras.length < 0) {
+                        console.log('teste')
+                    }   
+
+                    if(acumuladorLetras != produtosTextoSubSring) {
+                    
+                    setTimeout(() => {
+                        produtos[index].style.display = 'none';     
+                    }, 100);        
+                    } 
+                }
+                
+            }
+        
+        }
+    }
+    let barraPesquisa = document.querySelector('.pesquisa-produto__input');
+    barraPesquisa.addEventListener('keyup' , function () {
+        buscarProdutos(barraPesquisa.value);
+    });
+
+    function removeSimboloMoeda(valor) {    
+        let valorSemSimbolo = valor.replace('R$', '').trim();
+        return valorSemSimbolo;
+    }
+    function atualizarProdutos(produtos , nomeBuscado) {
+        produtos.forEach((emelent , index) => {
+            if(nomeBuscado.length === 0) {
+                produtos[index].style.display = 'block';  
+            } 
+        });
+    }
 
 // 
 
 
-function funcaoTeste(a) {
-
-    for(let i = 1 ; i == a ; i++) {
-
-      console.log('numero de vezes' + i);
-    }
-
-}
- 
-testarMultiplo();
-
-function testarMultiplo () {
-    
-
-const MULTIPLO = 12;
-let result = 0;
-let  acumulador = 0
-
-
-for( let indice = 1 ; indice <= 84 ; indice++)  {
-         result = indice * MULTIPLO;
-         acumulador += result;
-
-       if( acumulador >= 60  &&  acumulador <= 84 ) {
-          console.log(acumulador);           
-       }
-  }
-
-
-}
-funcaoTeste(5);
 
 //   VERIFICAR A ORIENTAÇÃO A OBJETOS
 

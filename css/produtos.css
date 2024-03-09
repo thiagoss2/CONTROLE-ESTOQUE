@@ -272,14 +272,6 @@
     line-height: 1.2;
 }
 
-/* SEÇÃO 1 */
-.bloco-flutuante-venda__arquivo-info {}
-
-
-
-
-
-
 
 .bloco-flutuante-venda__mensagem-erro {
     margin-bottom: 10px;
@@ -288,7 +280,7 @@
     color: red;
     display: none;
 }
-}
+
 
 
 
