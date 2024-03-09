@@ -316,19 +316,17 @@ function buscarProdutos (nomeBuscado)   {
             acumuladorLetras += nomeBuscado.charAt(indice); 
 
             for(let index = 0 ; index < produtos.length ; index++) {
-               let quantidadeCaractere = acumuladorLetras.length;
+               let quantidadeCaracteres = acumuladorLetras.length;
                let nomeProdutos = 
                produtos[index].querySelector('.pesquisa-produto-produto__nome').textContent;
                let produtosTextoSubSring = 
-                     nomeProdutos.substring(0 , quantidadeCaractere); 
+                     nomeProdutos.substring(0 , quantidadeCaracteres); 
                   
                      produtos[index].style.display = 'none';
 
                 if(acumuladorLetras == produtosTextoSubSring) {
                     produtos[index].style.display = 'block';
-                    
                 } 
-                
             }
         }
     }
