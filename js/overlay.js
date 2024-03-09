@@ -335,7 +335,7 @@
                 }
                 
             }
-        
+                    
         }
     }
     let barraPesquisa = document.querySelector('.pesquisa-produto__input');
