@@ -1,0 +1,6 @@
+class ManipuladorDOM {
+    constructor() {
+        
+    }
+    
+}
