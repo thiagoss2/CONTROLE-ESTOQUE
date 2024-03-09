@@ -330,14 +330,11 @@ function buscarProdutos (nomeBuscado)   {
                   }   
 
                 if(acumuladorLetras != produtosTextoSubSring) {
-                  //  let produto = produtos[index];
-                 //   produto.style.display = 'block'
-                 produtos[index].style.display = 'none';        
-                } else {
-                 //   produtos[index].style.display = 'none'; 
-                }
-              
-                
+                 
+                 setTimeout(() => {
+                    produtos[index].style.display = 'none';     
+                 }, 100);        
+                } 
             }
              
         }
