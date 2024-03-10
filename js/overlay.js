@@ -127,16 +127,48 @@
         return formatoMoeda.format(valor);
     }
 
-    inputCusto.addEventListener('change', (event) => {
+    inputCusto.addEventListener('keyup', (event) => {
 
-        let valorDigitado = event.target.value;
+        let custoTotal = inputCusto.value;
+        let valor = '';
 
-        let tempoDigitado = inputCusto.value.length;
+          if(inputCusto.value.length > 0 && inputCusto.value.length <= 2) {
+            setTimeout(() => {
+                valor = formataValorDeMoeda(custoTotal);
+                inputCusto.value = valor;
+             
+            }, 1000); 
 
-        if(inputCusto.value.length > 0) {
-            inputCusto.value = formataValorDeMoeda(valorDigitado);
-        }
+          } else if(inputCusto.value.length == 3) {
+            setTimeout(() => {
+                valor = formataValorDeMoeda(custoTotal);
+                inputCusto.value = valor;
+             
+            }, 1500);
 
+          }  else if(inputCusto.value.length ==  4) {
+            setTimeout(() => {
+                valor = formataValorDeMoeda(custoTotal);
+                inputCusto.value = valor;
+              
+            }, 500);
+          }
+
+        
+
+    
+
+        // if(inputCusto.value.length == 2) {       
+        //     setTimeout(() => {
+        //         inputCusto.value = formataValorDeMoeda(valorDigitado);
+        //          console.log('aguardando um tempo')
+        //     }, 500);   
+        // } else if (inputCusto.value.length > 3) {
+        //     setTimeout(() => {
+        //         inputCusto.value = formataValorDeMoeda(valorDigitado);
+        //          console.log('aguardando um tempo')
+        //     }, 1000);   
+        // }
     })
 
 
