@@ -180,36 +180,13 @@
 }
 
 .bloco-flutuante-venda__barra-scrrol {
-    overflow-y: scroll;
-    margin-bottom: 40px;
-    height: 500px;
+   
+    height: 830px;
+
 
 }
 
 
-@media screen and (min-height:1200px) {
-    .bloco-flutuante-venda__barra-scrrol {
-        overflow-y: unset;
-
-        height: unset
-    }
-}
-
-
-
-@media screen and (min-height:768px) {
-    .bloco-flutuante-venda__barra-scrrol {
-
-        height: 740px;
-    }
-}
-
-@media screen and (min-height:708px) {
-    .bloco-flutuante-venda__barra-scrrol {
-
-        height: 500px;
-    }
-}
 
 .bloco-flutuante-venda__arquivo {
     border: none;
@@ -564,4 +541,96 @@
     color: #91A1B0;
     font-size: 14px;
 
+}
+
+
+@media screen and (max-height:1046px) {
+    .bloco-flutuante-venda__barra-scrrol {
+
+        height: 800px;
+    }
+
+  
+}
+@media screen and (max-height:1021px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 700px;
+    }
+
+    
+}
+
+@media screen and (max-height:911px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 700px;
+    }
+
+   
+}
+
+@media screen and (max-height:886px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 654px;
+    }
+
+
+}
+@media screen and (max-height:858px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 626px;
+    }
+
+  
+}
+@media screen and (max-height:823px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 600px;
+    }
+
+  
+}
+@media screen and (max-height:783px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 550px;
+    }
+
+  
+
+@media screen and (max-height:728px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 463px;
+    }
+
+   
+}
+
+@media screen and (max-height:650px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 428px;
+    }
+
+ 
+}
+@media screen and (max-height:615px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 420px;
+    }
+
+  
+@media screen and (max-height:600px) {
+    .bloco-flutuante-venda__barra-scrrol {
+        overflow-y: scroll;
+        height: 409px;
+    }
+
+   
 }
