@@ -1,5 +1,19 @@
 class ValidadorDeProduto {
+    
+    
+    
     constructor() {
+
+     
+    const imagemSrc = document.querySelector('.capiturar-produto');
+    const nomeProdutoInput = document.querySelector('bloco-flutuante-venda__produto-input estilos__input');
+    const codigoBarrasProduto = document.querySelector('.bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--codigo-barras');
+    const quantidadeProduto = document.querySelector('.bloco-flutuante-venda__input-bloco bloco-flutuante-venda__input-bloco--quantidade')
+    const custoProduto = document.querySelector('.bloco-flutuante-venda__custo__input estilos__input');
+    const precoProduto = document.querySelector('.bloco-flutuante-venda__preco__input estilos__input')
+    const descricaoProduto = document.querySelector('.bloco-flutuante-venda__descricao-produto estilos__textarea');
+    
+
         const mensagemErro =
         document.querySelector('.bloco-flutuante-venda__mensagem-erro-imagem');
     const mensagemErroNome =

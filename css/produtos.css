@@ -544,6 +544,7 @@
 }
 
 
+/* BLOCO FLUTUANTE */
 @media screen and (max-height:1046px) {
     .bloco-flutuante-venda__barra-scrrol {
 
@@ -633,4 +634,20 @@
     }
 
    
+}
+/* GALERIA DE PRODUTOS */
+@media screen and (min-width:712px) {
+    .pesquisa-produto-produto__lista {
+        gap: 118px;
+
+    }
+}
+
+@media screen and (min-width:800px) {
+    .pesquisa-produto-produto__lista {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 140px;
+
+    }
 }

@@ -357,7 +357,7 @@
                     if(acumuladorLetras.length < 0) {
                         console.log('teste')
                     }   
-
+                           
                     if(acumuladorLetras != produtosTextoSubSring) {
                     
                     setTimeout(() => {

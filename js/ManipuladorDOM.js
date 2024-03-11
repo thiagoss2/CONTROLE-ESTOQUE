@@ -1,6 +1,6 @@
 class ManipuladorDOM {
   constructor() {
-    const inputQuantidadef = document.querySelector('.bloco-flutuante-venda__quantidade__input').value;
+    const inputQuantidade = document.querySelector('.bloco-flutuante-venda__quantidade__input').value;
     const inputCusto = document.querySelector('.bloco-flutuante-venda__custo__input');
     const inputArquivo = document.querySelector('.capiturar-produto');
     const labelEscolhaArquivo = document.getElementById('label-arquivo');
