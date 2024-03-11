@@ -306,6 +306,7 @@
         })
     }
 
+    
     function adicionaCustoDoProduto(listaDeProdutos) {
         let quantidadeProdutos = listaDeProdutos.children.length;
         let produtos = listaDeProdutos.querySelectorAll('li');
