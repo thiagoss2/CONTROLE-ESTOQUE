@@ -6,19 +6,25 @@ body {
 }
 
 :root {
+    --cor-laranja-escuro: #CC3E33;
+    --cor-trasparente:trasparent;
+    --cor-cinza-fundo:#fbfbfb;
+    --cor-branca:#fff;
     --cor-cinza-bloco: #d0d7de;
     --cor-amarelo-claro:#FFF1C2;
     --cor-cinza-empresa: #F3F5F7;
     --cor-verde-botao:#2ea173;
     --cor-vermelho-botao:#CC3E33;
     --cor-escura:black;
-
     
-    --fz-menus:12px;    
-    --fz-logo-empreza:10px;
-    --fz-botoes:11px;
-    --fz-btn-grande:13px;
-    --fz-icones-menu:15px;
+    --fz-9:9px;
+    --fz-10:10px;
+    --fz-11:11px;
+    --fz-12:12px;
+    --fz-13:13px;
+    --fz-15:15px;
+    --fz-18:18px;
+    --fz-24:24px;
 
 
 }
@@ -58,14 +64,14 @@ body {
 
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa {
-    font-size: var(--fz-menus);
+    font-size: var(--fz-12);
     margin-bottom: 8px;
 
 }
 
 .bloco-esquerdo__titulo-subtitulo-titulo-empresa-subtitulo {
 
-    font-size: var(--fz-menus);
+    font-size: var(--fz-12);
     margin-bottom: 17px;
 }
 
@@ -79,9 +85,9 @@ body {
     display: flex;
     text-decoration: none;
     gap: 10px;
-    font-size: var(--fz-logo-empreza);
+    font-size: var(--fz-10);
     margin-bottom: 10px;
-    color: black;
+    color: var(--cor-escura);
     font-weight: bold;
 }
 
@@ -126,12 +132,12 @@ body {
     text-decoration: none;
     gap: 10px;
     color:var(--cor-escura);
-    font-size: var(--fz-menus);
+    font-size: var(--fz-12);
 
 }
 
 .bloco-movimentos__link i {
-    font-size: var(--fz-icones-menu);
+    font-size: var(--fz-15);
 }
 
 .bloco-movimentos__titulo {}
@@ -173,12 +179,12 @@ body {
     display: flex;
     text-decoration: none;
     gap: 10px;
-    font-size: var(--fz-menus);
+    font-size: var(--fz-12);
     color: var(--cor-escura);
 }
 
 .bloco-gerenciar__link i {
-    font-size: var(--fz-icones-menu);
+    font-size: var(--fz-15);
 }
 
 
@@ -199,7 +205,7 @@ body {
 .bloco-termos__link {
     display: flex;
     gap: 10px;
-    font-size: var(--fz-menus);
+    font-size: var(--fz-12);
     text-decoration: none;
     color: var(--cor-escura);
 }
@@ -216,7 +222,7 @@ body {
 .bloco-principal {
     border-left: 1px solid var(--cor-cinza-bloco);
     height: inherit;
-    background-color: #fbfbfb;
+    background-color: var(--cor-cinza-fundo);
 
 }
 
@@ -242,11 +248,11 @@ body {
     gap: 20px;
 }
 .cabecalho__btn {
-    background-color: transparent;
+    background-color:var(--cor-trasparente);
     width: 163px;
     border: none;
     padding: 8px 24px;
-    border: 2px solid black;
+    border: 2px solid var(--cor-escura);
     border-radius:10px;
     cursor: pointer;
     box-sizing: border-box;
@@ -269,7 +275,7 @@ body {
 
 .cabecalho .cabecalho__btn--fechamento:hover {
 
-    transition: 1s ease;
+   transition: 1s ease;
    background-color: var(--cor-cinza-bloco);
    opacity: 70%;
 }
@@ -281,15 +287,15 @@ body {
 .cabecalho__btn--venda {
     background-color: var(--cor-verde-botao);
     border: none;
-    color: #fff;
+    color: var(--cor-branca);
     font-weight: bold;
 
 }
 
 .cabecalho__btn--despesa {
-    background-color: #CC3E33;
+    background-color:var(--cor-laranja-escuro);
     border: none;
-    color: #fff;
+    color: var(--cor-branca);
     font-weight: bold;
 
 
@@ -316,7 +322,7 @@ body {
 
 .conteudo-principal__conjunto-btn-btn {
     padding: 10px;
-    background-color: black;
+    background-color: var(--cor-escura);
     border: none;
 }
 
@@ -326,12 +332,12 @@ body {
 }
 
 .conteudo-principal__conjunto-btn-btn:active {
-    background-color: black;
+    background-color: var(--cor-escura);
 } 
 
 
 .conteudo-principal__conjunto-btn-btn .titulo {
 
-    color: #fff;
+    color:var(--cor-branca);
     text-transform: uppercase;
 }
