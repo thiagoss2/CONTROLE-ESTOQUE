@@ -22,8 +22,8 @@ class ControladorAcaoUsuario {
 
   // abre a tela de cadastro de produtos
   // gerencia os botoes adicionar quantidade e remover quanrtidade
-  adicionaQuantidade() {}
-  subtraiQuantidade() {}
+  adicionaQuantidade(quantidade) {}
+  subtraiQuantidade(quantidade) {}
   abreJanelaCadastroProduto(blocoFlutuante) {}
   selecionaImagemProduto(imagemProduto) {}
   criaProduto(produto) {
@@ -69,3 +69,26 @@ class ControladorAcaoUsuario {
   }
 
 }
+
+
+const produto = new produto();
+
+const controladorAcaoUsuario = new ControladorAcaoUsuario();
+controladorAcaoUsuario.abreJanelaCadastroProduto();
+controladorAcaoUsuario.selecionaImagemProduto();
+
+const validadorDeProduto = new ValidadorDeProduto();
+validadorDeProduto.setNome(nome);
+validadorDeProduto.setCodigoBarras(codigoBarras);
+
+controladorAcaoUsuario.adicionaQuantidade();
+controladorAcaoUsuario.removeQuantidade();
+
+validadorDeProduto.setCustoUnitario();
+validadorDeProduto.setPreco();
+validadorDeProduto.setDescricao();
+
+controladorAcaoUsuario.criarProduto(produto)
+
+
+
