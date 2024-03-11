@@ -72,22 +72,27 @@ class ControladorAcaoUsuario {
 
 
 const produto = new produto();
+let novaImagemSrc = '';
 
 const controladorAcaoUsuario = new ControladorAcaoUsuario();
 controladorAcaoUsuario.abreJanelaCadastroProduto();
-controladorAcaoUsuario.selecionaImagemProduto();
+controladorAcaoUsuario.selecionaImagemProduto(imagemSrc);
+
+ novaImagemSrc = controladorAcaoUsuario.getImagemProduto();
 
 const validadorDeProduto = new ValidadorDeProduto();
+validadorDeProduto.setImagemSrc(novaImagemSrc);
 validadorDeProduto.setNome(nome);
 validadorDeProduto.setCodigoBarras(codigoBarras);
 
 controladorAcaoUsuario.adicionaQuantidade();
 controladorAcaoUsuario.removeQuantidade();
 
-validadorDeProduto.setCustoUnitario();
-validadorDeProduto.setPreco();
-validadorDeProduto.setDescricao();
+validadorDeProduto.setCustoUnitario(custoUnitario);
+validadorDeProduto.setPreco(precoProduto);
+validadorDeProduto.setDescricao(descricaoProduto);
 
+produto = validadorDeProduto.getDadosProduto();
 controladorAcaoUsuario.criarProduto(produto)
 
 
