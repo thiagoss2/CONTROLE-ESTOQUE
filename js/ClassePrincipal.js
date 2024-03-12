@@ -17,12 +17,10 @@ controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente,
 controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar);
 controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
 
-if(controladorAcaoUsuario.getImagemSrc() != '') {
+if(controladorAcaoUsuario.imagemSrc != '') {
     imagemProduto = controladorAcaoUsuario.getImagemSrc();
     console.log(imagemProduto);
 }
-
-// controladorAcaoUsuario.selecionaImagemProduto(imagemSrc);
 
 //  novaImagemSrc = controladorAcaoUsuario.getImagemProduto();
 

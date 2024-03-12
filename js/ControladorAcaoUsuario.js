@@ -4,7 +4,7 @@
   atualizar produto e coisas assim
 */
 export default class ControladorAcaoUsuario {
-   imagemSrc = '';
+  private imagemSrc = '';
 
 
 
@@ -47,8 +47,8 @@ export default class ControladorAcaoUsuario {
         leitor.readAsDataURL(arquivo);
         leitor.onload = function (event) {
           imagem =  event.target.result;
-         this.setImagemSrc(imagem);
-          console.log(this.getImagemSrc());
+           
+          this.setImagemSrc(imagem)
         
         }
       }
@@ -99,12 +99,12 @@ export default class ControladorAcaoUsuario {
 
   }
    
-  setImagemSrc(imagemSrc) {
-    this.imagemSrc = imagemSrc;
+   setImagemSrc(novaImagemSrc) {
+     this.imagemSrc = novaImagemSrc;
 
-  }
-  getImagemSrc() {
-    return this.imagemSrc;
+   }
+   get getImagemSrc() {
+     return this.imagemSrc;
   }
 
 }
