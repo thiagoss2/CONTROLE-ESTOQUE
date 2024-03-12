@@ -4,9 +4,9 @@
   atualizar produto e coisas assim
 */
 export default class ControladorAcaoUsuario {
+   imagemSrc = '';
 
-  constructor() {
-  }
+
 
   // abre a tela de cadastro de produtos
   // gerencia os botoes adicionar quantidade e remover quanrtidade
@@ -36,8 +36,9 @@ export default class ControladorAcaoUsuario {
 
   }
   selecionaImagemProduto(imagemCarregada) {
-    let imagemSrc = '';
+   
     imagemCarregada.addEventListener('change', function (event) {
+      let imagem = '';
       // se o arquivo foi carregado com sucesso
       if (imagemCarregada.files[0] && imagemCarregada.files) {
         const arquivo = imagemCarregada.files[0];
@@ -45,11 +46,11 @@ export default class ControladorAcaoUsuario {
 
         leitor.readAsDataURL(arquivo);
         leitor.onload = function (event) {
-          imagemSrc = event.target.result;
-          console.log(imagemSrc)
-       
+          imagem =  event.target.result;
+         this.setImagemSrc(imagem);
+          console.log(this.getImagemSrc());
+        
         }
-        return imagemSrc;
       }
     });
   }
@@ -96,6 +97,14 @@ export default class ControladorAcaoUsuario {
     elementoLi.appendChild(elementoLink);
     containerLista.appendChild(elementoLi);
 
+  }
+   
+  setImagemSrc(imagemSrc) {
+    this.imagemSrc = imagemSrc;
+
+  }
+  getImagemSrc() {
+    return this.imagemSrc;
   }
 
 }

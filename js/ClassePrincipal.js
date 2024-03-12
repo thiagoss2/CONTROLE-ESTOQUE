@@ -15,7 +15,12 @@ let imagemProduto = '';
 const controladorAcaoUsuario = new ControladorAcaoUsuario();
 controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoAdicionarProduto);
 controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar);
-imagemProduto = controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
+controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
+
+if(controladorAcaoUsuario.getImagemSrc() != '') {
+    imagemProduto = controladorAcaoUsuario.getImagemSrc();
+    console.log(imagemProduto);
+}
 
 // controladorAcaoUsuario.selecionaImagemProduto(imagemSrc);
 
