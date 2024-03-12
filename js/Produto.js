@@ -1,4 +1,4 @@
-class Produto {
+export default class Produto {
     constructor(imagemSrc, nome, codigoBarras,
         quantidadeProdutos, custoUnitario, preco, descricao) {
 
@@ -40,3 +40,5 @@ class Produto {
     }
     
 }
+
+

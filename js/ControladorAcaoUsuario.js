@@ -3,29 +3,42 @@
   como clicar em algum ponto da tela abrir um menu
   atualizar produto e coisas assim
 */
-class ControladorAcaoUsuario {
+export default class ControladorAcaoUsuario {
 
   constructor() {
-
-    const blocoFlutunte = document.querySelector(".bloco-funtutante-venda");
-    const botaoAdicionar = document.getElementById('cabecalho__btn--despesa-js');
-    const botaoFechar = document.querySelector(".botao-fechar-js");
-    const iconeMenos = document.querySelector(".icone-menos-js");
-    const iconeMais = document.querySelector(".icone-mais-js")
-    const botaoAdicionarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
-    const imagemArquivo = document.getElementById('imagem-arquivo');
-    const overlay = document.querySelector(".overlay");
-
-    this.quantidade = quantidade;
-
   }
 
   // abre a tela de cadastro de produtos
   // gerencia os botoes adicionar quantidade e remover quanrtidade
   adicionaQuantidade(quantidade) {}
   subtraiQuantidade(quantidade) {}
-  abreJanelaCadastroProduto(blocoFlutuante) {}
+
+  abreJanelaCadastroProduto(blocoFlutuante , telaCinza , botaoAdicionarProdutos) {
+    botaoAdicionarProdutos.addEventListener('click', function() {
+      blocoFlutuante.style.display = 'block';
+      telaCinza.style.display = 'block';
+    });
+    
+  }
+
+  fechaJanelaCadastroProduto(blocoFlutuante , telaCinza ,  botaoFechar) {
+
+     botaoFechar.addEventListener('click', function() {
+      blocoFlutuante.style.display = 'none';
+      telaCinza.style.display = 'none';
+
+     })
+
+     telaCinza.addEventListener('click', function() {
+      blocoFlutuante.style.display = 'none';
+      telaCinza.style.display = 'none';  
+     })
+
+  }
   selecionaImagemProduto(imagemProduto) {}
+
+
+
   criaProduto(produto) {
     const containerLista = document.querySelector('.pesquisa-produto-produto__lista');
 
@@ -69,31 +82,5 @@ class ControladorAcaoUsuario {
   }
 
 }
-
-
-const produto = new produto();
-let novaImagemSrc = '';
-
-const controladorAcaoUsuario = new ControladorAcaoUsuario();
-controladorAcaoUsuario.abreJanelaCadastroProduto();
-controladorAcaoUsuario.selecionaImagemProduto(imagemSrc);
-
- novaImagemSrc = controladorAcaoUsuario.getImagemProduto();
-
-const validadorDeProduto = new ValidadorDeProduto();
-validadorDeProduto.setImagemSrc(novaImagemSrc);
-validadorDeProduto.setNome(nome);
-validadorDeProduto.setCodigoBarras(codigoBarras);
-
-controladorAcaoUsuario.adicionaQuantidade();
-controladorAcaoUsuario.removeQuantidade();
-
-validadorDeProduto.setCustoUnitario(custoUnitario);
-validadorDeProduto.setPreco(precoProduto);
-validadorDeProduto.setDescricao(descricaoProduto);
-
-produto = validadorDeProduto.getDadosProduto();
-controladorAcaoUsuario.criarProduto(produto)
-
 
 
