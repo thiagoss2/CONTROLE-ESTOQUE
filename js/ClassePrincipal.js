@@ -1,20 +1,21 @@
 import Produto from "./Produto.js";
-  import ControladorAcaoUsuario from "./ControladorAcaoUsuario.js";
+import ControladorAcaoUsuario from "./ControladorAcaoUsuario.js";
 
 const botaoAdicionarProduto = document.querySelector('.cabecalho__btn--despesa');
 const blocoFlutunte = document.querySelector('.bloco-funtutante-venda');
 const telaTrasparente = document.querySelector('.overlay');
-const botaoFechar = document.querySelector('.botao-fechar-js')
+const botaoFechar = document.querySelector('.botao-fechar-js');
+const imagemCarregada = document.querySelector('.capiturar-produto');
+
 
 const produto = new Produto();
-let novaImagemSrc = '';
+let imagemProduto = '';
 
- const controladorAcaoUsuario = new ControladorAcaoUsuario();
- controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente , botaoAdicionarProduto);
- controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte ,telaTrasparente ,botaoFechar);
 
- console.log(telaTrasparente)
-
+const controladorAcaoUsuario = new ControladorAcaoUsuario();
+controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoAdicionarProduto);
+controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar);
+imagemProduto = controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
 
 // controladorAcaoUsuario.selecionaImagemProduto(imagemSrc);
 

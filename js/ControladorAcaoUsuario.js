@@ -10,32 +10,49 @@ export default class ControladorAcaoUsuario {
 
   // abre a tela de cadastro de produtos
   // gerencia os botoes adicionar quantidade e remover quanrtidade
-  adicionaQuantidade(quantidade) {}
-  subtraiQuantidade(quantidade) {}
+  adicionaQuantidade(quantidade) { }
+  subtraiQuantidade(quantidade) { }
 
-  abreJanelaCadastroProduto(blocoFlutuante , telaCinza , botaoAdicionarProdutos) {
-    botaoAdicionarProdutos.addEventListener('click', function() {
+  abreJanelaCadastroProduto(blocoFlutuante, telaCinza, botaoAdicionarProdutos) {
+    botaoAdicionarProdutos.addEventListener('click', function () {
       blocoFlutuante.style.display = 'block';
       telaCinza.style.display = 'block';
     });
-    
+
   }
 
-  fechaJanelaCadastroProduto(blocoFlutuante , telaCinza ,  botaoFechar) {
+  fechaJanelaCadastroProduto(blocoFlutuante, telaCinza, botaoFechar) {
 
-     botaoFechar.addEventListener('click', function() {
+    botaoFechar.addEventListener('click', function () {
       blocoFlutuante.style.display = 'none';
       telaCinza.style.display = 'none';
 
-     })
+    })
 
-     telaCinza.addEventListener('click', function() {
+    telaCinza.addEventListener('click', function () {
       blocoFlutuante.style.display = 'none';
-      telaCinza.style.display = 'none';  
-     })
+      telaCinza.style.display = 'none';
+    })
 
   }
-  selecionaImagemProduto(imagemProduto) {}
+  selecionaImagemProduto(imagemCarregada) {
+    let imagemSrc = '';
+    imagemCarregada.addEventListener('change', function (event) {
+      // se o arquivo foi carregado com sucesso
+      if (imagemCarregada.files[0] && imagemCarregada.files) {
+        const arquivo = imagemCarregada.files[0];
+        const leitor = new FileReader();
+
+        leitor.readAsDataURL(arquivo);
+        leitor.onload = function (event) {
+          imagemSrc = event.target.result;
+          console.log(imagemSrc)
+       
+        }
+        return imagemSrc;
+      }
+    });
+  }
 
 
 
@@ -44,10 +61,10 @@ export default class ControladorAcaoUsuario {
 
     const elementoLi = document.createElement('li');
     elementoLi.classList.add('pesquisa-produto-produto__item-lista');
-   
+
     const elementoLink = document.createElement('pesquisa-produto-produto__link');
     elementoLink.classList.add('pesquisa-produto-produto__link');
-    elementoLink.href  = '#';
+    elementoLink.href = '#';
 
     const elementoImg = document.createElement('img');
     elementoImg.classList.add('pesquisa-produto-produto__imagem');
@@ -67,7 +84,7 @@ export default class ControladorAcaoUsuario {
 
     const quantidadeProduto = document.createElement('pesquisa-produto-produto__quantidade');
     quantidadeProduto.classList.add('pesquisa-produto-produto__quantidade');
-    quantidadeProduto.textContent = '' + ' disponiveis' ;
+    quantidadeProduto.textContent = '' + ' disponiveis';
 
 
     elementoLink.appendChild(elementoImg);
@@ -76,8 +93,8 @@ export default class ControladorAcaoUsuario {
     elementoLink.appendChild(nomeProduto);
     elementoLink.appendChild(quantidadeProduto);
 
-   elementoLi.appendChild(elementoLink);
-   containerLista.appendChild(elementoLi);
+    elementoLi.appendChild(elementoLink);
+    containerLista.appendChild(elementoLi);
 
   }
 
