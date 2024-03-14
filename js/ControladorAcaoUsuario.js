@@ -36,7 +36,7 @@ export default class ControladorAcaoUsuario {
     })
 
   }
-  selecionaImagemProduto(imagemCarregada, callback) {
+  selecionaImagemProduto(imagemCarregada) {
 
     imagemCarregada.addEventListener('change', function (event) {
       let imagem = '';
@@ -48,13 +48,12 @@ export default class ControladorAcaoUsuario {
         leitor.readAsDataURL(arquivo);
         leitor.onload = function (event) {
           imagem = event.target.result;
-
-          this.imagemSrc = imagem;
           // esse codigo so terminara quando o callback for chamado
-          callback(this.imagemSrc)
+          localStorage.setItem('imagem' , imagem);
         }
       }
     });
+  
   }
 
 
@@ -101,14 +100,11 @@ export default class ControladorAcaoUsuario {
 
   }
 
-  setImagemSrc(novaImagemSrc) {
-    this.imagemSrc = novaImagemSrc;
-
-  }
-  get getImagemSrc() {
-    return this.imagemSrc;
-  }
-
+  criadorDeProduto(botaoCriarProduto , callback ) {    
+     botaoCriarProduto.addEventListener('click', function() {
+         callback();      
+     })
 }
 
+}
 
