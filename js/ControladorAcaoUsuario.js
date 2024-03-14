@@ -4,7 +4,7 @@
   atualizar produto e coisas assim
 */
 export default class ControladorAcaoUsuario {
-  private imagemSrc = '';
+  #imagemSrc = '';
 
 
 
@@ -18,6 +18,7 @@ export default class ControladorAcaoUsuario {
       blocoFlutuante.style.display = 'block';
       telaCinza.style.display = 'block';
     });
+
 
   }
 
@@ -35,8 +36,8 @@ export default class ControladorAcaoUsuario {
     })
 
   }
-  selecionaImagemProduto(imagemCarregada) {
-   
+  selecionaImagemProduto(imagemCarregada, callback) {
+
     imagemCarregada.addEventListener('change', function (event) {
       let imagem = '';
       // se o arquivo foi carregado com sucesso
@@ -46,10 +47,11 @@ export default class ControladorAcaoUsuario {
 
         leitor.readAsDataURL(arquivo);
         leitor.onload = function (event) {
-          imagem =  event.target.result;
-           
-          this.setImagemSrc(imagem)
-        
+          imagem = event.target.result;
+
+          this.imagemSrc = imagem;
+          // esse codigo so terminara quando o callback for chamado
+          callback(this.imagemSrc)
         }
       }
     });
@@ -98,13 +100,13 @@ export default class ControladorAcaoUsuario {
     containerLista.appendChild(elementoLi);
 
   }
-   
-   setImagemSrc(novaImagemSrc) {
-     this.imagemSrc = novaImagemSrc;
 
-   }
-   get getImagemSrc() {
-     return this.imagemSrc;
+  setImagemSrc(novaImagemSrc) {
+    this.imagemSrc = novaImagemSrc;
+
+  }
+  get getImagemSrc() {
+    return this.imagemSrc;
   }
 
 }

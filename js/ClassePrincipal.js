@@ -6,20 +6,23 @@ const blocoFlutunte = document.querySelector('.bloco-funtutante-venda');
 const telaTrasparente = document.querySelector('.overlay');
 const botaoFechar = document.querySelector('.botao-fechar-js');
 const imagemCarregada = document.querySelector('.capiturar-produto');
-
-
 const produto = new Produto();
 let imagemProduto = '';
-
 
 const controladorAcaoUsuario = new ControladorAcaoUsuario();
 controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoAdicionarProduto);
 controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar);
-controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
+
+controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada , 
+      function(imagemSrc) {
+    
+        if(imagemSrc != '') {
+            imagemProduto = imagemSrc
+        }
+});
 
 if(controladorAcaoUsuario.imagemSrc != '') {
-    imagemProduto = controladorAcaoUsuario.getImagemSrc();
-    console.log(imagemProduto);
+    console.log(controladorAcaoUsuario.imagemSrc);
 }
 
 //  novaImagemSrc = controladorAcaoUsuario.getImagemProduto();

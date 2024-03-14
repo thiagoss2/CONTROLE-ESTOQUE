@@ -317,8 +317,7 @@
 
             for (let index = 0; index < produtos.length; index++) {
                 const itemLista = listaDeProdutos.querySelector('li');
-                let custoProduto = itemLista.
-                    querySelector('.pesquisa-produto-produto__custo').textContent;
+                let custoProduto = itemLista.querySelector('.pesquisa-produto-produto__custo').textContent;
                 let custoProdutoSemSimbolo = removeSimboloMoeda(custoProduto);
                 let custoProdutoSemVirgula = removeVirgulaDeMoedas(custoProdutoSemSimbolo);
 
