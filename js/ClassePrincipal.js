@@ -2,8 +2,7 @@ import Produto from "./Produto.js";
 import ControladorAcaoUsuario from "./ControladorAcaoUsuario.js";
 import ValidadorDeProduto from "./ValidadorDeProduto.js"
 
-const botaoAdicionarCriarProduto = 
-   document.querySelector('.bloco-flutuante-venda__botao-adicionar');
+const botaoAdicionarCriarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const botaoAdicionarProduto = document.querySelector('.cabecalho__btn--despesa');
 const blocoFlutunte = document.querySelector('.bloco-funtutante-venda');
 const telaTrasparente = document.querySelector('.overlay');
@@ -16,19 +15,19 @@ const controladorAcaoUsuario = new ControladorAcaoUsuario();
 controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoAdicionarProduto);
 controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar)
 controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
-
+controladorAcaoUsuario.atualizaImagem(imagemCarregada);
 
 controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function () {
-
-    if (localStorage.getItem('imagem').length > 0) {
         imagemProduto = localStorage.getItem('imagem');
         console.log(imagemProduto)
 
         let validadorDeProduto = new ValidadorDeProduto();
         validadorDeProduto.setImagemSrc(imagemProduto);
         let novaImagem = validadorDeProduto.getImagemSrc()
+       
+      
         localStorage.removeItem('imagem');
-    }
+    
 
 })
 //  novaImagemSrc = controladorAcaoUsuario.getImagemProduto();

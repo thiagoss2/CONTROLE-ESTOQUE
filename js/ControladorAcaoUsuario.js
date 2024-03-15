@@ -33,7 +33,7 @@ export default class ControladorAcaoUsuario {
     telaCinza.addEventListener('click', function () {
       blocoFlutuante.style.display = 'none';
       telaCinza.style.display = 'none';
-    })
+    })  
 
   }
   selecionaImagemProduto(imagemCarregada) {
@@ -49,14 +49,30 @@ export default class ControladorAcaoUsuario {
         leitor.onload = function (event) {
           imagem = event.target.result;
           // esse codigo so terminara quando o callback for chamado
-          localStorage.setItem('imagem' , imagem);
-        }
+      //    localStorage.setItem('imagem', imagem);
+
+          this.imagemSrc  = imagem;
+          
+        } 
       }
     });
-  
+
   }
 
+  atualizaImagem(imagemCarregada) {
+    imagemCarregada.addEventListener('change', function () {
+      if (imagemCarregada != null) {
+        const blocoImagem = document.querySelector('.bloco-flutuante-venda__arquivo');
+        const containerImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem');
+        const img = containerImagem.querySelector('img');
 
+        blocoImagem.style.display = 'none';
+      //  img.src = localStorage.getItem('imagem');
+        img.style.display = 'block';
+
+      }
+    })
+  }
 
   criaProduto(produto) {
     const containerLista = document.querySelector('.pesquisa-produto-produto__lista');
@@ -100,11 +116,11 @@ export default class ControladorAcaoUsuario {
 
   }
 
-  criadorDeProduto(botaoCriarProduto , callback ) {    
-     botaoCriarProduto.addEventListener('click', function() {
-         callback();      
-     })
-}
+  criadorDeProduto(botaoCriarProduto, callback) {
+    botaoCriarProduto.addEventListener('click', function () {
+      callback();
+    })
+  }
 
 }
 
