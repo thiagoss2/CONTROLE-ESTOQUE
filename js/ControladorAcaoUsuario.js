@@ -13,6 +13,19 @@ export default class ControladorAcaoUsuario {
   adicionaQuantidade(quantidade) { }
   subtraiQuantidade(quantidade) { }
 
+  get getImagem() {
+     if(this.#imagemSrc.length > 0) {
+      console.log(this.#imagemSrc);
+      return this.#imagemSrc;
+     }
+      this.#imagemSrc = '';
+      return this.#imagemSrc;
+  }
+
+   setImagem(imagem) {
+    this.#imagemSrc = imagem;
+  }
+
   abreJanelaCadastroProduto(blocoFlutuante, telaCinza, botaoAdicionarProdutos) {
     botaoAdicionarProdutos.addEventListener('click', function () {
       blocoFlutuante.style.display = 'block';
@@ -37,6 +50,7 @@ export default class ControladorAcaoUsuario {
 
   }
   selecionaImagemProduto(imagemCarregada) {
+    let self = this;
 
     imagemCarregada.addEventListener('change', function (event) {
       let imagem = '';
@@ -50,9 +64,7 @@ export default class ControladorAcaoUsuario {
           imagem = event.target.result;
           // esse codigo so terminara quando o callback for chamado
       //    localStorage.setItem('imagem', imagem);
-
-          this.imagemSrc  = imagem;
-          
+          self.setImagem(imagem);
         } 
       }
     });
