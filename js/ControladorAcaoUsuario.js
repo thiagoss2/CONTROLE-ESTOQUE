@@ -4,27 +4,11 @@
   atualizar produto e coisas assim
 */
 export default class ControladorAcaoUsuario {
-  #imagemSrc = '';
-
-
-
   // abre a tela de cadastro de produtos
   // gerencia os botoes adicionar quantidade e remover quanrtidade
   adicionaQuantidade(quantidade) { }
   subtraiQuantidade(quantidade) { }
 
-  get getImagem() {
-     if(this.#imagemSrc.length > 0) {
-      console.log(this.#imagemSrc);
-      return this.#imagemSrc;
-     }
-      this.#imagemSrc = '';
-      return this.#imagemSrc;
-  }
-
-   setImagem(imagem) {
-    this.#imagemSrc = imagem;
-  }
 
   abreJanelaCadastroProduto(blocoFlutuante, telaCinza, botaoAdicionarProdutos) {
     botaoAdicionarProdutos.addEventListener('click', function () {
@@ -46,12 +30,10 @@ export default class ControladorAcaoUsuario {
     telaCinza.addEventListener('click', function () {
       blocoFlutuante.style.display = 'none';
       telaCinza.style.display = 'none';
-    })  
+    })
 
   }
   selecionaImagemProduto(imagemCarregada) {
-    let self = this;
-
     imagemCarregada.addEventListener('change', function (event) {
       let imagem = '';
       // se o arquivo foi carregado com sucesso
@@ -62,10 +44,20 @@ export default class ControladorAcaoUsuario {
         leitor.readAsDataURL(arquivo);
         leitor.onload = function (event) {
           imagem = event.target.result;
-          // esse codigo so terminara quando o callback for chamado
-      //    localStorage.setItem('imagem', imagem);
-          self.setImagem(imagem);
-        } 
+          localStorage.setItem('imagem' , imagem);
+          
+          if (imagemCarregada != null) {
+            const blocoImagem = document.querySelector('.bloco-flutuante-venda__arquivo');
+            const containerImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem');
+            const img = containerImagem.querySelector('img');
+    
+            blocoImagem.style.display = 'none';
+            img.src = localStorage.getItem('imagem')
+            img.style.display = 'block';
+            localStorage.clear();
+    
+          }
+        }
       }
     });
 
@@ -73,16 +65,7 @@ export default class ControladorAcaoUsuario {
 
   atualizaImagem(imagemCarregada) {
     imagemCarregada.addEventListener('change', function () {
-      if (imagemCarregada != null) {
-        const blocoImagem = document.querySelector('.bloco-flutuante-venda__arquivo');
-        const containerImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem');
-        const img = containerImagem.querySelector('img');
-
-        blocoImagem.style.display = 'none';
-      //  img.src = localStorage.getItem('imagem');
-        img.style.display = 'block';
-
-      }
+     
     })
   }
 
