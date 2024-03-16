@@ -17,8 +17,6 @@ controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente
 controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
 controladorAcaoUsuario.atualizaImagem(imagemCarregada);
 
-controladorAcaoUsuario.getImagem;
-
 controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function () {
         imagemProduto = localStorage.getItem('imagem');
         console.log(imagemProduto)
