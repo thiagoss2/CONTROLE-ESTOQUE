@@ -35,6 +35,7 @@ export default class ControladorAcaoUsuario {
   }
   selecionaImagemProduto(imagemCarregada) {
     imagemCarregada.addEventListener('change', function (event) {
+      let imagem = '';
       // se o arquivo foi carregado com sucesso
       if (imagemCarregada.files[0] && imagemCarregada.files) {
         const arquivo = imagemCarregada.files[0];
