@@ -241,6 +241,32 @@
     display: none;
 }
 
+.bloco-flutuante-venda__bloco-imagem {
+    width: fit-content;
+    position: relative;
+}
+.bloco-flutuante-venda__bloco-imagem i {
+    position:absolute;
+    bottom: 2px;
+    right: 0px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid black;
+
+}
+
+.bloco-flutuante-venda__bloco-imagem-subbloco {
+    width: 200px;
+    position: absolute;
+    top: -9px;
+    left: 0;
+    box-shadow:rgba(34, 38, 42, 0.05) 0.125rem 0.25rem 0.5rem, rgba(34, 38, 42, 0.1) 0.25rem 0.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: #fff;
+    padding:6px 16px;
+    box-sizing: border-box;
+}
+
 .container-bloco-flutuante__titulo-imagem {
     font-size: 12px;
     color: #acb4bb;

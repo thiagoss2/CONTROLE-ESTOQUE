@@ -2,6 +2,8 @@ body {
     display: grid;
     grid-template-columns: 207px auto;
     height: 100vh;
+    font-family: 'Roboto';
+
 
 }
 

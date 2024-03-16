@@ -70,6 +70,10 @@ export default class ControladorAcaoUsuario {
     })
   }
 
+  editarImagem() {
+     
+  }
+
   criaProduto(produto) {
     const containerLista = document.querySelector('.pesquisa-produto-produto__lista');
 
