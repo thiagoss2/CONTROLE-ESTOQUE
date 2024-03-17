@@ -16,7 +16,6 @@ export default class ControladorAcaoUsuario {
       telaCinza.style.display = 'block';
     });
 
-
   }
 
   fechaJanelaCadastroProduto(blocoFlutuante, telaCinza, botaoFechar) {
@@ -52,7 +51,9 @@ export default class ControladorAcaoUsuario {
             const blocoImagem = document.querySelector('.bloco-flutuante-venda__arquivo');
             const containerImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem');
             const img = containerImagem.querySelector('img');
-
+            const iconeLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
+          
+            iconeLapis.style.display = 'block'
             blocoImagem.style.display = 'none';
             img.src = localStorage.getItem('imagem')
             img.style.display = 'block';
@@ -70,8 +71,24 @@ export default class ControladorAcaoUsuario {
     })
   }
 
-  editarImagem() {
-     
+  abrirMenu() {
+     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
+     const blocoFlutuantte = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+
+     botaoLapis.addEventListener('click', function() {
+          blocoFlutuantte.style.display = 'block';     
+     });
+  }
+
+  fecharMenu() {
+
+    const blocoFlutuante2 = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+    const blocoMestre = document.querySelector('.bloco-funtutante-venda');
+    blocoMestre.addEventListener('click', function(event) {
+      
+     blocoFlutuante2.style.display = 'none';
+      console.log('teste')
+     })
   }
 
   criaProduto(produto) {
