@@ -52,7 +52,7 @@ export default class ControladorAcaoUsuario {
             const containerImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem');
             const img = containerImagem.querySelector('img');
             const iconeLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
-          
+
             iconeLapis.style.display = 'block'
             blocoImagem.style.display = 'none';
             img.src = localStorage.getItem('imagem')
@@ -72,23 +72,40 @@ export default class ControladorAcaoUsuario {
   }
 
   abrirMenu() {
-     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
-     const blocoFlutuantte = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+    const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
+    const blocoFlutuante = document.querySelector('.bloco-funtutante-venda');
+    const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
 
-     botaoLapis.addEventListener('click', function() {
-          blocoFlutuantte.style.display = 'block';     
-     });
+    botaoLapis.addEventListener('click', function (evento) {
+      const alvo = evento.target;
+
+      if (botaoLapis.contains(alvo)) {
+        console.log('clicado')
+        blocoFlutuantteSubbloco.style.display = 'block';
+       
+      }
+    });
+
+    blocoFlutuante.addEventListener('click' , function(evento) {
+       const novoAlvo = evento.target;
+  
+      if(!blocoFlutuantteSubbloco.contains(novoAlvo)) {
+            console.log('funciona')
+      }
+         
+    })
+
   }
 
   fecharMenu() {
 
     const blocoFlutuante2 = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
     const blocoMestre = document.querySelector('.bloco-funtutante-venda');
-    blocoMestre.addEventListener('click', function(event) {
-      
-     blocoFlutuante2.style.display = 'none';
+    blocoMestre.addEventListener('click', function (event) {
+
+      blocoFlutuante2.style.display = 'none';
       console.log('teste')
-     })
+    })
   }
 
   criaProduto(produto) {

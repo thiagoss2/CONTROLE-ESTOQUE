@@ -49,5 +49,19 @@ controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function ()
 // produto = validadorDeProduto.getDadosProduto();
 // controladorAcaoUsuario.criarProduto(produto)
 
+// document.addEventListener('click' , function(evento) {
+//    const quadradoOpcoesImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+//    const iconeLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
+//    const alvo = evento.target;
+    
+//    if(iconeLapis.contains(alvo)) {
+//        quadradoOpcoesImagem.style.display = 'block';
+//    }
 
+//    if(quadradoOpcoesImagem.contains(alvo)) {
+//        quadradoOpcoesImagem.style.visibility = 'hidden';
+      
+
+//    }
+// })
 
