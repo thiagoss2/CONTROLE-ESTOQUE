@@ -1,8 +1,11 @@
 /*
 1
-Para fazer com que o quadrado feche quando você clicar fora dele, você pode usar a técnica de escuta de eventos com JavaScript. Essa técnica permite que você defina uma função para ser executada quando um evento específico ocorre, como um clique.
+Para fazer com que o quadrado feche quando você clicar fora dele,
+você pode usar a técnica de escuta de eventos com JavaScript. 
+Essa técnica permite que você defina uma função para ser executada quando um evento específico ocorre, como um clique.
 
-No caso do seu quadrado, você pode definir um escutador de evento para o evento click no documento. Esse escutador de evento verificará se o clique ocorreu fora do quadrado. Se sim, a função fechará o quadrado.
+No caso do seu quadrado, você pode definir um escutador de evento para o evento click no documento. 
+Esse escutador de evento verificará se o clique ocorreu fora do quadrado. Se sim, a função fechará o quadrado.
 
 Etapas para fazer o quadrado fechar quando clicar fora dele:
 
@@ -34,3 +37,20 @@ Quando um clique ocorre no documento, o escutador de evento verifica se o clique
 Se o clique ocorreu fora do elemento quadrado, a função fecharQuadrado() é chamada para fechar o quadrado.
 */
 
+// TEMOS TAMBEM DESSA FORMA
+
+// <div id="container">
+//   <div class="meuElemento"><h2>Meu elemento 1</h2><button>Clique aqui</button></div>
+//   <div class="meuElemento"><h2>Meu elemento 2</h2><button>Clique aqui</button></div>
+// </div>
+
+// <script>
+
+  const container = document.getElementById('container');
+  container.addEventListener('click', (evento) => {
+    const target = evento.target;
+    if (target.classList.contains('meuElemento')) {
+      console.log('Clique no elemento desejado!');
+    }
+  });
+</script>

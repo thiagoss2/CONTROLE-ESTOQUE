@@ -76,25 +76,19 @@ export default class ControladorAcaoUsuario {
     const blocoFlutuante = document.querySelector('.bloco-funtutante-venda');
     const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
 
-    botaoLapis.addEventListener('click', function (evento) {
-      const alvo = evento.target;
+    blocoFlutuantteSubbloco.style.display = 'block';
 
+    document.addEventListener('click', function (evento) {
+      const alvo = evento.target;
       if (botaoLapis.contains(alvo)) {
         console.log('clicado')
         blocoFlutuantteSubbloco.style.display = 'block';
-       
+        // a logica deve acontecer depois que o elemento ficar visivel para o usuario
+        if (!blocoFlutuantteSubbloco.contains(alvo)) {
+          blocoFlutuantteSubbloco.style.backgroundColor = 'red';
+        }
       }
     });
-
-    blocoFlutuante.addEventListener('click' , function(evento) {
-       const novoAlvo = evento.target;
-  
-      if(!blocoFlutuantteSubbloco.contains(novoAlvo)) {
-            console.log('funciona')
-      }
-         
-    })
-
   }
 
   fecharMenu() {
