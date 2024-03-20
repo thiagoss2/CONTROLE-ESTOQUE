@@ -73,12 +73,17 @@ export default class ControladorAcaoUsuario {
 
   abrirMenu() {
     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
-    const blocoFlutuante = document.querySelector('.bloco-funtutante-venda');
+    const blocoFlutuante = document.querySelector('.bloco-flutuante-venda__barra-scrrol');
     const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
     const visibilidade = blocoFlutuantteSubbloco.getClientRects();
 
 
     document.addEventListener('click', function (evento) {
+      // consegui
+       if(evento.target == blocoFlutuante) {
+          console.log('encontrou o elemento')
+          blocoFlutuantteSubbloco.style.display = 'none';
+       }
       const alvo = evento.target;
       if (botaoLapis.contains(alvo)) {
         console.log('clicado')
