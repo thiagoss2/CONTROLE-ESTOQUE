@@ -75,20 +75,33 @@ export default class ControladorAcaoUsuario {
     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
     const blocoFlutuante = document.querySelector('.bloco-funtutante-venda');
     const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+    const visibilidade = blocoFlutuantteSubbloco.getClientRects();
 
-    blocoFlutuantteSubbloco.style.display = 'block';
 
     document.addEventListener('click', function (evento) {
       const alvo = evento.target;
       if (botaoLapis.contains(alvo)) {
         console.log('clicado')
         blocoFlutuantteSubbloco.style.display = 'block';
-        // a logica deve acontecer depois que o elemento ficar visivel para o usuario
-        if (!blocoFlutuantteSubbloco.contains(alvo)) {
-          blocoFlutuantteSubbloco.style.backgroundColor = 'red';
-        }
+        // a logica deve acontecer depois que o elemento ficar visivel parao usuario
+    
       }
     });
+
+    botaoLapis.addEventListener('click', function() {
+      
+    });
+
+    if (visibilidade.length > 0) {
+      console.log('esta visivel')
+      blocoFlutuantteSubbloco.addEventListener('click', function (novoEvento) {
+       // let novoAlvo = novoEvento.target;
+        if (blocoFlutuantteSubbloco.contains(alvo)) {
+            console.log('funcionna')
+        }
+      })
+    }
+
   }
 
   fecharMenu() {

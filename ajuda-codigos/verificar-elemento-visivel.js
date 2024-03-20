@@ -54,3 +54,16 @@ const observer = new IntersectionObserver((entradas) => {
 });
 
 observer.observe(elemento);
+
+
+// ultima forma de virificar um clique fora do elemento
+
+const element = document.querySelector('element');
+
+document.addEventListener('click', function (evento) {
+    if (evento.target !== element &&
+        !evento.target.isDescendantOf(element)) {
+        // clique fora do elemento capturado
+        console.log('vc clicou fora do elemento')
+    }
+})
