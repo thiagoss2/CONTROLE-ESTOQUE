@@ -79,6 +79,7 @@ export default class ControladorAcaoUsuario {
 
 
     document.addEventListener('click', function (evento) {
+      console.log(evento.target)
       // consegui
        if(evento.target == blocoFlutuante) {
           console.log('encontrou o elemento')
