@@ -84,24 +84,16 @@ export default class ControladorAcaoUsuario {
         console.log('clicado')
         blocoFlutuantteSubbloco.style.display = 'block';
         // a logica deve acontecer depois que o elemento ficar visivel parao usuario
-    
-      }
-    });
-
-    botaoLapis.addEventListener('click', function() {
-      
-    });
-
-    if (visibilidade.length > 0) {
-      console.log('esta visivel')
-      blocoFlutuantteSubbloco.addEventListener('click', function (novoEvento) {
-       // let novoAlvo = novoEvento.target;
-        if (blocoFlutuantteSubbloco.contains(alvo)) {
-            console.log('funcionna')
+        const visibilidade = blocoFlutuantteSubbloco.getClientRects();
+        if (visibilidade.length > 0) {
+          blocoFlutuantteSubbloco.addEventListener('click', function (evento2) {
+             if(!evento2.target.contains(evento2.target)) {
+                console.log('contem o elemento')
+             }
+          })
         }
-      })
-    }
-
+      }
+    })
   }
 
   fecharMenu() {

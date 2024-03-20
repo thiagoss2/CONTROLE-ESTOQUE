@@ -67,3 +67,21 @@ document.addEventListener('click', function (evento) {
         console.log('vc clicou fora do elemento')
     }
 })
+
+
+/*
+  2. Usando a API Event.target e Event.path:
+
+O evento click fornece a propriedade target, que indica o elemento que foi clicado.
+A propriedade path fornece uma lista de todos os elementos que foram percorridos para chegar ao elemento clicado.
+Você pode verificar se o elemento clicado está na lista path do elemento que você deseja monitorar.
+*/
+
+const element = document.getElementById('meuElemento');
+
+document.addEventListener('click', (event) => {
+  if (!event.path.includes(element)) {
+    // Clique fora do elemento
+    console.log('Clicou fora do elemento!');
+  }
+});
