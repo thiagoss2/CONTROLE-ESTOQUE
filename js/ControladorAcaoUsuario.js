@@ -72,32 +72,22 @@ export default class ControladorAcaoUsuario {
   }
 
   abrirMenu() {
-    const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
-    const blocoFlutuante = document.querySelector('.bloco-flutuante-venda__barra-scrrol');
+    const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone')
     const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
-    const visibilidade = blocoFlutuantteSubbloco.getClientRects();
+    const blocoFlutuantePrincipal = document.querySelector('.bloco-funtutante-venda');
+    const elementosFilhos = blocoFlutuantePrincipal.querySelectorAll('*');
+    const blocoFlutuantePrincipalLista = Array.from(elementosFilhos);
 
+    let novoElementos = blocoFlutuantePrincipalLista.filter(elementos => elementos != botaoLapis || elementos != blocoFlutuantteSubbloco);
 
     document.addEventListener('click', function (evento) {
-      console.log(evento.target)
-      // consegui
-       if(evento.target == blocoFlutuante) {
-          console.log('encontrou o elemento')
+      for (let elemento of novoElementos) {
+        if (evento.target == elemento) {
+          console.log('voce clicou no elemnto')
           blocoFlutuantteSubbloco.style.display = 'none';
-       }
-      const alvo = evento.target;
-      if (botaoLapis.contains(alvo)) {
-        console.log('clicado')
-        blocoFlutuantteSubbloco.style.display = 'block';
-        // a logica deve acontecer depois que o elemento ficar visivel parao usuario
-        const visibilidade = blocoFlutuantteSubbloco.getClientRects();
-        if (visibilidade.length > 0) {
-          blocoFlutuantteSubbloco.addEventListener('click', function (evento2) {
-             if(!evento2.target.contains(evento2.target)) {
-                console.log('contem o elemento')
-             }
-          })
         }
+      } if (evento.target == botaoLapis) {
+        blocoFlutuantteSubbloco.style.display = 'block';
       }
     })
   }
