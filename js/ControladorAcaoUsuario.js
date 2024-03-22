@@ -73,25 +73,40 @@ export default class ControladorAcaoUsuario {
 
   abrirMenu() {
     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone')
-    const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+    const blocoFlutuanteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
     const blocoFlutuantePrincipal = document.querySelector('.bloco-funtutante-venda');
     const elementosFilhos = blocoFlutuantePrincipal.querySelectorAll('*');
-    const blocoFlutuantePrincipalLista = Array.from(elementosFilhos);
+    const blocoFlutuantePrincipalListaSemNode = Array.from(elementosFilhos);
+    const blocoFlutuanteSubBlocoLista = blocoFlutuanteSubbloco.querySelectorAll('*');
+    const blocoFlutuanteSubBlocoListaSemNode = Array.from(blocoFlutuanteSubBlocoLista);
 
-    let novoElementos = blocoFlutuantePrincipalLista.filter(elementos => elementos != botaoLapis || elementos != blocoFlutuantteSubbloco);
+    blocoFlutuanteSubBlocoListaSemNode.push(blocoFlutuanteSubbloco);
+
+    //   let novoElementos = blocoFlutuantePrincipalListaSemNode.filter(elementos => elementos != botaoLapis || elementos != blocoFlutuanteSubbloco);
 
     document.addEventListener('click', function (evento) {
       for (let elemento of novoElementos) {
         if (evento.target == elemento) {
           console.log('voce clicou no elemnto')
-          blocoFlutuantteSubbloco.style.display = 'none';
+          blocoFlutuanteSubbloco.style.display = 'none';
         }
       } if (evento.target == botaoLapis) {
-        blocoFlutuantteSubbloco.style.display = 'block';
+        blocoFlutuanteSubbloco.style.display = 'block';
       }
     })
   }
 
+  removeElementos(blocoFlutuantePrincipalListaSemNode, blocoFlutuanteSubBlocoListaSemNode) {
+
+    for (let indice = 0; indice <
+      blocoFlutuantePrincipalListaSemNode.length; indice++) {
+      if (blocoFlutuantePrincipalListaSemNode[indice]
+        == blocoFlutuanteSubBlocoListaSemNode[indice]) {
+        blocoFlutuantePrincipalListaSemNode.splice(indice, 1);
+      }
+    }
+    return blocoFlutuantePrincipalListaSemNode
+  }
   fecharMenu() {
 
     const blocoFlutuante2 = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
