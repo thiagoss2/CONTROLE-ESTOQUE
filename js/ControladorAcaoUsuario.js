@@ -1,3 +1,4 @@
+import Filtradora from './Filtradora.js'
 /*
   Classe responsavel por controlar a ação do usuario
   como clicar em algum ponto da tela abrir um menu
@@ -73,73 +74,36 @@ export default class ControladorAcaoUsuario {
 
   abrirMenu() {
     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone')
-<<<<<<< HEAD
     const blocoFlutuanteImagemOpcoes = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
     const barraLateralDireitaFlutuante = document.querySelector('.bloco-funtutante-venda');
     const barraLateralDireitaFlutuanteNodeList = barraLateralDireitaFlutuante.querySelectorAll('*');
     const barraLateralDireitaFlutuanteElementosLista = Array.from(barraLateralDireitaFlutuanteNodeList);
     const blocoFlutuanteImagemOpcoesNodeList = blocoFlutuanteImagemOpcoes.querySelectorAll('*');
     const blocoFlutuanteImagemOpcoesLista = Array.from(blocoFlutuanteImagemOpcoesNodeList);
-    const barraLateralDireitaFlutuanteElementosListaz
+    let barraLateralDireitaFlutuanteElementosListaFiltrada = [];
+    let filtradora = new Filtradora();
 
-    document.addEventListener('click', function (evento) {
-      blocoFlutuanteImagemOpcoesLista.push(blocoFlutuanteImagemOpcoes);
-      barraLateralDireitaFlutuanteElementosListaFiltrada =
-           removeElementos(barraLateralDireitaFlutuanteElementosLista ,blocoFlutuanteImagemOpcoesLista )
-       
+    barraLateralDireitaFlutuanteElementosListaFiltrada =
+       filtradora.removeElementos(barraLateralDireitaFlutuanteElementosLista, blocoFlutuanteImagemOpcoes)
 
+    document.addEventListener('click', function(evento) {
       console.log(evento.target)
-      for (let indice = 0; indice < blocoFlutuanteImagemOpcoesLista.length; indice++) {
-        if (evento.target != blocoFlutuanteImagemOpcoesLista[indice]) {
-          blocoFlutuanteImagemOpcoes.style.display = 'none';
+      for (let indice = 0; indice < barraLateralDireitaFlutuanteElementosListaFiltrada.length; indice++) {
+        if (evento.target == barraLateralDireitaFlutuanteElementosLista[indice]) {
+            blocoFlutuanteImagemOpcoes.style.display = 'none';
         }
       } if (evento.target == botaoLapis) {
         blocoFlutuanteImagemOpcoes.style.display = 'block';
       }
     })
   }
-  removeElementos(barraLateralDireitaFlutuante, blocoFlutuanteImagemOpcoes) {
+    removeElementos(barraLateralDireitaFlutuante, blocoFlutuanteImagemOpcoes) {
     for (let indice = 0; indice < barraLateralDireitaFlutuante.length; indice++) {
       if (barraLateralDireitaFlutuante[indice] === blocoFlutuanteImagemOpcoes[indice]) {
         barraLateralDireitaFlutuante.splice(indice, blocoFlutuanteImagemOpcoes.length);
       }
     }
     return barraLateralDireitaFlutuante
-=======
-    const blocoFlutuanteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
-    const blocoFlutuantePrincipal = document.querySelector('.bloco-funtutante-venda');
-    const elementosFilhos = blocoFlutuantePrincipal.querySelectorAll('*');
-    const blocoFlutuantePrincipalListaSemNode = Array.from(elementosFilhos);
-    const blocoFlutuanteSubBlocoLista = blocoFlutuanteSubbloco.querySelectorAll('*');
-    const blocoFlutuanteSubBlocoListaSemNode = Array.from(blocoFlutuanteSubBlocoLista);
-
-    blocoFlutuanteSubBlocoListaSemNode.push(blocoFlutuanteSubbloco);
-
-    //   let novoElementos = blocoFlutuantePrincipalListaSemNode.filter(elementos => elementos != botaoLapis || elementos != blocoFlutuanteSubbloco);
-
-    document.addEventListener('click', function (evento) {
-      for (let elemento of novoElementos) {
-        if (evento.target == elemento) {
-          console.log('voce clicou no elemnto')
-          blocoFlutuanteSubbloco.style.display = 'none';
-        }
-      } if (evento.target == botaoLapis) {
-        blocoFlutuanteSubbloco.style.display = 'block';
-      }
-    })
-  }
-
-  removeElementos(blocoFlutuantePrincipalListaSemNode, blocoFlutuanteSubBlocoListaSemNode) {
-
-    for (let indice = 0; indice <
-      blocoFlutuantePrincipalListaSemNode.length; indice++) {
-      if (blocoFlutuantePrincipalListaSemNode[indice]
-        == blocoFlutuanteSubBlocoListaSemNode[indice]) {
-        blocoFlutuantePrincipalListaSemNode.splice(indice, 1);
-      }
-    }
-    return blocoFlutuantePrincipalListaSemNode
->>>>>>> 53d588ba4108c868cf04bf938d0e07010d17976b
   }
   fecharMenu() {
 
