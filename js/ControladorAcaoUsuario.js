@@ -73,25 +73,39 @@ export default class ControladorAcaoUsuario {
 
   abrirMenu() {
     const botaoLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone')
-    const blocoFlutuantteSubbloco = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
-    const blocoFlutuantePrincipal = document.querySelector('.bloco-funtutante-venda');
-    const elementosFilhos = blocoFlutuantePrincipal.querySelectorAll('*');
-    const blocoFlutuantePrincipalLista = Array.from(elementosFilhos);
+    const blocoFlutuanteImagemOpcoes = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');
+    const barraLateralDireitaFlutuante = document.querySelector('.bloco-funtutante-venda');
+    const barraLateralDireitaFlutuanteNodeList = barraLateralDireitaFlutuante.querySelectorAll('*');
+    const barraLateralDireitaFlutuanteElementosLista = Array.from(barraLateralDireitaFlutuanteNodeList);
+    const blocoFlutuanteImagemOpcoesNodeList = blocoFlutuanteImagemOpcoes.querySelectorAll('*');
+    const blocoFlutuanteImagemOpcoesLista = Array.from(blocoFlutuanteImagemOpcoesNodeList);
+    const barraLateralDireitaFlutuanteElementosListaFiltrada = [];
 
-    let novoElementos = blocoFlutuantePrincipalLista.filter(elementos => elementos != botaoLapis || elementos != blocoFlutuantteSubbloco);
 
     document.addEventListener('click', function (evento) {
-      for (let elemento of novoElementos) {
-        if (evento.target == elemento) {
-          console.log('voce clicou no elemnto')
-          blocoFlutuantteSubbloco.style.display = 'none';
+      blocoFlutuanteImagemOpcoesLista.push(blocoFlutuanteImagemOpcoes);
+      barraLateralDireitaFlutuanteElementosListaFiltrada =
+           removeElementos(barraLateralDireitaFlutuanteElementosLista ,blocoFlutuanteImagemOpcoesLista )
+       
+
+      console.log(evento.target)
+      for (let indice = 0; indice < blocoFlutuanteImagemOpcoesLista.length; indice++) {
+        if (evento.target != blocoFlutuanteImagemOpcoesLista[indice]) {
+          blocoFlutuanteImagemOpcoes.style.display = 'none';
         }
       } if (evento.target == botaoLapis) {
-        blocoFlutuantteSubbloco.style.display = 'block';
+        blocoFlutuanteImagemOpcoes.style.display = 'block';
       }
     })
   }
-
+  removeElementos(barraLateralDireitaFlutuante, blocoFlutuanteImagemOpcoes) {
+    for (let indice = 0; indice < barraLateralDireitaFlutuante.length; indice++) {
+      if (barraLateralDireitaFlutuante[indice] === blocoFlutuanteImagemOpcoes[indice]) {
+        barraLateralDireitaFlutuante.splice(indice, blocoFlutuanteImagemOpcoes.length);
+      }
+    }
+    return barraLateralDireitaFlutuante
+  }
   fecharMenu() {
 
     const blocoFlutuante2 = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');

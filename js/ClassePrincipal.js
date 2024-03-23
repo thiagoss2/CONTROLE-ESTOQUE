@@ -18,7 +18,6 @@ controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
 controladorAcaoUsuario.atualizaImagem(imagemCarregada);
 controladorAcaoUsuario.abrirMenu();
 
-
 controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function () {
         imagemProduto = localStorage.getItem('imagem');
         console.log(imagemProduto)
