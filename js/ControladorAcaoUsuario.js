@@ -80,8 +80,7 @@ export default class ControladorAcaoUsuario {
     const barraLateralDireitaFlutuanteElementosLista = Array.from(barraLateralDireitaFlutuanteNodeList);
     const blocoFlutuanteImagemOpcoesNodeList = blocoFlutuanteImagemOpcoes.querySelectorAll('*');
     const blocoFlutuanteImagemOpcoesLista = Array.from(blocoFlutuanteImagemOpcoesNodeList);
-    const barraLateralDireitaFlutuanteElementosListaFiltrada = [];
-
+    const barraLateralDireitaFlutuanteElementosListaz
 
     document.addEventListener('click', function (evento) {
       blocoFlutuanteImagemOpcoesLista.push(blocoFlutuanteImagemOpcoes);
