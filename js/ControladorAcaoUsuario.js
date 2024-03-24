@@ -51,13 +51,13 @@ export default class ControladorAcaoUsuario {
           if (imagemCarregada != null) {
             const blocoImagem = document.querySelector('.bloco-flutuante-venda__arquivo');
             const containerImagem = document.querySelector('.bloco-flutuante-venda__bloco-imagem');
-            const img = containerImagem.querySelector('img');
+            const imgHTML = containerImagem.querySelector('img');
             const iconeLapis = document.querySelector('.bloco-flutuante-venda__bloco-imagem-icone');
 
             iconeLapis.style.display = 'block'
             blocoImagem.style.display = 'none';
-            img.src = localStorage.getItem('imagem')
-            img.style.display = 'block';
+            imgHTML.src = localStorage.getItem('imagem')
+            imgHTML.style.display = 'block';
 
           }
         }

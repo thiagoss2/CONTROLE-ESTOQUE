@@ -274,7 +274,10 @@
      
 
 }
+#bloco-flutuante-venda__bloco-imagem-subbloco-texto__file-img {
+    display: none;
 
+}
 .bloco-flutuante-venda__bloco-imagem-subbloco-texto {
     font-size: 14px;
 }
@@ -286,7 +289,9 @@
     gap: 15px;
     justify-content: center;
     padding: 10px 16px;
+    cursor: pointer;
 }
+
 .bloco-flutuante-venda__bloco-imagem-subbloco-icone {
     display: block;
     position: static;

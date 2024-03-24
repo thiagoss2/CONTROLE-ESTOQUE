@@ -24,7 +24,7 @@ controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function ()
 
         let validadorDeProduto = new ValidadorDeProduto();
         validadorDeProduto.setImagemSrc(imagemProduto);
-        let novaImagem = validadorDeProduto.getImagemSrc()
+        let novaImagem = validadorDeProduto.getImarcgemS()
        
       
         localStorage.removeItem('imagem');
