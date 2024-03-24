@@ -87,7 +87,6 @@ export default class ControladorAcaoUsuario {
        filtradora.removeElementos(barraLateralDireitaFlutuanteElementosLista, blocoFlutuanteImagemOpcoes)
 
     document.addEventListener('click', function(evento) {
-      console.log(evento.target)
       for (let indice = 0; indice < barraLateralDireitaFlutuanteElementosListaFiltrada.length; indice++) {
         if (evento.target == barraLateralDireitaFlutuanteElementosLista[indice]) {
             blocoFlutuanteImagemOpcoes.style.display = 'none';
@@ -105,6 +104,28 @@ export default class ControladorAcaoUsuario {
     }
     return barraLateralDireitaFlutuante
   }
+
+
+
+  recarregarImagem(imagemInput) {
+     imagemInput.addEventListener('change' , (evento) => {
+      const imagemHTML = document.querySelector('.bloco-flutuante-venda__imagem-imagem');
+        if(imagemInput.files[0] && imagemInput.files) {
+          const arquivo = imagemInput.files[0];
+          const leitor = new FileReader();
+          leitor.readAsDataURL(arquivo);
+          leitor.onload = (evento) => {
+            const imagem = evento.target.result;
+            if(imagemHTML.src.length > 0 ) {
+              imagemHTML.src = '';
+              imagemHTML.src = imagem;
+            }
+          }
+        }
+     })
+  }
+
+
   fecharMenu() {
 
     const blocoFlutuante2 = document.querySelector('.bloco-flutuante-venda__bloco-imagem-subbloco');

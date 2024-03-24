@@ -8,6 +8,7 @@ const blocoFlutunte = document.querySelector('.bloco-funtutante-venda');
 const telaTrasparente = document.querySelector('.overlay');
 const botaoFechar = document.querySelector('.botao-fechar-js');
 const imagemCarregada = document.querySelector('.capiturar-produto');
+const inputRecarregarImagem = document.getElementById('bloco-flutuante-venda__bloco-imagem-subbloco-texto__file-img');
 const produto = new Produto();
 let imagemProduto = '';
 
@@ -16,7 +17,9 @@ controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente,
 controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar)
 controladorAcaoUsuario.selecionaImagemProduto(imagemCarregada);
 controladorAcaoUsuario.atualizaImagem(imagemCarregada);
+controladorAcaoUsuario.recarregarImagem(inputRecarregarImagem);
 controladorAcaoUsuario.abrirMenu();
+
 
 controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function () {
         imagemProduto = localStorage.getItem('imagem');
