@@ -7,10 +7,8 @@ export default class filtradoraArray {
         let blocoFlutuanteImagemOpcoesLista = Array.from(blocoFlutuanteImagemOpcoesNodeLista)
         blocoFlutuanteImagemOpcoesLista.push(blocoFlutuanteImagemOpcoes);
 
-
-        console.log('antes', barraLateralDireitaFlutuante)
         for (let indiceA = 0; indiceA < barraLateralDireitaFlutuante.length; indiceA++) {
-
+            
             let nomeElemento = barraLateralDireitaFlutuante[indiceA].classList.value;
 
             for (let indiceB = 0; indiceB < blocoFlutuanteImagemOpcoesLista.length; indiceB++) {
@@ -20,7 +18,6 @@ export default class filtradoraArray {
             }
         }
 
-        console.log('depois', barraLateralDireitaFlutuante)
         return barraLateralDireitaFlutuante
     }
 }
