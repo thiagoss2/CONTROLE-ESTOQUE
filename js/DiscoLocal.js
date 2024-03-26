@@ -1,6 +1,7 @@
-class DiscoLocal {
+-
+]420:0asQclass DiscoLocal {
 
-    adicionarImagem(imagem , nomeImagem) {
+    ad/CicionarImagem(imagem , nomeImagem) {
       localStorage.setItem(nomeImagem ,imagem)  
     }
     removerImagem(imagem) {

@@ -1,6 +1,7 @@
 import Produto from "./Produto.js";
 import ControladorAcaoUsuario from "./ControladorAcaoUsuario.js";
 import ValidadorDeProduto from "./ValidadorDeProduto.js"
+import ValidadorPalavras from "./ValidadorPalavras.js";
 
 const botaoAdicionarCriarProduto = document.querySelector('.bloco-flutuante-venda__botao-adicionar');
 const botaoAdicionarProduto = document.querySelector('.cabecalho__btn--despesa');
@@ -12,6 +13,8 @@ const inputRecarregarImagem = document.getElementById('bloco-flutuante-venda__bl
 const produto = new Produto();
 let imagemProduto = '';
 
+
+const nomeProdutoInput = document.querySelector('.bloco-flutuante-venda__produto-input');
 const controladorAcaoUsuario = new ControladorAcaoUsuario();
 controladorAcaoUsuario.abreJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoAdicionarProduto);
 controladorAcaoUsuario.fechaJanelaCadastroProduto(blocoFlutunte, telaTrasparente, botaoFechar)
@@ -20,17 +23,17 @@ controladorAcaoUsuario.atualizaImagem(imagemCarregada);
 controladorAcaoUsuario.recarregarImagem(inputRecarregarImagem);
 controladorAcaoUsuario.abrirMenu();
 
+const validadorPalavras = new ValidadorPalavras();
+       
+validadorPalavras.exibeMensagemErro(nomeProdutoInput);
+validadorPalavras.removeSinalizadorVermelho(nomeProdutoInput);
 
 controladorAcaoUsuario.criadorDeProduto( botaoAdicionarCriarProduto, function () {
-        imagemProduto = localStorage.getItem('imagem');
-        console.log(imagemProduto)
-
-        let validadorDeProduto = new ValidadorDeProduto();
-        validadorDeProduto.setImagemSrc(imagemProduto);
-        let novaImagem = validadorDeProduto.getImarcgemS()
+ 
        
-      
-        localStorage.removeItem('imagem');
+        
+        imagemProduto = localStorage.getItem('imagem');
+       
     
 
 })
