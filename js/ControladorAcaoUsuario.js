@@ -125,6 +125,11 @@ export default class ControladorAcaoUsuario {
      })
   }
 
+validadorProduto(inputNome) {
+  inputNome.addEventListener('change', function(evento) {
+    
+  })
+}
 
   fecharMenu() {
 
