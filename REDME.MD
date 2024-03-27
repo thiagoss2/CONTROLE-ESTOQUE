@@ -38,6 +38,17 @@ git commit -m "Adicionado README"
 git push origin master
 ```
 
+# Puxe as alterações do repositório remoto e rebase suas alterações locais se der erro
+git pull origin master --rebase
+
+# adicione o repositorio remoto
+git remote add origin 'url do seu repositorio'
+# Puxe as alterações do repositório remoto
+git pull origin master
+
+# Faça o push para o repositório remoto
+git push origin master
+
 Lembre-se de substituir "master" por "main" se o seu repositório usar "main" como o branch principal.
 
 E é isso! Você acabou de criar um novo repositório no GitHub, fez alterações em um arquivo e enviou essas alterações para o GitHub.
